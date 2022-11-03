@@ -1,12 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Roboto+Condensed:wght@300&display=swap');;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-$RobotoCondesed: 'Roboto+Condesed', sans-serif;
+$Roboto: 'Roboto', sans-serif;
 
 // colors
 $dark: rgb(29, 29, 29);
 $light: #fff;
 $primary: #f2f2f2;
 $bg: #ffffff;
+$formContainerBackground: rgba(0, 0, 0, 0.5);
+$formGrayBackground: #f2f2f2;
+$formInputBackground: #ffffff;
+$formBtnBackground: #222222;
+$formPrimaryTextColor: #919091;
+$formSecondaryTextColor: #222222;
 
 // $spacing
 $spacing-md: 16px;

@@ -1,5 +1,14 @@
-import React from "react";
+import { useContext } from "react";
+import { Login, Signup } from "../../pages";
+import { GlobalContext } from "../../context/GlobalContext";
 
 export const Home = () => {
-  return <div>Home</div>;
+  const { isLoginOpen, isSignupOpen } = useContext(GlobalContext);
+  return (
+    <>
+      <div>home</div>
+      {isLoginOpen && <Login />}
+      {isSignupOpen && <Signup />}
+    </>
+  );
 };
