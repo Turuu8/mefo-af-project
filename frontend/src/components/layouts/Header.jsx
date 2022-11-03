@@ -5,8 +5,8 @@ export const Header = () => {
   return (
     <header className={classes.header}>
         <div className={classes.header_content}>
-             <h2>METO AF</h2>
-        </div>
+             <h2 className= {classes.header_content_logo}>mepo af</h2>
+       
         <nav className={classes.header_content_nav}>
           <ul>
             <li>
@@ -19,20 +19,13 @@ export const Header = () => {
                <a href="/">CONTACT</a>
             </li>
           </ul>
-          <ul>
-            <li>
-               <a href="/">ENG/</a>
-               <a href="/">MON</a>
-            </li>
-            <li>
-               <a href="/">BAG</a>
-            </li>
-            <li>
-               <a href="/">LOGIN</a>
-            </li>
-          </ul>
+          <button> ENG/</button>
+          <button>MON</button>
+          <button>BAG</button>
+          <button>LOGIN</button>
 
         </nav>
+        </div>
       </header>
   )
 }
