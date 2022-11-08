@@ -44,7 +44,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
                 <a href={props.path_2}>{props.title_2}</a>
               </li>
               <li>
-                <a href={props.path-3}>{props.title_3}</a>
+                <a href={props.path_3}>{props.title_3}</a>
               </li>
             </ul>
           </div>
