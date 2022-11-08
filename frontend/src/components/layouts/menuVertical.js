@@ -25,7 +25,7 @@ export const MenuVetical = ({ headervermenu, headervermenu2}) => {
         </div>
       ))}
       {headervermenu2.map((props, i) => (
-           <div style={{display:"flex", alignItems: "center", flexDirection: "column" }}>
+           <div  key={i} style={{display:"flex", alignItems: "center", flexDirection: "column" }}>
                <button>
                  <span>{props.title_5}</span>
                  <span>{props.title_6}</span>

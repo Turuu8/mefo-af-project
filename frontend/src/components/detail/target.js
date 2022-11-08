@@ -7,18 +7,28 @@ import classes from "../../assets/styles/home.module.scss"
 export const Target = forwardRef((props, ref) => {
   const div1 = useRef(null);
   const div2 = useRef(null);
+  const div3 = useRef(null);
+  const div4 = useRef(null);
   useImperativeHandle(ref, () => ({
     div1,
     div2,
+    div3,
+    div4,
   }));
   return (
-    <div style={{ textAlign: "center" }}>
-      <div ref={div1} className={classes.home.target}>
-          <img src={part4} alt="1"/>
+    <>
+      <div ref={div1}>
+          <img src={part4} className={classes.home_img} alt="1"/>
       </div>
       <div ref={div2}>
-          <img src={part1} alt ="2"/>
+          <img src={part1} className={classes.home_img} alt ="2"/>
       </div>
-    </div>
+      <div ref={div3}>
+          <img src={part2} className={classes.home_img} alt ="2"/>
+      </div>
+      <div ref={div4}>
+          <img src={part3} className={classes.home_img} alt ="2"/>
+      </div>
+    </>
   );
 });
