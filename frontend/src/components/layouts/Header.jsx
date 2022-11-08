@@ -15,10 +15,9 @@ export const Header = () => {
 };
 
 const header_text = [
-  {
-    title_1: "ABOUT",
-    title_2: "PRODUCT",
-    title_3: "CONTACT",
+  {title_1: "ABOUT", path_1:"/", 
+   title_2: "PRODUCT", path_2:"/products",
+    title_3: "CONTACT", path_3:"/contact",
   },
 ];
 
