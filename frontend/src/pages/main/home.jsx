@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <>
       <div className={classes.home}>
-        <Controller>
+        {/* <Controller>
           <Scene duration={2000} pin={false} triggerHook={0.1}>
             {(progress) => (
               <Timeline totalProgress={progress} paused target={<Target />}>
@@ -70,7 +70,8 @@ export const Home = () => {
               </Timeline>
             )}
           </Scene>
-        </Controller>
+        </Controller> */}
+        <div className={classes.home_text}> Our collection</div>
       </div>
       {isLoginOpen && <Login />}
       {isSignupOpen && <Signup />}

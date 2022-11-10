@@ -1,7 +1,7 @@
 import { useContext, useState} from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
-import { BiMenuAltRight } from "react-icons/bi";
+import vector from "../../assets/images/Vector.svg"
 import { AiOutlineClose } from "react-icons/ai";
 import logo from "../../assets/images/mepo_af_logo.png";
 import { MenuVetical } from "./menuVertical";
@@ -66,21 +66,20 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
           </nav>
         ))}
         <div className={classes.header_content_toggle}>
-          {!menuOpen ? (
-            <BiMenuAltRight onClick={menuToggleHandler} />
-          ) : (
-            <AiOutlineClose onClick={menuToggleHandler} />
-          )}
+        
+            <img src={vector} onClick={menuToggleHandler} />
+         
+
         </div>
       </div>
       <div
         style={{
           display: !menu ? "block" : "block",
-          transform: !menu? "translateY(-400px)" : "translateY(0px)" 
+          transform: !menu? "translateY(-500px)" : "translateY(-100px)" 
         }}
         className={classes.header_box}
       >
-        <MenuVetical headervermenu={headermenu} headervermenu2={headermenu2}/>
+        <MenuVetical headervermenu={headermenu} headervermenu2={headermenu2} state={menuToggleHandler}/>
       </div>
     </>
   );
