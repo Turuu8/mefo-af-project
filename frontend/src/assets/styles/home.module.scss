@@ -6,8 +6,8 @@
   top: 100px;
   position: fixed;
 
-  &_img {
-    width: 100px;
-    height: 100px;
+  &_text{
+    display: flex;
+   align-items: center;
   }
 }

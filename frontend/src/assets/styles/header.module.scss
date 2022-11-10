@@ -73,6 +73,7 @@
       }
     }
     &_logo {
+      
       color: $dark;
       img {
         // position: absolute;
@@ -139,21 +140,39 @@
     }
   }
   &_box{
+   padding: 0;
    width: 100%;
-   height: 300px;
+   height: 350px;
   
-   position: absolute;
+   position: relative;
    z-index: 10;
    right: 0;
    display: none;
-
+   border: 1px solid $dark;
    background: $bg;
    transition: all 2s ease;
+   img {
+     position: absolute;
+     right: 0;
+     left: 0;
+     
+    margin:auto;
+     width: 79px;
+     height: 33.85px;
+     border: 1px solid $dark
+   }
+   &_navbar{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+   }
   
   }
-
+  ul{
+    list-style: none;
+  }
   li{
-    text-align: center;
+    
     padding-top: 20px;
   }
   a {
@@ -184,8 +203,8 @@
     border: 1px solid transparent;
     transition: 0.3s ease all;
     font-weight: 300;
-    display: flex;
-    margin: auto;
+    text-align: start;
+
     &:hover {
       // opacity: 0.2;
       font-weight: 500;
