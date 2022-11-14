@@ -89,7 +89,11 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
         }}
         className={classes.header_box}
       >
-        <MenuVetical headervermenu={headermenu} headervermenu2={headermenu2} />
+        <MenuVetical
+          headervermenu={headermenu}
+          headervermenu2={headermenu2}
+          state={menuToggleHandler}
+        />
       </div>
     </>
   );
