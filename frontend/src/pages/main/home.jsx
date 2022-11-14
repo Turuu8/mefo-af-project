@@ -15,7 +15,7 @@ export const Home = () => {
     <>
       <div className={classes.home}>
         <Controller>
-          <Scene duration={2000} pin={true} indicators={true} triggerHook={0.1}>
+          <Scene duration={2000} pin={false} triggerHook={0.1}>
             {(progress) => (
               <Timeline totalProgress={progress} paused target={<Target />}>
                 <Tween
