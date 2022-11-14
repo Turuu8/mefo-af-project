@@ -1,4 +1,5 @@
-import { useContext, useState} from "react";
+import { useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
 
@@ -7,22 +8,30 @@ import logo from "../../assets/images/mepo_af_logo.png";
 import { MenuVetical } from "./menuVertical";
 
 export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const { search } = useLocation();
   const [menu, setMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const {
+    loginOpen: { setIsLoginOpen },
+    signupOpen: { setIsSignupOpen },
+  } = useContext(GlobalContext);
+  useEffect(() => {
+    (() => {
+      const query = new URLSearchParams(search);
+      if (query.get("loginOpen")) return setIsLoginOpen(true);
+      if (query.get("signupOpen")) return setIsSignupOpen(true);
+    })();
+  }, [search, setIsLoginOpen]);
 
-  const { setIsLoginOpen } = useContext(GlobalContext);
   const openLoginComp = () => {
     setIsLoginOpen(true);
   };
-
   window.addEventListener("resize", (event) => {
     setMenuOpen(event.currentTarget.innerWidth >= 380);
     if (event.currentTarget.innerWidth >= 380) {
       setMenu(false);
     }
   });
-  
-
   const menuToggleHandler = () => {
     setMenuOpen((p) => !p);
     setMenu((p) => !p);
@@ -75,11 +84,13 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
       <div
         style={{
           display: !menu ? "block" : "block",
-          transform: !menu? "translateY(-650px)" : "translateY(-100px)" 
+          transform: !menu ? "translateY(-650px)" : "translateY(-100px)",
         }}
         className={classes.header_box}
       >
-        <MenuVetical headervermenu={headermenu} headervermenu2={headermenu2} state={menuToggleHandler}/>
+        <MenuVetical headervermenu={headermenu} headervermenu2={headermenu2} state={menuToggleHandler}
+        />
+
       </div>
     </>
   );

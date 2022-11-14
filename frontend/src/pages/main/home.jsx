@@ -1,13 +1,16 @@
 import { useContext } from "react";
-import { Login, Signup } from "../../pages";
+import { Login, Signup, ForgotPassword } from "../../pages";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/home.module.scss";
 // import { Target } from "../../components/detail/target";
 // import { Controller, Scene } from "react-scrollmagic";
 // import { Timeline, Tween } from "react-gsap";
 export const Home = () => {
-  console.log(classes.home);
-  const { isLoginOpen, isSignupOpen } = useContext(GlobalContext);
+  const {
+    loginOpen: { isLoginOpen },
+    signupOpen: { isSignupOpen },
+    forPassOpen: { isForPassOpen },
+  } = useContext(GlobalContext);
   return (
     <>
       <div className={classes.home}>
@@ -17,6 +20,7 @@ export const Home = () => {
       </div>
       {isLoginOpen && <Login />}
       {isSignupOpen && <Signup />}
+      {isForPassOpen && <ForgotPassword />}
     </>
   );
 };
