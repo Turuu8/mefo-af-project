@@ -1,8 +1,8 @@
 import { useContext, useState} from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
-import vector from "../../assets/images/Vector.svg"
-import { AiOutlineClose } from "react-icons/ai";
+
+import { BiMenuAltLeft } from "react-icons/bi";
 import logo from "../../assets/images/mepo_af_logo.png";
 import { MenuVetical } from "./menuVertical";
 
@@ -16,8 +16,8 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
   };
 
   window.addEventListener("resize", (event) => {
-    setMenuOpen(event.currentTarget.innerWidth >= 768);
-    if (event.currentTarget.innerWidth >= 768) {
+    setMenuOpen(event.currentTarget.innerWidth >= 380);
+    if (event.currentTarget.innerWidth >= 380) {
       setMenu(false);
     }
   });
@@ -66,8 +66,8 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
           </nav>
         ))}
         <div className={classes.header_content_toggle}>
-        
-            <img src={vector} onClick={menuToggleHandler} />
+            
+            <BiMenuAltLeft onClick={menuToggleHandler} />
          
 
         </div>
@@ -75,7 +75,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
       <div
         style={{
           display: !menu ? "block" : "block",
-          transform: !menu? "translateY(-500px)" : "translateY(-100px)" 
+          transform: !menu? "translateY(-650px)" : "translateY(-100px)" 
         }}
         className={classes.header_box}
       >

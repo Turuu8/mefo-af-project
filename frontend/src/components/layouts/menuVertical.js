@@ -1,6 +1,6 @@
 import classes from "../../assets/styles/header.module.scss";
 import { useContext } from "react";
-import logo from "../../assets/images/mepo_af_logo.png";
+import logo from "../../assets/images/white 2.png";
 import { GlobalContext } from "../../context/GlobalContext";
 import { AiOutlineClose } from "react-icons/ai";
 export const MenuVetical = ({ headervermenu, headervermenu2, state }) => {
@@ -20,6 +20,11 @@ export const MenuVetical = ({ headervermenu, headervermenu2, state }) => {
     >
       <img src={logo} className={classes.header_box_logo} alt="mepo_afiphone" />
 
+          <div style={{ background:"transparent", color: "$ligth", paddingLeft:"10px", paddingTop:"10px"}}>
+            <div onClick={state}>
+              <AiOutlineClose />
+            </div>
+          </div>
       <div style={{ paddingTop: "30px" }}>
         {headervermenu.map((props, i) => (
           <div
@@ -49,23 +54,19 @@ export const MenuVetical = ({ headervermenu, headervermenu2, state }) => {
             style={{
               display: "flex",
               flexDirection: "column",
-              paddingTop: "10px",
+              padding: "12px",
+              gap: "12px",
             }}
           >
-            <button>
+            <div className={classes.header_box_button}>
               <span>{props.title_5}</span>
               <span>{props.title_6}</span>
-            </button>
+            </div>
 
-            <button>{props.title_7}</button>
-            <button onClick={openLoginComp}>{props.title_8}</button>
+            <div className={classes.header_box_button}>{props.title_7}</div>
+            <div className={classes.header_box_button} onClick={openLoginComp}>{props.title_8}</div>
           </div>
         ))}
-      </div>
-      <div style={{ textAlign: "center" }}>
-        <button onClick={state}>
-          <AiOutlineClose />
-        </button>
       </div>
     </div>
   );
