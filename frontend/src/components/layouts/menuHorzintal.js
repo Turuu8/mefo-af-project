@@ -85,7 +85,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
       <div
         style={{
           display: !menu ? "block" : "block",
-          transform: !menu ? "translateY(-400px)" : "translateY(0px)",
+          transform: !menu ? "translateY(-650px)" : "translateY(-100px)",
         }}
         className={classes.header_box}
       >
