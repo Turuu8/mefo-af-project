@@ -4,14 +4,13 @@
   background: $bg;
   width: 100%;
   height: $headerHeight;
-  padding: 0 74px;
   position: sticky;
   top: 0;
   font-size: 18px;
   align-items: center;
-  z-index: 10;
+  z-index: 1000;
   @include breakpoint(md) {
-    padding: 0 1rem;
+    padding: 0 74px;
   }
   transition: 0.3s ease all;
   &_content {
@@ -29,7 +28,6 @@
     &_home {
       display: flex;
       flex-direction: row;
-     
 
       ul {
         display: none;
@@ -38,9 +36,9 @@
           list-style: none;
           padding: 0;
           display: flex;
-          
+
           align-items: center;
-          
+
           margin-right: calc(o.5rem + #{$spacing-md});
           font-weight: 300;
         }
@@ -73,13 +71,36 @@
       }
     }
     &_logo {
-      color: $dark;
-      img {
-        // position: absolute;
-        width: 169px;
-        height: 68px;
-        left: 74px;
-        top: 14px;
+      // img {
+      //   // position: absolute;
+      //   // right: 0;
+      //   // left: 0;
+      //   // top: 0;
+
+      //   margin: auto;
+      //   width: 105px;
+      //   height: 37px;
+      // }
+      @include breakpoint(md) {
+        img {
+          //  position: absolute;
+          width: 169px;
+          height: 68px;
+          left: 74px;
+          top: 14px;
+        }
+      }
+      @include breakpoint(sm) {
+        img {
+          position: absolute;
+          right: 0;
+          left: 0;
+          top: 0.5;
+
+          margin: auto;
+          width: 105px;
+          height: 37px;
+        }
       }
     }
     &_nav {
@@ -91,7 +112,6 @@
         background: transparent;
         width: auto;
         height: 100%;
-       
       }
       button {
         cursor: pointer;
@@ -119,7 +139,7 @@
       &.isMenu {
         transform: translate(100%);
       }
-      span:hover{
+      span:hover {
         font-weight: 500;
       }
     }
@@ -138,30 +158,47 @@
       }
     }
   }
-  &_box{
-   width: 100%;
-   height: 300px;
-  
-   position: absolute;
-   z-index: 10;
-   right: 0;
-   display: none;
+  &_box {
+    padding: 0 20px;
+    width: 100%;
+    height: 550px;
 
-   background: $bg;
-   transition: all 2s ease;
-  
+    position: relative;
+    z-index: 10;
+    right: 0;
+    display: none;
+    border: 1px solid $dark;
+    background: $dark;
+    color: $light;
+    transition: all 2s ease;
+    img {
+      position: absolute;
+      right: 0;
+      left: 0;
+
+      margin: auto;
+      width: 79px;
+      height: 33.85px;
+    }
+    &_navbar {
+      padding-top: 50px;
+      display: flex;
+      flex-direction: column;
+    }
   }
-
-  li{
-    text-align: center;
+  ul {
+    list-style: none;
+  }
+  li {
     padding-top: 20px;
   }
   a {
     text-decoration: none;
-    color: $dark;
-   font-weight: 300;
+    color: $light;
+    font-weight: 300;
     border-radius: $borderRadius;
     transition: 0.3s ease all;
+    padding: 0 10px;
     &:hover {
       // opacity: 0.2;
       font-weight: 500;
@@ -172,20 +209,20 @@
       font-weight: 500;
     }
   }
-  button {
+  &_button {
     cursor: pointer;
     outline: none;
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem;
     border-radius: $borderRadius;
     font-size: 1rem;
     font-family: inherit;
     background: transparent;
-    color: $dark;
+    color: $light;
     border: 1px solid transparent;
     transition: 0.3s ease all;
     font-weight: 300;
-    display: flex;
-    margin: auto;
+    text-align: start;
+
     &:hover {
       // opacity: 0.2;
       font-weight: 500;
