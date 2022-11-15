@@ -19,17 +19,17 @@ $spacing-md: 16px;
 $spacing-lg: 32px;
 
 $borderRadius: 12px;
-
+$headerIphoneHeight: 64px;
 $headerHeight: 100px;
 
 @mixin breakpoint($point) {
   @if $point == md {
-    @media (min-width: 392px) {
+    @media (min-width: 430px) {
       @content;
     }
   }
   @if $point == sm {
-    @media (max-width: 392px) {
+    @media (max-width: 430px) {
       @content;
     }
   }
