@@ -2,8 +2,8 @@ import { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
-import { BiMenuAltRight } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
+
+import { BiMenuAltLeft } from "react-icons/bi";
 import logo from "../../assets/images/mepo_af_logo.png";
 import { MenuVetical } from "./menuVertical";
 
@@ -27,8 +27,8 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
     setIsLoginOpen(true);
   };
   window.addEventListener("resize", (event) => {
-    setMenuOpen(event.currentTarget.innerWidth >= 768);
-    if (event.currentTarget.innerWidth >= 768) {
+    setMenuOpen(event.currentTarget.innerWidth >= 380);
+    if (event.currentTarget.innerWidth >= 380) {
       setMenu(false);
     }
   });
@@ -75,11 +75,10 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
           </nav>
         ))}
         <div className={classes.header_content_toggle}>
-          {!menuOpen ? (
-            <BiMenuAltRight onClick={menuToggleHandler} />
-          ) : (
-            <AiOutlineClose onClick={menuToggleHandler} />
-          )}
+            
+            <BiMenuAltLeft onClick={menuToggleHandler} />
+         
+
         </div>
       </div>
       <div
@@ -89,11 +88,9 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
         }}
         className={classes.header_box}
       >
-        <MenuVetical
-          headervermenu={headermenu}
-          headervermenu2={headermenu2}
-          state={menuToggleHandler}
+        <MenuVetical headervermenu={headermenu} headervermenu2={headermenu2} state={menuToggleHandler}
         />
+
       </div>
     </>
   );
