@@ -21,6 +21,7 @@ $spacing-lg: 32px;
 $borderRadius: 12px;
 $headerIphoneHeight: 64px;
 $headerHeight: 100px;
+$maxWidth: 1920px;
 
 @mixin breakpoint($point) {
   @if $point == md {
