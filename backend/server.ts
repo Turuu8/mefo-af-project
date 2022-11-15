@@ -1,10 +1,15 @@
+import {
+  userRouter,
+  productRouter,
+  addressRouter,
+  categoryRouter,
+} from "./routers";
 import cors from "cors";
 import dotenv from "dotenv";
 import * as Colors from "colors.ts";
 import cookieParser from "cookie-parser";
 import express, { Application } from "express";
 import { connect, connection } from "mongoose";
-import { userRouter } from "./routers/userRouter";
 
 dotenv.config();
 Colors.enable();
@@ -18,6 +23,9 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use("/api", userRouter);
+app.use("/api", addressRouter);
+app.use("/api", productRouter);
+app.use("/api", categoryRouter);
 
 connection.once("open", () => {
   console.log(

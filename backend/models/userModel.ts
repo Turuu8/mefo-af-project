@@ -1,9 +1,10 @@
+import { IUser } from "../utils/types";
 import { Schema, model, Types } from "mongoose";
 
 const UserSchema = new Schema(
   {
     email: { type: String, required: true, trim: true, unique: true },
-    phoneNumber: { type: String, trim: true, unique: true },
+    phoneNumber: { type: String, trim: true, unique: true, sparse: true },
     password: { type: String, required: true },
     role: { type: String, default: "User" },
     emailToken: { type: String, default: "" },
@@ -14,4 +15,4 @@ const UserSchema = new Schema(
   { timestamps: true }
 );
 
-export const UserModel = model("User", UserSchema);
+export const UserModel = model<IUser>("User", UserSchema);

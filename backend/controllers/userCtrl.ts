@@ -71,7 +71,7 @@ export const userCtrl = {
       const err = await loginValidator(email, password);
       if (Object.keys(err).length > 0)
         return res.status(400).json({ msg: err });
-      const user = await findUserByKey({ email });
+      const user = await UserModel.findOne({ email }).populate("address");
       const access_token = createAccessToken({ id: user?._id });
       const refresh_token = createRefreshToken({ id: user?._id });
       res.cookie("refreshToken", refresh_token, {
