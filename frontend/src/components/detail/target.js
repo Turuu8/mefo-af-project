@@ -24,23 +24,52 @@ export const Target = forwardRef((props, ref) => {
   specialData[3].ref = div4;
   specialData[4].ref = div5;
   return (
-     <>
-            <div  ref={div1}>
-              <img src={specialData[0].images} className={classes.home_scrollImage} alt="1" />
-            </div>
-            <div ref={div2}>
-                <img src={specialData[1].images} className={classes.home_scrollImage} alt ="2"/>
-            </div>
-            <div ref={div3}>
-                <img src={specialData[2].images} className={classes.home_scrollImage} alt ="3"/>
-            </div>
-            <div ref={div4}>
-                <img src={specialData[3].images} className={classes.home_scrollImage} alt ="4"/>
+    <>
+      <div ref={div1}>
+        <img
+          src={specialData[0].images}
+          className={classes.home_scrollImage}
+          alt="1"
+        />
+      </div>
+      <div ref={div2}>
+        <img
+          src={specialData[1].images}
+          className={classes.home_scrollImage}
+          alt="2"
+        />
+      </div>
+      <div ref={div3}>
+        <img
+          src={specialData[2].images}
+          className={classes.home_scrollImage}
+          alt="3"
+        />
+      </div>
+      <div ref={div4}>
+        <img
+          src={specialData[3].images}
+          className={classes.home_scrollImage}
+          alt="4"
+        />
+      </div>
+      <div ref={div5}>
+        <img
+          src={specialData[4].images}
+          className={classes.home_scrollImage}
+          alt="5"
+        />
+      </div>
+      {/* 
+            <div ref={div5}>
+                <img src={specialData[4].images} className={classes.home_scrollImage} alt ="5"/>
             </div>
             <div ref={div5}>
                 <img src={specialData[4].images} className={classes.home_scrollImage} alt ="5"/>
             </div>
-          </>
-
+            <div ref={div5}>
+                <img src={specialData[4].images} className={classes.home_scrollImage} alt ="5"/>
+            </div> */}
+    </>
   );
 });
