@@ -27,19 +27,13 @@ export interface ICategory {
   _id: string;
   name: string;
 }
-export interface IImage {
-  _id: string;
-  filename: string;
-  contentType: string;
-  imageBase64: string;
-}
 export interface IProduct {
   _id: string;
   title: string;
   price: number;
   gender: string;
   unique: boolean;
-  images: IImage[];
+  images: object[];
   quantity: number;
   category: ICategory;
   description: string;

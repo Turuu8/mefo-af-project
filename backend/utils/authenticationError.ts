@@ -2,11 +2,7 @@ import bcrypt from "bcryptjs";
 import { findUserByKey } from "./findDocument";
 import { emailValidator, passwordValidator } from "./validators";
 
-export const newUserValidator = async (
-  email: string,
-  password: string,
-  confirmPass: string
-) => {
+export const newUserValidator = async (email: string, password: string, confirmPass: string) => {
   const errors: { [name: string]: string } = {};
   const exUser = await findUserByKey({ email });
   if (!email) {
@@ -15,8 +11,7 @@ export const newUserValidator = async (
     errors.email = "Please enter a valid email address.";
   } else if (exUser) {
     if (!exUser.isVerified) {
-      errors.email =
-        "We already sent an account verification link to your email. Please check it.";
+      errors.email = "We already sent an account verification link to your email. Please check it.";
     } else {
       errors.email = "This email already exists in our system.";
     }
@@ -44,8 +39,7 @@ export const loginValidator = async (email: string, password: string) => {
   } else if (exUser) {
     const passMatch = await bcrypt.compare(password, exUser.password);
     if (!exUser.isVerified) {
-      errors.email =
-        "We already sent an account verification link to your email. Please check it.";
+      errors.email = "We already sent an account verification link to your email. Please check it.";
     } else if (!passMatch) {
       errors.password = "Your password is incorrect.";
     }

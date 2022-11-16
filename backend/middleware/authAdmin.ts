@@ -1,11 +1,7 @@
 import { Response, NextFunction } from "express";
 import { CustomRequest } from "../utils/customInterfaces";
 
-export const authAdmin = async (
-  req: CustomRequest,
-  res: Response,
-  next: NextFunction
-) => {
+export const authAdmin = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     if (req.user?.role === "Admin") {
       next();

@@ -1,5 +1,6 @@
 import {
   userRouter,
+  imageRouter,
   productRouter,
   addressRouter,
   categoryRouter,
@@ -8,6 +9,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import * as Colors from "colors.ts";
 import cookieParser from "cookie-parser";
+import fileUpload from "express-fileupload";
 import express, { Application } from "express";
 import { connect, connection } from "mongoose";
 
@@ -19,10 +21,12 @@ const mongodb_url = process.env.MONGODB_URL!;
 
 app.use(cookieParser());
 app.use(express.json({ limit: "30mb" }));
+app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL! }));
 
 app.use("/api", userRouter);
+app.use("/api", imageRouter);
 app.use("/api", addressRouter);
 app.use("/api", productRouter);
 app.use("/api", categoryRouter);
