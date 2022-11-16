@@ -1,10 +1,4 @@
-export const addValidator = (
-  country: string,
-  citySoum: string,
-  zipPostcode: string,
-  stateProvince: string,
-  apartmentSuite: string
-) => {
+export const addValidator = (country: string, citySoum: string, zipPostcode: string, stateProvince: string, apartmentSuite: string) => {
   const errors: { [name: string]: string } = {};
   if (!country) {
     errors.country = "Please fill out this field.";

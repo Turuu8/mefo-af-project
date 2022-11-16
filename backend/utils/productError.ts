@@ -1,21 +1,10 @@
-export const productValidator = (
-  title: string,
-  price: number,
-  images: string[],
-  gender: string,
-  category: string,
-  quantity: number,
-  description: string
-) => {
+export const productValidator = (title: string, price: number, gender: string, category: string, quantity: number, description: string) => {
   const errors: { [name: string]: string } = {};
   if (!title) {
     errors.title = "Please fill out this field.";
   }
   if (!price) {
     errors.price = "Please fill out this field.";
-  }
-  if (!images) {
-    errors.images = "Please fill out this field.";
   }
   if (!gender) {
     errors.gender = "Please fill out this field.";

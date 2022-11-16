@@ -12,11 +12,7 @@ const transporter = nodemailer.createTransport({
   tls: { rejectUnauthorized: false },
 });
 
-export const sendVerificationLink = (
-  domain: string,
-  userMail: string,
-  token: string
-) => {
+export const sendVerificationLink = (domain: string, userMail: string, token: string) => {
   transporter.sendMail({
     from: `'Mepo Af account verification' <${process.env.APP_HOST_EMAIL!}>`,
     to: userMail,
@@ -30,11 +26,7 @@ export const sendVerificationLink = (
     `,
   });
 };
-export const sendResetPasswordLink = (
-  domain: string,
-  userMail: string,
-  token: string
-) => {
+export const sendResetPasswordLink = (domain: string, userMail: string, token: string) => {
   transporter.sendMail({
     from: `'Reset your password' <${process.env.APP_HOST_EMAIL!}>`,
     to: userMail,

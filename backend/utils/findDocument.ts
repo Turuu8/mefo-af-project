@@ -32,6 +32,9 @@ export const findCategoryByKey = async (payload: Object) => {
 export const findProductByKey = async (payload: object) => {
   return await ProductModel.findOne(payload);
 };
+export const findProductByID = async (payload: string) => {
+  return await ProductModel.findById(payload);
+};
 
 //Address
 
