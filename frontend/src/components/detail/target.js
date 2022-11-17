@@ -14,7 +14,13 @@ export const Target = forwardRef((props, ref) => {
     div4,
     div5,
   }));
-  const specialData = Data.slice(-5);
+  let homeData = [];
+  Data.forEach((el) =>{
+    if (el.homepage === "yes"){
+      homeData.push(el);
+    }
+  })
+  const specialData = homeData.slice(-5);
   if (Data.length < 6) {
     specialData.shift();
   }

@@ -3,108 +3,113 @@ import image13 from "../../assets/images/clothes men/13.png";
 import image12 from "../../assets/images/clothes men/12.png";
 import image11 from "../../assets/images/clothes men/11.png";
 import image10 from "../../assets/images/clothes men/10.png";
+import image9 from "../../assets/images/clothes men/9.png";
+import image8 from "../../assets/images/clothes men/8.png";
+import image7 from "../../assets/images/clothes men/7.png";
+import image6 from "../../assets/images/clothes men/6.png";
+import image5 from "../../assets/images/clothes men/5.png";
+import image4 from "../../assets/images/clothes men/4.png";
+import image3 from "../../assets/images/clothes men/3.png";
+import image2 from "../../assets/images/clothes men/2.png";
+import image1 from "../../assets/images/clothes men/1.png";
+
 export const Data = [
   {
-    productID: "MEPOAF1",
+    
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/1.png",
+    images: image1,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div1",
+    homepage: "no",
   },
   {
-    productID: "MEPOAF2",
+   
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/2.png",
+    images: image2,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div2",
+    homepage: "no",
   },
   {
-    productID: "MEPOAF3",
+   
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/3.png",
+    images: image3,
+    images1: image4,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div3",
+    homepage: "no",
   },
+
   {
-    productID: "MEPOAF4",
+   
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/4.png",
+    images: image5,
+    images1: image14,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div4",
+    homepage: "yes",
   },
   {
-    productID: "MEPOAF5",
+    
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/5.png",
+    images: image6,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div4",
+    homepage: "yes",
   },
   {
-    productID: "MEPOAF6",
+    
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/6.png",
+    images: image7,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div5",
+    homepage: "yes",
   },
   {
-    productID: "MEPOAF7",
+    
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: "../../assets/images/clothes men/7.png",
+    images: image8,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
+    ref: "div6",
+    homepage: "no",
   },
   {
-    productID: "MEPOAF8",
-    title: "Cotton Yet to Come Hoodie",
-    price: "300.0tug",
-    images: "../../assets/images/clothes men/8.png",
-    gender: "men",
-    unique: "hjd",
-    size: "XL",
-    quantity: "2",
-    description: "100% Cotton material, silk printed on the front and back.",
-  },
-  {
-    productID: "MEPOAF9",
-    title: "Cotton Yet to Come Hoodie",
-    price: "300.0tug",
-    images: "../../assets/images/clothes men/9.png",
-    gender: "men",
-    unique: "hjd",
-    size: "XL",
-    quantity: "2",
-    description: "100% Cotton material, silk printed on the front and back.",
-  },
-  {
-    productID: "MEPOAF10",
+   
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
     images: image10,
@@ -113,34 +118,39 @@ export const Data = [
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
-    ref: "div10",
+    ref: "div8",
+    homepage: "yes",
   },
   {
-    productID: "MEPOAF11",
+   
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
-    images: image11,
+    images:image9,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
-    ref: "div11",
+    ref: "div7",
+    homepage: "yes",
   },
   {
-    productID: "MEPOAF12",
+    
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
     images: image12,
+    images1: image11,
     gender: "men",
     unique: "hjd",
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
-    ref: "div12",
+    ref: "div9",
+    homepage: "no",
   },
+ 
   {
-    productID: "MEPOAF13",
+   
     title: "Cotton Yet to Come Hoodie",
     price: "300.0tug",
     images: image13,
@@ -149,19 +159,9 @@ export const Data = [
     size: "XL",
     quantity: "2",
     description: "100% Cotton material, silk printed on the front and back.",
-    ref: "div13",
+    ref: "div10",
+    homepage: "no",
   },
-  {
-    productID: "MEPOAF14",
-    title: "Cotton Yet to Come Hoodie",
-    price: "300.0tug",
-    images: image14,
-    gender: "men",
-    unique: "hjd",
-    size: "XL",
-    quantity: "2",
-    description: "100% Cotton material, silk printed on the front and back.",
-    ref: "div14",
-  },
+
 
 ];

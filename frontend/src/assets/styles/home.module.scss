@@ -42,7 +42,7 @@
     margin-top: 20px;
     height: 1000px;
     width: 100%;
-    background-image: url("../images/clothes\ men/10.png");
+    // background-image: url("../images/clothes\ men/10.png");
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -50,17 +50,17 @@
     animation-duration: 10s;
     animation-iteration-count: infinite;
   }
-  @keyframes mepoAf{
-    0%{
-      background-image: url("../images/clothes\ men/1.png");
-    }
-    25%{
-      background-image: url("../images/clothes\ men/8.png");
-    }
-    50%{
-      background-image: url("../images/clothes\ men/6.png");
-    }
- }
+//   @keyframes mepoAf{
+//     0%{
+//       background-image: url("../images/clothes\ men/1.png");
+//     }
+//     25%{
+//       background-image: url("../images/clothes\ men/8.png");
+//     }
+//     50%{
+//       background-image: url("../images/clothes\ men/6.png");
+//     }
+//  }
  &_scroll{
   display: flex;
   justify-content: space-around;
