@@ -1,6 +1,7 @@
 import {
   userRouter,
   imageRouter,
+  orderRouter,
   productRouter,
   addressRouter,
   categoryRouter,
@@ -27,6 +28,7 @@ app.use(cors({ credentials: true, origin: process.env.CLIENT_URL! }));
 
 app.use("/api", userRouter);
 app.use("/api", imageRouter);
+app.use("/api", orderRouter);
 app.use("/api", addressRouter);
 app.use("/api", productRouter);
 app.use("/api", categoryRouter);

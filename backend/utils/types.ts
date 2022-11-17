@@ -22,6 +22,13 @@ export interface IUser {
 }
 export interface IOrder {
   _id: string;
+  user: IUser;
+  fullname: string;
+  email: string;
+  address: IAddress;
+  orderItems: IProduct[];
+  orderStatus: string;
+  paymentID: string;
 }
 export interface ICategory {
   _id: string;

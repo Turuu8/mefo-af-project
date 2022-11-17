@@ -1,44 +1,77 @@
 import cloudinary from "cloudinary";
 import { config } from "./imageCtrl";
+import { SortOrder } from "mongoose";
 import { Request, Response } from "express";
 import { ProductModel } from "../models/productModel";
 import { findProductByID } from "../utils/findDocument";
 import { productValidator } from "../utils/productError";
 
-enum sortDir {
-  up = 1,
-  down = -1,
-}
-
 export const productCtrl = {
   getProducts: async (req: Request, res: Response) => {
     try {
-      const { page, sort, category, limit, search } = req.query;
-      const pageQ = Number(page) - 1 || 0;
+      const { page, sort, category, limit, search, gender } = req.query;
+      const searchQ = search || "";
+      let genderQ = gender || "All";
       const limitQ = Number(limit) || 10;
-      const searchQ = search || ""
-      const sortQ = sort || ""
-      const categoryQ = category || ""
-      // const allProducts = await ProductModel.find({
-      //   category,
-      //   title: { $regex: title },
-      // }).limit(Number(limit));
-      // if (sort === "latest") {
-      //   const newProducts = await ProductModel.find()
-      //     .sort({
-      //       createdAt: sortDir.up,
-      //     })
-      //     .limit(Number(limit));
-      //   res.status(200).json({ products: newProducts });
-      // } else if (sort === "earliest") {
-      //   const oldProducts = await ProductModel.find().sort({
-      //     createdAt: sortDir.down,
-      //   });
-      //   res.status(200).json({ products: oldProducts });
-      // }
-      // res
-      //   .status(200)
-      //   .json({ length: allProducts.length, products: allProducts });
+      const pageQ = Number(page) - 1 || 0;
+      genderQ === "All"
+        ? (genderQ = ["male", "female"])
+        : gender === "male"
+        ? (genderQ = ["male"])
+        : (genderQ = ["female"]);
+      const sortBy:
+        | null
+        | string
+        | undefined
+        | { [key: string]: SortOrder | { $meta: "textScore" } }
+        | [string, SortOrder][] = {};
+      if (sort === "mostExp") {
+        sortBy.price = "desc";
+      } else if (sort === "cheapest") {
+        sortBy.price = "asc";
+      } else if (sort === "earliest") {
+        sortBy.createdAt = "asc";
+      } else if (sort === "latest") {
+        sortBy.createdAt = "desc";
+      } else if (sort === "latest,cheapest") {
+        sortBy.createdAt = "desc";
+        sortBy.price = "asc";
+      } else if (sort === "latest,mostExp") {
+        sortBy.createdAt = "desc";
+        sortBy.price = "desc";
+      } else if (sort === "earliest,cheapest") {
+        sortBy.createdAt = "asc";
+        sortBy.price = "asc";
+      } else if (sort === "earliest,mostExp") {
+        sortBy.createdAt = "asc";
+        sortBy.price = "desc";
+      }
+      if (category) {
+        const allProducts = await ProductModel.find({
+          title: { $regex: searchQ },
+          category,
+        })
+          .where("gender")
+          .in([...genderQ])
+          .skip(pageQ * limitQ)
+          .limit(limitQ)
+          .sort(sortBy);
+        res
+          .status(200)
+          .json({ length: allProducts.length, products: allProducts });
+      } else {
+        const allProducts = await ProductModel.find({
+          title: { $regex: searchQ },
+        })
+          .where("gender")
+          .in([...genderQ])
+          .skip(pageQ * limitQ)
+          .limit(limitQ)
+          .sort(sortBy);
+        res
+          .status(200)
+          .json({ length: allProducts.length, products: allProducts });
+      }
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }
@@ -65,7 +98,7 @@ export const productCtrl = {
       );
       if (Object.keys(err).length > 0) return res.json({ msg: err });
       const newProduct = new ProductModel({
-        title,
+        title: title.toLowerCase().replace(/ /g, ""),
         price,
         images,
         gender,
