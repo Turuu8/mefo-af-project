@@ -1,6 +1,6 @@
 import classes from "../../assets/styles/header.module.scss";
 import { useContext } from "react";
-import logo from "../../assets/images/white 2.png";
+import logo from "../../assets/images/main-logo-white.png";
 import { GlobalContext } from "../../context/GlobalContext";
 import { AiOutlineClose } from "react-icons/ai";
 export const MenuVetical = ({ headervermenu, headervermenu2, state }) => {

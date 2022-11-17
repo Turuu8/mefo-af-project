@@ -9,8 +9,15 @@
   font-size: 18px;
   align-items: center;
   z-index: 1000;
+
+  @include breakpoint(sm) {
+    height: $headerIphoneHeight;
+    padding: 9px 0;
+    box-sizing: border-box;
+  }
   @include breakpoint(md) {
     padding: 0 74px;
+    height: $headerHeight;
   }
   transition: 0.3s ease all;
   &_content {
@@ -28,80 +35,108 @@
     &_home {
       display: flex;
       flex-direction: row;
-
-      ul {
-        display: none;
-
-        @include breakpoint(md) {
-          list-style: none;
-          padding: 0;
+      width: 100%;
+      &_menu {
+        @include breakpoint(sm){
           display: flex;
-
+          justify-content: space-between;
           align-items: center;
-
-          margin-right: calc(o.5rem + #{$spacing-md});
-          font-weight: 300;
+          width: 100%;
         }
-        li {
-          padding: 0;
-          &:not(:last-child) {
-            margin-bottom: $spacing-lg;
-            @include breakpoint(md) {
-              margin-bottom: 0;
-              margin-right: $spacing-md;
-            }
+      
+
+      &_logo {
+        @include breakpoint(md) {
+          
+            // width: 169px;
+            height: 68px;
+            left: 74px;
+            top: 14px;
+         
+        }
+        @include breakpoint(sm) {
+          
+            margin: auto;
+            // width: 105px;
+            height: 37px;
+         
+        }
+      }
+      &_toggle {
+
+        &:hover {
+          opacity: 0.2;
+        }
+        @include breakpoint(sm){
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          font-size: 2rem;
+          transition: 0.3s ease all;
+          left: 1;
+        }
+        @include breakpoint(md) {
+          display: none;
+        }
+      }
+      &_bag {
+      
+        &:hover {
+          opacity: 0.2;
+        }
+        @include breakpoint (sm){
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          font-size: 2rem;
+          transition: 0.3s ease all;
+        }
+        @include breakpoint(md) {
+          display: none;
+        }
+      }
+    }
+    ul {
+      @include breakpoint(sm){
+        display: none;
+      }
+
+      @include breakpoint(md) {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        margin-right: calc(o.5rem + #{$spacing-md});
+        font-weight: 300;
+      }
+      li {
+        padding: 0;
+        &:not(:last-child) {
+          margin-bottom: $spacing-lg;
+          @include breakpoint(md) {
+            margin-bottom: 0;
+            margin-right: $spacing-md;
           }
-          a {
-            text-decoration: none;
-            color: $dark;
-            font-weight: 300;
-            border-radius: $borderRadius;
-            transition: 0.3s ease all;
-            &:hover {
-              // opacity: 0.2;
-              font-weight: 500;
-            }
-            &:active {
-              border-radius: calc(#{$borderRadius} + 6px);
-              background: linear-gradient(rgba($dark, 0.1), rgba($dark, 0.2));
-              font-weight: 500;
-            }
+        }
+        a {
+          text-decoration: none;
+          color: $dark;
+          font-weight: 300;
+          border-radius: $borderRadius;
+          transition: 0.3s ease all;
+          
+          &:hover {
+            // opacity: 0.2;
+            font-weight: 500;
+          }
+          &:active {
+            border-radius: calc(#{$borderRadius} + 6px);
+            background: linear-gradient(rgba($dark, 0.1), rgba($dark, 0.2));
+            font-weight: 500;
           }
         }
       }
     }
-    &_logo {
-      // img {
-      //   // position: absolute;
-      //   // right: 0;
-      //   // left: 0;
-      //   // top: 0;
-
-      //   margin: auto;
-      //   width: 105px;
-      //   height: 37px;
-      // }
-      @include breakpoint(md) {
-        img {
-          //  position: absolute;
-          width: 169px;
-          height: 68px;
-          left: 74px;
-          top: 14px;
-        }
-      }
-      @include breakpoint(sm) {
-        img {
-          position: absolute;
-          right: 0;
-          left: 0;
-          top: 0.5;
-
-          margin: auto;
-          width: 105px;
-          height: 37px;
-        }
-      }
     }
     &_nav {
       display: none;
@@ -143,20 +178,8 @@
         font-weight: 500;
       }
     }
-    &_toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      font-size: 2rem;
-      transition: 0.3s ease all;
-      position: relative;
-      &:hover {
-        opacity: 0.2;
-      }
-      @include breakpoint(md) {
-        display: none;
-      }
-    }
+
+
   }
   &_box {
     padding: 0 20px;
@@ -175,10 +198,10 @@
       position: absolute;
       right: 0;
       left: 0;
-
+      padding-top: 10px;
       margin: auto;
-      width: 79px;
-      height: 33.85px;
+      width: 105px;
+      height: 37px;
     }
     &_navbar {
       padding-top: 50px;

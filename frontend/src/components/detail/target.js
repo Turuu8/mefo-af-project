@@ -1,33 +1,70 @@
-import part1 from "../../assets/images/301610468_1226762367869520_4778822227424414284_n.jpg";
-import part2 from "../../assets/images/301676391_760146185313384_7155529653519959105_n.jpg";
-import part3 from "../../assets/images/301815609_782199779572010_88340814944985780_n.jpg";
-import part4 from "../../assets/images/302495965_171425098737929_6807918357025679645_n.jpg";
+import { Data } from "../../components/data/productData";
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import classes from "../../assets/styles/home.module.scss"
+import classes from "../../assets/styles/home.module.scss";
 export const Target = forwardRef((props, ref) => {
   const div1 = useRef(null);
   const div2 = useRef(null);
   const div3 = useRef(null);
   const div4 = useRef(null);
+  const div5 = useRef(null);
   useImperativeHandle(ref, () => ({
     div1,
     div2,
     div3,
     div4,
+    div5,
   }));
+  let homeData = [];
+  Data.forEach((el) =>{
+    if (el.homepage === "yes"){
+      homeData.push(el);
+    }
+  })
+  const specialData = homeData.slice(-5);
+  if (Data.length < 6) {
+    specialData.shift();
+  }
+  specialData[0].ref = div1;
+  specialData[1].ref = div2;
+  specialData[2].ref = div3;
+  specialData[3].ref = div4;
+  specialData[4].ref = div5;
   return (
     <>
       <div ref={div1}>
-          <img src={part4} className={classes.home_img} alt="1"/>
+        <img
+          src={specialData[0].images}
+          className={classes.home_scrollImage}
+          alt="1"
+        />
       </div>
       <div ref={div2}>
-          <img src={part1} className={classes.home_img} alt ="2"/>
+        <img
+          src={specialData[1].images}
+          className={classes.home_scrollImage}
+          alt="2"
+        />
       </div>
       <div ref={div3}>
-          <img src={part2} className={classes.home_img} alt ="2"/>
+        <img
+          src={specialData[2].images}
+          className={classes.home_scrollImage}
+          alt="3"
+        />
       </div>
       <div ref={div4}>
-          <img src={part3} className={classes.home_img} alt ="2"/>
+        <img
+          src={specialData[3].images}
+          className={classes.home_scrollImage}
+          alt="4"
+        />
+      </div>
+      <div ref={div5}>
+        <img
+          src={specialData[4].images}
+          className={classes.home_scrollImage}
+          alt="5"
+        />
       </div>
     </>
   );
