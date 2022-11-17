@@ -1,18 +1,20 @@
-
 import { Target } from "../../components/detail/target";
 import { Controller, Scene } from "react-scrollmagic";
 import { Timeline, Tween } from "react-gsap";
 import classes from "../../assets/styles/home.module.scss";
-export const HomeAnimation = () => {
 
+export const HomeAnimation = () => {
   return (
     <Controller>
-      <Scene duration={3000} pin={true} indicators={true} triggerHook={2.5}>
+      <Scene
+        duration={2000}
+        indicators={true}
+        triggerElement={"#animation"}
+        triggerHook={0.5}
+        pin={true}
+      >
         {(progress) => (
-          <Timeline
-            totalProgress={progress}
-            paused target={<Target />}
-          >
+          <Timeline totalProgress={progress} paused target={<Target />}>
             <Tween
               from={{
                 position: "absolute",
@@ -69,11 +71,9 @@ export const HomeAnimation = () => {
                 top: "0",
               }}
               to={{
-               
                 position: "absolute",
                 right: "-20%",
                 top: "0",
-                // transform: `scale(1.5)`,
               }}
               target="div4"
               position="0"

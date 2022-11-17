@@ -1,5 +1,5 @@
 import { Data } from "../../components/data/productData";
-import { Fragment, useContext} from "react";
+import { Fragment, useContext } from "react";
 import { Login, Signup, ForgotPassword } from "../../pages";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/home.module.scss";
@@ -23,7 +23,6 @@ export const Home = () => {
     specialData.shift();
   }
 
-
   return (
     <>
       <div className={classes.home}>
@@ -33,9 +32,10 @@ export const Home = () => {
         <div className={classes.home_text2}>
           EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
         </div>
-          <HomeSlide slides={specialData}/>
+        <HomeSlide slides={specialData} />
         <div className={classes.home_text2}> Our new collection</div>
-        <div className={classes.home_scroll}>
+        <div id="animation" className={classes.home_scroll}>
+          {/* <div className="hello"> */}
           <HomeAnimation />
         </div>
       </div>

@@ -2,16 +2,16 @@ import classes from "../../assets/styles/home.module.scss";
 import {  useEffect, useState } from "react";
 
 export const HomeSlide = (slides) => {
-    console.log (slides, "slaid")
+    
     const [count, setCount] = useState(0);
     // specialData.map ((el, index) =>{
     //  setImage((f)=>[...f, el.images])
     // })
   
     useEffect(() => {
-      const MyInterval = setInterval(
+      const MyInterval = setTimeout(
         () => {
-          if (count === slides.slides.length - 3) {
+          if (count === slides.slides.length - 1) {
             setCount(0);
           } else {
             setCount((prev) => prev + 1);
@@ -22,9 +22,9 @@ export const HomeSlide = (slides) => {
       );
   
       return () => {
-        clearInterval(MyInterval);
+        clearTimeout(MyInterval);
       };
-    }, []);
+    }, [count]);
   return (
     <>
       <div
