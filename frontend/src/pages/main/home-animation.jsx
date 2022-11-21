@@ -1,7 +1,7 @@
 import { Target } from "../../components/detail/target";
 import { Controller, Scene } from "react-scrollmagic";
 import { Timeline, Tween } from "react-gsap";
-import classes from "../../assets/styles/home.module.scss";
+
 
 export const HomeAnimation = () => {
   return (
@@ -18,13 +18,13 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                top: "0",
+                top: "30",
                 left: "0%",
               }}
               to={{
                 position: "absolute",
                 left: "-30%",
-                top: "0",
+                top: "30",
               }}
               target="div1"
               position="0"
@@ -34,12 +34,12 @@ export const HomeAnimation = () => {
               from={{
                 position: "absolute",
                 left: "20%",
-                top: "0",
+                top: "80",
               }}
               to={{
                 position: "absolute",
                 left: "-30%",
-                top: "0",
+                top: "80",
                 // transform: `scale(1.5)`,
               }}
               target="div2"
@@ -49,12 +49,12 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                left: "42%",
-                top: "0",
+                left: "40%",
+                top: "30",
               }}
               to={{
                 position: "absolute",
-                left: "42%",
+                left: "40%",
                 top: "500",
                 transform: `scale(4)`,
                 // width: "100%",
@@ -83,15 +83,31 @@ export const HomeAnimation = () => {
               from={{
                 position: "absolute",
                 right: "0%",
-                top: "0",
+                top: "80",
               }}
               to={{
                 position: "absolute",
                 right: "-30%",
-                top: "0",
+                top: "80",
                 // transform: `scale(1.5)`,
               }}
               target="div5"
+              position="0"
+              duration={1}
+            />
+            <Tween
+              from={{
+                position: "absolute",
+                right: "0%",
+                top: "800",
+              }}
+              to={{
+                position: "absolute",
+                right: "-30%",
+                top: "400",
+                // transform: `scale(1.5)`,
+              }}
+              target="div6"
               position="0"
               duration={1}
             />

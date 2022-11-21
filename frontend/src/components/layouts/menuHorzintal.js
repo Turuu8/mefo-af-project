@@ -1,11 +1,11 @@
 import { useContext, useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link} from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
 import bag from "../../assets/images/bag.svg";
 import Hamburger from "../../assets/images/hamburger-menu.svg";
 import logo from "../../assets/images/main-logo-black.png";
-import { MenuVetical } from "./menuVertical";
+import { MenuVertical } from "./menuVertical";
 
 export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
   const { search } = useLocation();
@@ -59,13 +59,13 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
             </div>
             <ul>
               <li>
-                <a href={props.path_1}>{props.title_1}</a>
+                <Link to={props.path_1}>{props.title_1}</Link>
               </li>
               <li>
-                <a href={props.path_2}>{props.title_2}</a>
+                <Link to={props.path_2}>{props.title_2}</Link>
               </li>
               <li>
-                <a href={props.path_3}>{props.title_3}</a>
+                <Link to={props.path_3}>{props.title_3}</Link>
               </li>
             </ul>
           </div>
@@ -94,7 +94,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
         }}
         className={classes.header_box}
       >
-        <MenuVetical
+        <MenuVertical
           headervermenu={headermenu}
           headervermenu2={headermenu2}
           state={menuToggleHandler}

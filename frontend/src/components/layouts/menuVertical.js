@@ -3,7 +3,8 @@ import { useContext } from "react";
 import logo from "../../assets/images/main-logo-white.png";
 import { GlobalContext } from "../../context/GlobalContext";
 import { AiOutlineClose } from "react-icons/ai";
-export const MenuVetical = ({ headervermenu, headervermenu2, state }) => {
+import { Link } from "react-router-dom";
+export const MenuVertical = ({ headervermenu, headervermenu2, state }) => {
   const { setIsLoginOpen } = useContext(GlobalContext);
   const openLoginComp = () => {
     setIsLoginOpen(true);
@@ -37,13 +38,13 @@ export const MenuVetical = ({ headervermenu, headervermenu2, state }) => {
           >
             <ul>
               <li>
-                <a href={props.path_1}>{props.title_1}</a>
+                <Link to={props.path_1}>{props.title_1}</Link>
               </li>
               <li>
-                <a href={props.path_2}>{props.title_2}</a>
+                <Link to={props.path_2}>{props.title_2}</Link>
               </li>
               <li>
-                <a href={props.path_3}>{props.title_3}</a>
+                <Link to={props.path_3}>{props.title_3}</Link>
               </li>
             </ul>
           </div>

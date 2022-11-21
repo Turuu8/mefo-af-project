@@ -7,12 +7,14 @@ export const Target = forwardRef((props, ref) => {
   const div3 = useRef(null);
   const div4 = useRef(null);
   const div5 = useRef(null);
+  const div6 = useRef(null);
   useImperativeHandle(ref, () => ({
     div1,
     div2,
     div3,
     div4,
     div5,
+    div6,
   }));
   let homeData = [];
   Data.forEach((el) => {
@@ -66,6 +68,13 @@ export const Target = forwardRef((props, ref) => {
           className={classes.home_scrollImage}
           alt="5"
         />
+      </div>
+      <div ref={div6}
+        className={classes.home_img}
+        style={{ backgroundImage: `url(${specialData[2].images})`}}>
+          {/* <div style= {{backgroundColor: "black", position:"absolute", width:"100%"}}></div> */}
+
+
       </div>
     </>
   );
