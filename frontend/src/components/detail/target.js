@@ -15,22 +15,23 @@ export const Target = forwardRef((props, ref) => {
     div5,
   }));
   let homeData = [];
-  Data.forEach((el) =>{
-    if (el.homepage === "yes"){
+  Data.forEach((el) => {
+    if (el.homepage === "yes") {
       homeData.push(el);
     }
-  })
+  });
   const specialData = homeData.slice(-5);
   if (Data.length < 6) {
     specialData.shift();
   }
-  specialData[0].ref = div1;
-  specialData[1].ref = div2;
-  specialData[2].ref = div3;
-  specialData[3].ref = div4;
-  specialData[4].ref = div5;
+
   return (
     <>
+      {/* <div ref={div1}></div>
+      <div ref={div2}></div>
+      <div ref={div3}></div>
+      <div ref={div4}></div>
+      <div ref={div5}></div> */}
       <div ref={div1}>
         <img
           src={specialData[0].images}
