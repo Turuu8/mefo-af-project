@@ -8,6 +8,7 @@ export const Target = forwardRef((props, ref) => {
   const div4 = useRef(null);
   const div5 = useRef(null);
   const div6 = useRef(null);
+  const div7 = useRef(null);
   useImperativeHandle(ref, () => ({
     div1,
     div2,
@@ -15,6 +16,7 @@ export const Target = forwardRef((props, ref) => {
     div4,
     div5,
     div6,
+    div7,
   }));
   let homeData = [];
   Data.forEach((el) => {
@@ -29,53 +31,68 @@ export const Target = forwardRef((props, ref) => {
 
   return (
     <>
-      {/* <div ref={div1}></div>
-      <div ref={div2}></div>
-      <div ref={div3}></div>
-      <div ref={div4}></div>
-      <div ref={div5}></div> */}
-      <div ref={div1}>
+      <div ref={div1} className={classes.home_scrollImage}>
         <img
           src={specialData[0].images}
-          className={classes.home_scrollImage}
+          
           alt="1"
         />
       </div>
-      <div ref={div2}>
+      <div ref={div2} className={classes.home_scrollImage}>
         <img
           src={specialData[1].images}
-          className={classes.home_scrollImage}
+       
           alt="2"
         />
       </div>
-      <div ref={div3}>
-        <img
+      <div ref={div3} >
+        <img ref={div6}
+
           src={specialData[2].images}
           className={classes.home_scrollImage}
           alt="3"
         />
       </div>
-      <div ref={div4}>
+      <div ref={div4} className={classes.home_scrollImage} >
         <img
           src={specialData[3].images}
-          className={classes.home_scrollImage}
+
           alt="4"
         />
       </div>
-      <div ref={div5}>
+      <div ref={div5} className={classes.home_scrollImage}>
         <img
           src={specialData[4].images}
-          className={classes.home_scrollImage}
+          
           alt="5"
         />
       </div>
-      <div ref={div6}
-        className={classes.home_img}
-        style={{ backgroundImage: `url(${specialData[2].images})`}}>
-          {/* <div style= {{backgroundColor: "black", position:"absolute", width:"100%"}}></div> */}
+      {/* <div>
+        <div
+          ref={div6}
+          className={classes.home_img}
+          style={{
+            backgroundImage: `url(${specialData[2].images})`,
+            height: "1500px",
+          }}
+        />
 
+      </div> */}
+      {/* <div
+          ref={div7}
+          className={classes.home_div7}
+          style={{
 
-      </div>
+          }}
+        >
+          <div className={classes.home_div7_text3}> About collection</div>
+          <div className={classes.home_div7_box}>
+            <div className={classes.home_div7_box_text}>We collect beautiful classic men's design artifacts from the 20th & 21st century...</div>
+            <div className={classes.home_div7_box_text}>We collect beautiful classic uniq clothes ever. Our collections all hand made.</div>
+            <div  className={classes.home_div7_box_text} >We collect beautiful classic men's design artifacts from the 20th & 21st century. You can make your own lookbook with mepoaf.</div>
+          </div>
+          
+        </div> */}
     </>
   );
 });

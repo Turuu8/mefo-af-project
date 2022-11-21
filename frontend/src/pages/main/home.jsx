@@ -33,7 +33,7 @@ export const Home = () => {
           EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
         </div>
         <HomeSlide slides={specialData} />
-        <div className={classes.home_text2}> Our new collection</div>
+        <div className={classes.home_text2}> Our collection</div>
         <div id="animation" className={classes.home_scroll}>
           {/* <div className="hello"> */}
           <HomeAnimation />

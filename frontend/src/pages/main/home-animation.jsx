@@ -2,7 +2,6 @@ import { Target } from "../../components/detail/target";
 import { Controller, Scene } from "react-scrollmagic";
 import { Timeline, Tween } from "react-gsap";
 
-
 export const HomeAnimation = () => {
   return (
     <Controller>
@@ -49,16 +48,17 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                left: "40%",
+                left: "41.5%",
                 top: "30",
               }}
               to={{
                 position: "absolute",
-                left: "40%",
-                top: "500",
-                transform: `scale(4)`,
-                // width: "100%",
-                // heigth: "100vh",
+                left: "0%",
+                top: "800",
+                // transform: `scale(7)`,
+                // opacity: "0",
+                width: "100%",
+                // heigth: "700px",
               }}
               target="div3"
               position="0"
@@ -97,20 +97,37 @@ export const HomeAnimation = () => {
             />
             <Tween
               from={{
-                position: "absolute",
-                right: "0%",
-                top: "800",
+                width: "315px",
+
+                height: "600px",
               }}
               to={{
-                position: "absolute",
-                right: "-30%",
-                top: "400",
-                // transform: `scale(1.5)`,
+                width: "100%",
+               
+                // backgroundPosition: "50% 20%",
+                height: "1000px",
+                // transform: "translateY(50%)",
               }}
               target="div6"
               position="0"
               duration={1}
             />
+            {/* <Tween
+              from={{
+                position: "absolute",
+                right: "0%",
+                top: "1600",
+              }}
+              to={{
+                position: "absolute",
+                right: "0%",
+                top: "1600",
+                // transform: `scale(1.5)`,
+              }}
+              target="div7"
+              position="0"
+              duration={1}
+            /> */}
           </Timeline>
         )}
       </Scene>
