@@ -72,8 +72,8 @@
  }
  &_scrollImage{
    @include breakpoint(md){
-     width: 215px;
-     height: 500px;
+     width: 315px;
+     height: 600px;
    }
    @include breakpoint(sm){
      width: 78px;

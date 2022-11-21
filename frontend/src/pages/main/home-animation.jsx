@@ -19,11 +19,11 @@ export const HomeAnimation = () => {
               from={{
                 position: "absolute",
                 top: "0",
-                left: "5%",
+                left: "0%",
               }}
               to={{
                 position: "absolute",
-                left: "-20%",
+                left: "-30%",
                 top: "0",
               }}
               target="div1"
@@ -33,12 +33,12 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                left: "30%",
+                left: "20%",
                 top: "0",
               }}
               to={{
                 position: "absolute",
-                left: "-20%",
+                left: "-30%",
                 top: "0",
                 // transform: `scale(1.5)`,
               }}
@@ -49,14 +49,14 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                left: "40%",
+                left: "42%",
                 top: "0",
               }}
               to={{
                 position: "absolute",
-                left: "40%",
-                top: "700",
-                transform: `scale(3)`,
+                left: "42%",
+                top: "500",
+                transform: `scale(4)`,
                 // width: "100%",
                 // heigth: "100vh",
               }}
@@ -67,12 +67,12 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                right: "40%",
+                right: "20%",
                 top: "0",
               }}
               to={{
                 position: "absolute",
-                right: "-20%",
+                right: "-30%",
                 top: "0",
               }}
               target="div4"
@@ -82,12 +82,12 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 position: "absolute",
-                right: "5%",
+                right: "0%",
                 top: "0",
               }}
               to={{
                 position: "absolute",
-                right: "-20%",
+                right: "-30%",
                 top: "0",
                 // transform: `scale(1.5)`,
               }}

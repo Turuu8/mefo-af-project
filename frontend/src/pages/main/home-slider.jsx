@@ -39,7 +39,11 @@ export const HomeSlide = (slides) => {
           marginTop: "10px",
         }}
       >
-        ------
+        {
+          slides.slides.map((item, id)=>(
+            <span style={{backgroundColor:"black", padding:"1px 0", width:"40px",  opacity: count === id ? "1": "0.3"}}></span>
+          ))
+        }
       </div>
     </>
   );
