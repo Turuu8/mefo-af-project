@@ -1,17 +1,11 @@
 import { Data } from "../../components/data/productData";
-import { Fragment, useContext } from "react";
-import { Login, Signup, ForgotPassword } from "../../pages";
-import { GlobalContext } from "../../context/GlobalContext";
+import { Fragment } from "react";
 import classes from "../../assets/styles/home.module.scss";
 
 import { HomeAnimation } from "./home-animation";
 import { HomeSlide } from "./home-slider";
 export const Home = () => {
-  const {
-    loginOpen: { isLoginOpen },
-    signupOpen: { isSignupOpen },
-    forPassOpen: { isForPassOpen },
-  } = useContext(GlobalContext);
+  
   let homeData = [];
   Data.forEach((el) => {
     if (el.homepage === "yes") {
@@ -39,9 +33,6 @@ export const Home = () => {
           <HomeAnimation />
         </div>
       </div>
-      {isLoginOpen && <Login />}
-      {isSignupOpen && <Signup />}
-      {isForPassOpen && <ForgotPassword />}
     </>
   );
 };

@@ -1,15 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useAuth } from "./context/API/useAuth";
 import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
-import { Home, Payment, ResetPassword } from "./pages";
+import { GlobalContext } from "./context/GlobalContext";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { Home, Payment, ResetPassword, Login, Signup, ForgotPassword } from "./pages";
 
 const App = () => {
   const location = useLocation();
   const { refreshToken } = useAuth();
   const userLoggedIn = localStorage.getItem("UserLoggedIn");
+  const {
+    loginOpen: { isLoginOpen },
+    signupOpen: { isSignupOpen },
+    forPassOpen: { isForPassOpen },
+  } = useContext(GlobalContext);
   useEffect(() => {
     if (userLoggedIn) {
       refreshToken("/auth/refresh_token");
@@ -27,6 +33,9 @@ const App = () => {
           <Route path="/reset_password/:token" element={<ResetPassword />} />
         </Routes>
       </AnimatePresence>
+      {isLoginOpen && <Login />}
+      {isSignupOpen && <Signup />}
+      {isForPassOpen && <ForgotPassword />}
     </div>
   );
 };
