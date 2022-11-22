@@ -29,6 +29,7 @@ app.use(
     credentials: true,
     origin: ["https://mepo-af-project-jfyl.vercel.app/"],
     methods: ["GET", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
   })
 );
 
