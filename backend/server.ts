@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.json({ limit: "30mb" }));
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+app.use(cors({ credentials: true }));
 
 app.use("/api", userRouter);
 app.use("/api", imageRouter);
@@ -34,9 +34,7 @@ app.use("/api", productRouter);
 app.use("/api", categoryRouter);
 
 connection.once("open", () => {
-  console.log(
-    "MongoDB database connection successfully established.".green.bold
-  );
+  console.log("MongoDB database connection successfully established.".green.bold);
 });
 connection.on("disconnected", () => {
   console.log("MongoDB database connection disconnected.".red.bold);
@@ -50,6 +48,4 @@ process.on("SIGINT", () => {
     process.exit(0);
   });
 });
-connect(mongodb_url).then(() =>
-  app.listen(port, () => console.log(`http://localhost:${port}`.white.bold))
-);
+connect(mongodb_url).then(() => app.listen(port, () => console.log(`http://localhost:${port}`.white.bold)));
