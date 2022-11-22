@@ -1,8 +1,0 @@
-PORT = 5000
-MONGODB_URL = "mongodb+srv://AmgalanB:zEQdO00SbCnrXek5@cluster0.peelwl0.mongodb.net/?retryWrites=true&w=majority"
-ACCESS_TOKEN = "5SnSicZ#dv6AsxVI%RPZ2jP9TYVC5Z3cmsrvlPpKskg%IOnG9A"
-REFRESH_TOKEN = "A$C1NNFNn&8$VYr3zS&N4a^1^L@7aG3GhzsI#ofZd3fZgQHSLa"
-PASSWORD_TOKEN = "pD$3%M4Ln12PK#hwnLjS"
-APP_HOST_EMAIL = "amka.storm9812@gmail.com"
-APP_HOST_PASSWORD = "mevpywodsecyvhbn"
-CLIENT_URL = "http://localhost:3000/"
