@@ -67,18 +67,8 @@ export const Target = forwardRef((props, ref) => {
           alt="5"
         />
       </div>
-      {/* <div>
-        <div
-          ref={div6}
-          className={classes.home_img}
-          style={{
-            backgroundImage: `url(${specialData[2].images})`,
-            height: "1500px",
-          }}
-        />
 
-      </div> */}
-      {/* <div
+      <div
           ref={div7}
           className={classes.home_div7}
           style={{
@@ -92,7 +82,7 @@ export const Target = forwardRef((props, ref) => {
             <div  className={classes.home_div7_box_text} >We collect beautiful classic men's design artifacts from the 20th & 21st century. You can make your own lookbook with mepoaf.</div>
           </div>
           
-        </div> */}
+        </div>
     </>
   );
 });
