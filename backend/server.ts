@@ -24,12 +24,14 @@ app.use(cookieParser());
 app.use(express.json({ limit: "30mb" }));
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 app.use(
   cors({
     credentials: true,
-    origin: ["https://mepo-af-project-production.up.railway.app/"],
-    methods: ["GET", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"],
-    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+    origin: ["https://mepo-af-project-jfyl.vercel.app/"],
   })
 );
 
