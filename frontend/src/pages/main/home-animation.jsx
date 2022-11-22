@@ -98,36 +98,37 @@ export const HomeAnimation = () => {
             <Tween
               from={{
                 width: "315px",
-
-                height: "600px",
+                minHeight: "600px",
+                height: "100% ",
               }}
               to={{
                 width: "100%",
-               
+
                 // backgroundPosition: "50% 20%",
-                height: "1000px",
+                maxHeight: "1700px",
+                height:"100%",
                 // transform: "translateY(50%)",
               }}
               target="div6"
               position="0"
               duration={1}
             />
-            {/* <Tween
+            <Tween
               from={{
                 position: "absolute",
                 right: "0%",
-                top: "1600",
+                top: "2000",
               }}
               to={{
                 position: "absolute",
                 right: "0%",
-                top: "1600",
+                top: "2000",
                 // transform: `scale(1.5)`,
               }}
               target="div7"
               position="0"
               duration={1}
-            /> */}
+            />
           </Timeline>
         )}
       </Scene>

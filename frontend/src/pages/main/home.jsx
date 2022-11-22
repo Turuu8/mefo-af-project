@@ -1,7 +1,7 @@
 import { Data } from "../../components/data/productData";
 import { Fragment } from "react";
 import classes from "../../assets/styles/home.module.scss";
-
+import { HomeScroll } from "./home-scroll";
 import { HomeAnimation } from "./home-animation";
 import { HomeSlide } from "./home-slider";
 export const Home = () => {
@@ -29,8 +29,11 @@ export const Home = () => {
         <HomeSlide slides={specialData} />
         <div className={classes.home_text2}> Our collection</div>
         <div id="animation" className={classes.home_scroll}>
-          {/* <div className="hello"> */}
+          
           <HomeAnimation />
+        </div>
+        <div id="gridSrcoll" className={classes.home_grid}>
+          <HomeScroll scroll= {specialData} />
         </div>
       </div>
     </>
