@@ -27,7 +27,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: ["https://mepo-af-project-jfyl.vercel.app/"],
+    origin: ["https://mepo-af-project-production.up.railway.app/"],
     methods: ["GET", "OPTIONS", "POST", "PUT", "PATCH", "DELETE"],
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
   })
