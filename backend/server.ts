@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.json({ limit: "30mb" }));
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors({ credentials: true, origin: "https://mepo-af-project-jfyl.vercel.app/" }));
+app.use(cors({ credentials: true, origin: "https://mepo-af-project-production.up.railway.app/" }));
 
 app.use("/api", userRouter);
 app.use("/api", imageRouter);
