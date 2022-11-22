@@ -1,9 +1,8 @@
-export * from "./layouts/Footer";
 export * from "./layouts/Header";
+export * from "./layouts/Footer/Footer";
 
-export * from "../components/bag/BagItem";
+export * from "../components/bag/Bag";
 
-// export * from "../components/payment/PaymentSection"; //uurchilson
 export * from "../components/payment/PaymentSection";
 
 export * from "../components/product/ProductCart";
