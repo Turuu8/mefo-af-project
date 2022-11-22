@@ -5,7 +5,16 @@ import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
 import { GlobalContext } from "./context/GlobalContext";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Home, Payment, ResetPassword, Login, Signup, ForgotPassword } from "./pages";
+import {
+  Home,
+  Payment,
+  ResetPassword,
+  Login,
+  Signup,
+  ForgotPassword,
+  Bag,
+} from "./pages";
+import { Footer } from "./components";
 
 const App = () => {
   const location = useLocation();
@@ -31,8 +40,10 @@ const App = () => {
           <Route path="/:page" element={<PageRender />} />
           <Route path="/:page/:id" element={<PageRender />} />
           <Route path="/reset_password/:token" element={<ResetPassword />} />
+          <Route path="/bag" element={<Bag />} />
         </Routes>
       </AnimatePresence>
+      <Footer />
       {isLoginOpen && <Login />}
       {isSignupOpen && <Signup />}
       {isForPassOpen && <ForgotPassword />}
