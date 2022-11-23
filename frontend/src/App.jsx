@@ -35,7 +35,7 @@ const App = () => {
           <Route path="/bag" element={<Bag />} />
         </Routes>
       </AnimatePresence>
-      <Footer />
+      {/* <Footer /> */}
       {isLoginOpen && <Login />}
       {isSignupOpen && <Signup />}
       {isForPassOpen && <ForgotPassword />}

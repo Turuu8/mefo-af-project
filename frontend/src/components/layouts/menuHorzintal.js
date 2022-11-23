@@ -28,8 +28,8 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
     setIsLoginOpen(true);
   };
   window.addEventListener("resize", (event) => {
-    setMenuOpen(event.currentTarget.innerWidth >= 392);
-    if (event.currentTarget.innerWidth >= 392) {
+    setMenuOpen(event.currentTarget.innerWidth >= 500);
+    if (event.currentTarget.innerWidth >= 500) {
       setMenu(false);
     }
   });

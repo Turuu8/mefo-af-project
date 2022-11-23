@@ -45,7 +45,7 @@ export const Target = forwardRef((props, ref) => {
           alt="2"
         />
       </div>
-      <div ref={div3} >
+      <div ref={div3} className={classes.home_scrollImage3}>
         <img ref={div6}
 
           src={specialData[2].images}

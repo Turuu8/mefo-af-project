@@ -25,12 +25,12 @@ $maxWidth: 1920px;
 
 @mixin breakpoint($point) {
   @if $point == md {
-    @media (min-width: 430px) {
+    @media (min-width: 500px) {
       @content;
     }
   }
   @if $point == sm {
-    @media (max-width: 430px) {
+    @media (max-width: 500px) {
       @content;
     }
   }
