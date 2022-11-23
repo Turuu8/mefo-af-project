@@ -1,3 +1,4 @@
+import { Footer } from "./components";
 import { useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useAuth } from "./context/API/useAuth";
@@ -5,16 +6,7 @@ import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
 import { GlobalContext } from "./context/GlobalContext";
 import { Route, Routes, useLocation } from "react-router-dom";
-import {
-  Home,
-  Payment,
-  ResetPassword,
-  Login,
-  Signup,
-  ForgotPassword,
-  Bag,
-} from "./pages";
-import { Footer } from "./components";
+import { Bag, Home, Login, Signup, Payment, ResetPassword, ForgotPassword } from "./pages";
 
 const App = () => {
   const location = useLocation();
