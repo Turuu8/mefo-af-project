@@ -4,21 +4,23 @@
   display: flex;
   flex-direction: column;
 }
-@mixin perfectCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 @mixin inputElement {
+  @include breakpoint(sm) {
+    height: 50px;
+    font-size: 14px;
+  }
   height: 60px;
   border: none;
   padding: 10px;
   outline: none;
   padding-right: 50px;
-  border-radius: 10px;
   background-color: $formInputBackground;
 }
 @mixin font700 {
+  @include breakpoint(sm) {
+    font-size: 13px;
+    font-weight: 600;
+  }
   font-size: 16px;
   font-weight: 700;
 }
@@ -46,10 +48,15 @@
     }
     &_main {
       z-index: 30;
+      @include breakpoint(sm) {
+        width: 400px;
+      }
       width: 500px;
+      @include breakpoint(sm) {
+        padding: 20px 0;
+      }
       padding: 40px 75px;
       position: relative;
-      border-radius: 20px;
       align-items: center;
       @include columnElement;
       background-color: $formGrayBackground;
@@ -60,6 +67,10 @@
         position: absolute;
       }
       h1 {
+        @include breakpoint(sm) {
+          font-size: 28px;
+          font-weight: 500;
+        }
         font-size: 32px;
         font-weight: 700;
         margin-bottom: 12px;
@@ -69,6 +80,9 @@
         column-gap: 10px;
         margin-bottom: 37px;
         span {
+          @include breakpoint(sm) {
+            font-weight: 500;
+          }
           font-weight: 700;
           color: $formPrimaryTextColor;
         }
@@ -81,6 +95,11 @@
         }
       }
       form {
+        @include breakpoint(sm) {
+          width: 300px;
+          row-gap: 15px;
+          margin-bottom: 15px;
+        }
         width: 350px;
         row-gap: 30px;
         margin-bottom: 30px;
@@ -88,11 +107,19 @@
         div {
           @include columnElement;
           label {
+            @include breakpoint(sm) {
+              font-size: 13px;
+            }
             margin-bottom: 10px;
           }
         }
         .mailNumberBox input {
           @include inputElement;
+        }
+        @include breakpoint(sm) {
+          .mailNumberBox input::placeholder {
+            font-size: 14px;
+          }
         }
         .passwordBox div {
           @include inputElement;
@@ -100,6 +127,11 @@
             height: 100%;
             border: none;
             outline: none;
+          }
+          @include breakpoint(sm) {
+            input::placeholder {
+              font-size: 14px;
+            }
           }
         }
         .passwordBox div {
@@ -114,6 +146,9 @@
             position: absolute;
             @include perfectCenter;
             transform: translateY(-50%);
+            @include breakpoint(sm) {
+              font-size: 18px;
+            }
           }
         }
         .mailNumberBox input,
@@ -122,10 +157,12 @@
           color: $formPrimaryTextColor;
         }
         .submitBtn {
+          @include breakpoint(sm) {
+            height: 50px;
+          }
           height: 60px;
           @include font700;
           color: #ffffff;
-          border-radius: 10px;
           text-transform: uppercase;
           background-color: $formBtnBackground;
         }
@@ -135,6 +172,9 @@
         cursor: pointer;
         @include btnTrans;
         text-decoration: underline;
+        @include breakpoint(sm) {
+          font-size: 13px;
+        }
       }
     }
   }
@@ -144,7 +184,7 @@
   margin-top: 10px;
   color: #c50c0c;
 }
-.success{
+.success {
   text-align: center;
   color: green;
 }

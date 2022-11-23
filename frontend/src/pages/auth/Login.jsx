@@ -7,9 +7,6 @@ import classes from "../../assets/styles/formStyles.module.scss";
 import { AiOutlineClose, AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 export const Login = () => {
-  const { login } = useAuth();
-  const [passTypeChange, setPassTypeChange] = useState(false);
-  const [userData, setUserData] = useState({ email: "", password: "" });
   const {
     user: { userDetail },
     loginOpen: { setIsLoginOpen },
@@ -17,6 +14,9 @@ export const Login = () => {
     msg: { serverMsg, setServerMsg },
     forPassOpen: { setIsForPassOpen },
   } = useContext(GlobalContext);
+  const { login } = useAuth();
+  const [passTypeChange, setPassTypeChange] = useState(false);
+  const [userData, setUserData] = useState({ email: "", password: "" });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
@@ -54,10 +54,7 @@ export const Login = () => {
           transition="transition"
           className={classes.form_container_main}
         >
-          <AiOutlineClose
-            onClick={closeLoginComp}
-            className={classes.closeIcon}
-          />
+          <AiOutlineClose onClick={closeLoginComp} className={classes.closeIcon} />
           <h1>Login</h1>
           <div>
             <span>Need an account?</span>
@@ -76,9 +73,7 @@ export const Login = () => {
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
                 }}
               />
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.email}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.email}</span>}
             </div>
             <div className={classes.passwordBox}>
               <label htmlFor="password">Password:</label>
@@ -94,20 +89,14 @@ export const Login = () => {
                   placeholder="Password..."
                   type={passTypeChange ? "text" : "password"}
                 />
-                <span onClick={typeChange}>
-                  {passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}
-                </span>
+                <span onClick={typeChange}>{passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.password}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.password}</span>}
             </div>
             <button type="submit" className={classes.submitBtn}>
               Login
             </button>
-            {userDetail && (
-              <span className={classes.success}>{userDetail.msg}</span>
-            )}
+            {userDetail && <span className={classes.success}>{userDetail.msg}</span>}
           </form>
           <button onClick={openForPassComp}>Forgot password</button>
         </motion.div>
