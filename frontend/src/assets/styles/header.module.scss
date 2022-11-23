@@ -1,251 +1,114 @@
 @import "./variables.scss";
 
 .header {
-  background: $bg;
-  width: 100%;
-  height: $headerHeight;
-  position: sticky;
   top: 0;
-  font-size: 18px;
-  align-items: center;
+  left: 0;
   z-index: 10;
-
+  width: 100%;
+  display: flex;
+  padding: 0 90px;
+  position: fixed;
+  align-items: center;
+  background-color: $bg;
+  justify-content: space-between;
   @include breakpoint(sm) {
-    height: $headerIphoneHeight;
-    padding: 9px 0;
-    box-sizing: border-box;
+    display: none;
   }
-  @include breakpoint(md) {
-    padding: 0 74px;
-    height: $headerHeight;
+  @include breakpoint(lg) {
+    padding: 0 25px;
   }
-  transition: 0.3s ease all;
-  &_content {
-    overflow: hidden;
-    color: $dark;
-    margin: 0 auto;
-    max-width: 1920px;
-    width: 100%;
-    height: 100%;
+  &_l {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
-    z-index: 10;
-    &_home {
+    &_img_container {
+      width: 169px;
+      height: 68px;
+    }
+    &_links {
       display: flex;
-      flex-direction: row;
-      width: 100%;
-      &_menu {
-        @include breakpoint(sm) {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 100%;
-        }
+      column-gap: 40px;
+      @include breakpoint(lg) {
+        column-gap: 20px;
+      }
+    }
+  }
+  &_r {
+    display: flex;
+    column-gap: 40px;
+    @include breakpoint(lg) {
+      column-gap: 20px;
+    }
+    span {
+      margin: 0 5px;
+    }
+  }
+}
 
-        &_logo {
-          @include breakpoint(md) {
-            // width: 169px;
-            height: 68px;
-            left: 74px;
-            top: 14px;
-          }
-          @include breakpoint(sm) {
-            margin: auto;
-            // width: 105px;
-            height: 37px;
-          }
-        }
-        &_toggle {
-          &:hover {
-            opacity: 0.2;
-          }
-          @include breakpoint(sm) {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-size: 2rem;
-            transition: 0.3s ease all;
-            left: 1;
-          }
-          @include breakpoint(md) {
-            display: none;
-          }
-        }
-        &_bag {
-          &:hover {
-            opacity: 0.2;
-          }
-          @include breakpoint(sm) {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-size: 2rem;
-            transition: 0.3s ease all;
-          }
-          @include breakpoint(md) {
-            display: none;
-          }
-        }
-      }
-      ul {
-        @include breakpoint(sm) {
-          display: none;
-        }
-
-        @include breakpoint(md) {
-          list-style: none;
-          padding: 0;
-          display: flex;
-          align-items: center;
-          margin-right: calc(o.5rem + #{$spacing-md});
-          font-weight: 300;
-        }
-        li {
-          padding: 0;
-          &:not(:last-child) {
-            margin-bottom: $spacing-lg;
-            @include breakpoint(md) {
-              margin-bottom: 0;
-              margin-right: $spacing-md;
-            }
-          }
-          a {
-            text-decoration: none;
-            color: $dark;
-            font-weight: 300;
-            border-radius: $borderRadius;
-            transition: 0.3s ease all;
-
-            &:hover {
-              // opacity: 0.2;
-              font-weight: 500;
-            }
-            &:active {
-              border-radius: calc(#{$borderRadius} + 6px);
-              background: linear-gradient(rgba($dark, 0.1), rgba($dark, 0.2));
-              font-weight: 500;
-            }
-          }
-        }
-      }
-    }
-    &_nav {
-      display: none;
-      @include breakpoint(md) {
-        display: flex;
-        transform: none;
-        flex-direction: row;
-        background: transparent;
-        width: auto;
-        height: 100%;
-      }
-      button {
-        cursor: pointer;
-        outline: none;
-        padding: 0.75rem 1.25rem;
-        border-radius: $borderRadius;
-        font-size: 1rem;
-        font-family: inherit;
-        background: transparent;
-        color: $dark;
-        border: 1px solid transparent;
-        transition: 0.3s ease all;
-        font-weight: 300;
-        &:hover {
-          // opacity: 0.2;
-          font-weight: 500;
-        }
-        &:active {
-          border-color: none;
-          background: $bg;
-          color: $dark;
-          font-weight: 500;
-        }
-      }
-      &.isMenu {
-        transform: translate(100%);
-      }
-      span:hover {
-        font-weight: 500;
-      }
-    }
+.mobileHeader {
+  @include breakpoint(sm) {
+    display: flex;
   }
-  &_box {
-    padding: 0 20px;
-    width: 100%;
-    height: 550px;
-
-    position: relative;
-    z-index: 10;
-    right: 0;
-    display: none;
-    border: 1px solid $dark;
-    background: $dark;
-    color: $light;
-    transition: all 1s ease;
-    img {
-      position: absolute;
-      right: 0;
-      left: 0;
-      padding-top: 10px;
-      margin: auto;
-      width: 105px;
-      height: 37px;
-    }
-    &_navbar {
-      padding-top: 50px;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  ul {
-    list-style: none;
-  }
-  li {
-    padding-top: 20px;
-  }
-  a {
-    text-decoration: none;
-    color: $light;
-    font-weight: 300;
-    border-radius: $borderRadius;
-    transition: 0.3s ease all;
-    padding: 0 10px;
-    &:hover {
-      // opacity: 0.2;
-      font-weight: 500;
-    }
-    &:active {
-      border-radius: calc(#{$borderRadius} + 6px);
-      background: linear-gradient(rgba($dark, 0.1), rgba($dark, 0.2));
-      font-weight: 500;
-    }
-  }
-  &_button {
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  display: none;
+  position: fixed;
+  align-items: center;
+  background-color: $bg;
+  justify-content: space-between;
+  div {
     cursor: pointer;
-    outline: none;
-    padding: 0.75rem;
-    border-radius: $borderRadius;
-    font-size: 1rem;
-    font-family: inherit;
-    background: transparent;
-    color: $light;
-    border: 1px solid transparent;
-    transition: 0.3s ease all;
-    font-weight: 300;
-    text-align: start;
+  }
+  &_icon {
+    width: 68px;
+    height: 68px;
+  }
+  &_image_container {
+    width: 104px;
+    height: 46px;
+  }
+}
 
-    &:hover {
-      // opacity: 0.2;
-      font-weight: 500;
+.mobileDrop {
+  @include breakpoint(sm) {
+    display: block;
+  }
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: none;
+  height: 100vh;
+  padding: 0 20px;
+  position: fixed;
+  background-color: #000;
+  &_header {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    &_closeIcon {
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
     }
-    &:active {
-      border-color: none;
-      background: $bg;
-      color: $dark;
-      font-weight: 500;
+    &_image_container {
+      width: 104px;
+      height: 46px;
+    }
+    &_right {
+      margin-right: 20px;
+    }
+  }
+  &_body {
+    display: flex;
+    row-gap: 15px;
+    flex-direction: column;
+    a {
+      color: #fff;
+      font-weight: 300;
     }
   }
 }

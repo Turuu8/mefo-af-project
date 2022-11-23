@@ -3,18 +3,21 @@
 $Roboto: "Roboto", sans-serif;
 
 // colors
-$dark: rgb(29, 29, 29);
+
+$bg: #ffffff;
 $light: #ffffff;
 $primary: #f2f2f2;
-$bg: #ffffff;
-$formContainerBackground: rgba(0, 0, 0, 0.5);
+$dark: rgb(29, 29, 29);
+$footerTextColor: #919091;
 $formGrayBackground: #f2f2f2;
 $formInputBackground: #ffffff;
 $formBtnBackground: #222222;
 $formPrimaryTextColor: #919091;
 $formSecondaryTextColor: #222222;
+$formContainerBackground: rgba(0, 0, 0, 0.5);
 
 // $spacing
+
 $spacing-md: 16px;
 $spacing-lg: 32px;
 
@@ -24,14 +27,29 @@ $headerHeight: 100px;
 $maxWidth: 1920px;
 
 @mixin breakpoint($point) {
-  @if $point == md {
-    @media (min-width: 500px) {
-      @content;
-    }
-  }
   @if $point == sm {
-    @media (max-width: 500px) {
+    @media (max-width: 680px) {
       @content;
     }
   }
+  @if $point == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $point == lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $point == xl {
+    @media (max-width: 1280px) {
+      @content;
+    }
+  }
+}
+@mixin perfectCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
