@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { useLocation, Link} from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
 import bag from "../../assets/images/bag.svg";
@@ -12,6 +12,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
   const [menu, setMenu] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const {
+    user: { userDetail },
     loginOpen: { setIsLoginOpen },
     signupOpen: { setIsSignupOpen },
   } = useContext(GlobalContext);
@@ -21,7 +22,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
       if (query.get("loginOpen")) return setIsLoginOpen(true);
       if (query.get("signupOpen")) return setIsSignupOpen(true);
     })();
-  }, [search, setIsLoginOpen]);
+  }, [search, setIsLoginOpen, setIsSignupOpen]);
 
   const openLoginComp = () => {
     setIsLoginOpen(true);
@@ -36,6 +37,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
     setMenuOpen((p) => !p);
     setMenu((p) => !p);
   };
+console.log(userDetail);
 
   return (
     <>
@@ -45,17 +47,15 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
             <div className={classes.header_content_home_menu}>
               <img
                 src={Hamburger}
+                alt="hamburger"
                 onClick={menuToggleHandler}
                 className={classes.header_content_home_menu_toggle}
               />
+              <Link to={"/"}>
+                <img src={logo} alt="mepo_af" className={classes.header_content_home_menu_logo} />
+              </Link>
 
-              <img
-                src={logo}
-                alt="mepo_af"
-                className={classes.header_content_home_menu_logo}
-              />
-
-              <img src={bag} className={classes.header_content_home_menu_bag} />
+              <img src={bag} className={classes.header_content_home_menu_bag} alt="bag" />
             </div>
             <ul>
               <li>
@@ -71,12 +71,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
           </div>
         ))}
         {headermenu2.map((props, i) => (
-          <nav
-            key={i}
-            className={`${classes.header_content_nav} ${
-              menuOpen ? classes.menu : ""
-            }`}
-          >
+          <nav key={i} className={`${classes.header_content_nav} ${menuOpen ? classes.menu : ""}`}>
             <button>
               <span>{props.title_5}</span>
               <span>{props.title_6}</span>
@@ -94,11 +89,7 @@ export const MenuHorzintial = ({ headermenu, headermenu2 }) => {
         }}
         className={classes.header_box}
       >
-        <MenuVertical
-          headervermenu={headermenu}
-          headervermenu2={headermenu2}
-          state={menuToggleHandler}
-        />
+        <MenuVertical headervermenu={headermenu} headervermenu2={headermenu2} state={menuToggleHandler} />
       </div>
     </>
   );
