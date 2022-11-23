@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../GlobalContext";
-import { authAPI, patchAPI, getAPI } from "../../utils/fetchingData";
+import { GlobalContext } from "../context/GlobalContext";
+import { authAPI, patchAPI, getAPI } from "../utils/fetchingData";
 
 export const useAuth = () => {
   const navigate = useNavigate();

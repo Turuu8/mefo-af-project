@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
-import { useAuth } from "../../context/API/useAuth";
+import { useAuth } from "../../API/useAuth";
 import { GlobalContext } from "../../context/GlobalContext";
 import { formAnimation } from "../../utils/animationVariants";
 import classes from "../../assets/styles/formStyles.module.scss";

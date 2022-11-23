@@ -1,7 +1,7 @@
 import { Footer } from "./components";
+import { useAuth } from "./API/useAuth";
 import { useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
-import { useAuth } from "./context/API/useAuth";
 import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
 import { GlobalContext } from "./context/GlobalContext";
