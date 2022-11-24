@@ -18,7 +18,6 @@ export const MenuHorizontal = () => {
       if (query.get("signupOpen")) return setIsSignupOpen(true);
     })();
   }, [search, setIsLoginOpen, setIsSignupOpen]);
-
   return (
     <div className={classes.header}>
       <div className={classes.header_l}>
@@ -43,7 +42,11 @@ export const MenuHorizontal = () => {
           <button>mon</button>
         </div>
         <Link to={"/bag"}>bag</Link>
-        <button onClick={() => setIsLoginOpen(true)}>login</button>
+        {userDetail?.token ? (
+          <button>account</button>
+        ) : (
+          <button onClick={() => setIsLoginOpen(true)}>login</button>
+        )}
       </div>
     </div>
   );

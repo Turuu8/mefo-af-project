@@ -20,7 +20,7 @@ export const useAuth = () => {
       setTimeout(() => {
         setServerMsg({});
         setIsLoginOpen(false);
-      }, 2000);
+      }, 1500);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
@@ -32,7 +32,7 @@ export const useAuth = () => {
       setTimeout(() => {
         setServerMsg({});
         setIsSignupOpen(false);
-      }, 2000);
+      }, 1500);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
@@ -51,7 +51,7 @@ export const useAuth = () => {
       setServerMsg(res?.data);
       setTimeout(() => {
         navigate("/");
-      }, 2000);
+      }, 1500);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
@@ -60,10 +60,19 @@ export const useAuth = () => {
     try {
       const res = await getAPI(url);
       setToken(res?.data.token);
-      setUserDetail(res?.data.user);
+      setUserDetail(res?.data);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
   };
-  return { login, register, forgotPassword, resetPassword, refreshToken };
+  const logout = async () => {
+    try {
+      await getAPI("/auth/logout");
+      setUserDetail({});
+      localStorage.removeItem("UserLoggedIn");
+    } catch (error) {
+      return setServerMsg(error?.response.data.msg);
+    }
+  };
+  return { login, register, forgotPassword, resetPassword, refreshToken, logout };
 };

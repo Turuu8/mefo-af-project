@@ -22,7 +22,7 @@ const App = () => {
       refreshToken("/auth/refresh_token");
     }
     // eslint-disable-next-line
-  }, [userLoggedIn]);
+  }, []);
   return (
     <div>
       <Header />

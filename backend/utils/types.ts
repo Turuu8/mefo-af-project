@@ -38,7 +38,7 @@ export interface IProduct {
   _id: string;
   title: string;
   price: number;
-  gender: string;
+  special: boolean;
   unique: boolean;
   images: object[];
   quantity: number;

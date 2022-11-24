@@ -9,8 +9,8 @@ const ProductSchema = new Schema(
     images: { type: Array, default: [] },
     category: { type: Types.ObjectId, ref: "Category" },
     unique: { type: Boolean, default: false },
+    special: { type: Boolean, default: false },
     quantity: { type: Number, required: true },
-    gender: { type: String, default: "" },
   },
   { timestamps: true }
 );

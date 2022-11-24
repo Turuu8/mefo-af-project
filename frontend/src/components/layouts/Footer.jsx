@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../API/useAuth";
 import { footerArr } from "../../utils/constants";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import classes from "../../assets/styles/footer.module.scss";
 
 export const Footer = () => {
+  const { logout } = useAuth();
   return (
     <div className={classes.footer}>
       {Object.entries(footerArr).map(([name, arr]) => (
@@ -12,7 +14,7 @@ export const Footer = () => {
             <h4>{name}</h4>
             <div>
               {arr.map((el, i) => (
-                <Link key={i} to={el.path}>
+                <Link onClick={el.name === "Log out" && (() => logout())} key={i} to={el.path}>
                   {el.name}
                 </Link>
               ))}

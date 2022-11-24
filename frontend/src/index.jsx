@@ -7,9 +7,11 @@ import { GlobalProvider } from "./context/GlobalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <GlobalProvider>
-      <App />
-    </GlobalProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <GlobalProvider>
+        <App />
+      </GlobalProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );

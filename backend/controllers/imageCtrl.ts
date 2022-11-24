@@ -16,9 +16,10 @@ export const imageCtrl = {
   uploadImage: async (req: Request, res: Response) => {
     try {
       const files: any = req.files?.images;
+      const images = [files].flat();
       if (!files) return res.status(400).json({ msg: "Please choose images" });
-      const uploadingImgs = files.map((item: any) => {
-        if (item.size > 1024 * 1024) {
+      const uploadingImgs = images.map((item: any) => {
+        if (item.size > 1024 * 1024 * 2) {
           removeTemp((<any>item).tempFilePath);
           return {
             error: `${(<any>item).name}'s size is too large.`,

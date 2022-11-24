@@ -56,9 +56,7 @@ export const productCtrl = {
           .skip(pageQ * limitQ)
           .limit(limitQ)
           .sort(sortBy);
-        res
-          .status(200)
-          .json({ length: allProducts.length, products: allProducts });
+        res.status(200).json({ length: allProducts.length, products: allProducts });
       } else {
         const allProducts = await ProductModel.find({
           title: { $regex: searchQ },
@@ -68,9 +66,7 @@ export const productCtrl = {
           .skip(pageQ * limitQ)
           .limit(limitQ)
           .sort(sortBy);
-        res
-          .status(200)
-          .json({ length: allProducts.length, products: allProducts });
+        res.status(200).json({ length: allProducts.length, products: allProducts });
       }
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
@@ -78,31 +74,15 @@ export const productCtrl = {
   },
   createNewProduct: async (req: Request, res: Response) => {
     try {
-      const {
-        title,
-        price,
-        images,
-        gender,
-        unique,
-        category,
-        quantity,
-        description,
-      } = req.body;
-      const err = productValidator(
-        title,
-        price,
-        gender,
-        category,
-        quantity,
-        description
-      );
+      const { title, price, images, unique, special, category, quantity, description } = req.body;
+      const err = productValidator(title, price, category, quantity, description);
       if (Object.keys(err).length > 0) return res.json({ msg: err });
       const newProduct = new ProductModel({
-        title: title.toLowerCase().replace(/ /g, ""),
+        title,
         price,
         images,
-        gender,
         unique,
+        special,
         category,
         quantity,
         description,
@@ -128,16 +108,7 @@ export const productCtrl = {
   },
   updateProduct: async (req: Request, res: Response) => {
     try {
-      const {
-        title,
-        price,
-        images,
-        gender,
-        unique,
-        category,
-        quantity,
-        description,
-      } = req.body;
+      const { title, price, images, gender, unique, category, quantity, description } = req.body;
       await ProductModel.findByIdAndUpdate(req.params.id, {
         title,
         price,
