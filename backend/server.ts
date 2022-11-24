@@ -4,7 +4,6 @@ import {
   orderRouter,
   productRouter,
   addressRouter,
-  categoryRouter,
 } from "./routers";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -45,7 +44,6 @@ app.use("/api", imageRouter);
 app.use("/api", orderRouter);
 app.use("/api", addressRouter);
 app.use("/api", productRouter);
-app.use("/api", categoryRouter);
 
 connection.once("open", () => {
   console.log("MongoDB database connection successfully established.".green.bold);

@@ -9,16 +9,15 @@ import { productValidator } from "../utils/productError";
 export const productCtrl = {
   getProducts: async (req: Request, res: Response) => {
     try {
-      const { page, sort, category, limit, search, gender } = req.query;
-      const searchQ = search || "";
+      const { page, sort, limit, gender } = req.query;
       let genderQ = gender || "All";
-      const limitQ = Number(limit) || 10;
+      const limitQ = Number(limit) || 20;
       const pageQ = Number(page) - 1 || 0;
       genderQ === "All"
-        ? (genderQ = ["male", "female"])
-        : gender === "male"
-        ? (genderQ = ["male"])
-        : (genderQ = ["female"]);
+        ? (genderQ = ["Men", "Women"])
+        : gender === "Men"
+        ? (genderQ = ["Men"])
+        : (genderQ = ["Women"]);
       const sortBy:
         | null
         | string
@@ -46,28 +45,14 @@ export const productCtrl = {
         sortBy.createdAt = "asc";
         sortBy.price = "desc";
       }
-      if (category) {
-        const allProducts = await ProductModel.find({
-          title: { $regex: searchQ },
-          category,
-        })
-          .where("gender")
-          .in([...genderQ])
-          .skip(pageQ * limitQ)
-          .limit(limitQ)
-          .sort(sortBy);
-        res.status(200).json({ length: allProducts.length, products: allProducts });
-      } else {
-        const allProducts = await ProductModel.find({
-          title: { $regex: searchQ },
-        })
-          .where("gender")
-          .in([...genderQ])
-          .skip(pageQ * limitQ)
-          .limit(limitQ)
-          .sort(sortBy);
-        res.status(200).json({ length: allProducts.length, products: allProducts });
-      }
+
+      const allProducts = await ProductModel.find()
+        .where("gender")
+        .in([...genderQ])
+        .skip(pageQ * limitQ)
+        .limit(limitQ)
+        .sort(sortBy);
+      res.status(200).json({ length: allProducts.length, products: allProducts });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }
