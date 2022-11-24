@@ -140,7 +140,7 @@ export const userCtrl = {
   },
   logout: async (req: Request, res: Response) => {
     try {
-      res.clearCookie("refreshToken", { path: "/api/auth/refresh_token" });
+      res.clearCookie("refreshToken", { path: "http://localhost:5000/api/auth/refresh_token" });
       res.status(200).json({ msg: "User logged out." });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
