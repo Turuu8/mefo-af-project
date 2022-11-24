@@ -30,10 +30,6 @@ export interface IOrder {
   orderStatus: string;
   paymentID: string;
 }
-export interface ICategory {
-  _id: string;
-  name: string;
-}
 export interface IProduct {
   _id: string;
   title: string;
@@ -42,6 +38,6 @@ export interface IProduct {
   unique: boolean;
   images: object[];
   quantity: number;
-  category: ICategory;
+  gender: string;
   description: string;
 }

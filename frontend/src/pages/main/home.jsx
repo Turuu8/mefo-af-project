@@ -1,4 +1,3 @@
-import { Data } from "../../components/data/productData";
 import classes from "../../assets/styles/home.module.scss";
 import { HomeScroll } from "./home-scroll";
 import { HomeAnimation } from "./home-animation";
