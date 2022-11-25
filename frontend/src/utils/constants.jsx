@@ -1,6 +1,4 @@
-import Image1 from "../assets/images/clothesMen/1.png";
-import Image2 from "../assets/images/clothesMen/2.png";
-import Image3 from "../assets/images/clothesMen/3.png";
+
 
 export const navbarLeft = [
   { name: "all", path: "/" },
@@ -13,7 +11,7 @@ export const navbarMobile = [
   { name: "account", path: "/account" },
   { name: "products", path: "/products" },
 ];
-export const homeImgArr = [Image1, Image2, Image3];
+export const homeImgArr = ["https://res.cloudinary.com/mustnest/image/upload/v1669293202/Mepo_Af/x6shifpt9lmhfri3owm2.png", "https://res.cloudinary.com/mustnest/image/upload/v1669292935/Mepo_Af/u9y4kdbejy4m1iww3wu2.png", "https://res.cloudinary.com/mustnest/image/upload/v1669293662/Mepo_Af/fxtkizq87fbfuolujjhr.png"];
 export const footerArr = {
   MENU: [
     { name: "About us", path: "/" },
