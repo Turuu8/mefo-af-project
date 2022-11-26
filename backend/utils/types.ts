@@ -40,4 +40,12 @@ export interface IProduct {
   quantity: number;
   gender: string;
   description: string;
+  artist: IArtist;
+}
+
+export interface IArtist {
+  _id: string;
+  title: string;
+  name: string;
+  image: object[];
 }

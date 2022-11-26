@@ -2,6 +2,7 @@ import {
   userRouter,
   imageRouter,
   orderRouter,
+  artistRouter,
   productRouter,
   addressRouter,
 } from "./routers";
@@ -42,6 +43,7 @@ app.use(
 app.use("/api", userRouter);
 app.use("/api", imageRouter);
 app.use("/api", orderRouter);
+app.use("/api", artistRouter);
 app.use("/api", addressRouter);
 app.use("/api", productRouter);
 
