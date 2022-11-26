@@ -1,5 +1,5 @@
 import { IProduct } from "../utils/types";
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 
 const ProductSchema = new Schema(
   {
@@ -11,6 +11,7 @@ const ProductSchema = new Schema(
     unique: { type: Boolean, default: false },
     special: { type: Boolean, default: false },
     quantity: { type: Number, required: true },
+    artist: { type: Types.ObjectId, ref: "Artist" },
   },
   { timestamps: true }
 );
