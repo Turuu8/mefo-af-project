@@ -36,18 +36,25 @@ export const orderCtrl = {
     try {
       const { fullname, email, orderItems } = req.body;
       const userMail = email || req.user?.email;
-      const newOrder = new OrderModel({
-        user: req.user?._id,
-        fullname,
-        email: userMail,
-        address: req.user?.address,
-        orderItems,
+      const orders = orderItems.map(async (order: any) => {
+        const newOrder = new OrderModel({
+          user: req.user?._id,
+          fullname,
+          email: userMail,
+          address: req.user?.address,
+          orderItem: order?.id,
+          amount: order?.amount,
+          size: order?.size,
+        });
+        await newOrder.save();
+        await UserModel.findByIdAndUpdate(req.user?._id, {
+          $push: { orders: newOrder._id },
+        });
+        return { msg: `${newOrder._id} ordered.` };
       });
-      await newOrder.save();
-      await UserModel.findByIdAndUpdate(req.user?._id, {
-        $push: { orders: newOrder._id },
+      Promise.all(orders).then((result) => {
+        res.status(200).json({ msg: result });
       });
-      res.status(200).json({ msg: newOrder });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }

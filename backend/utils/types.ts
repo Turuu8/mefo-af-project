@@ -23,12 +23,14 @@ export interface IUser {
 export interface IOrder {
   _id: string;
   user: IUser;
-  fullname: string;
+  size: string;
   email: string;
+  amount: number;
+  fullname: string;
   address: IAddress;
-  orderItems: IProduct[];
-  orderStatus: string;
   paymentID: string;
+  orderItem: IProduct;
+  orderStatus: string;
 }
 export interface IProduct {
   _id: string;
