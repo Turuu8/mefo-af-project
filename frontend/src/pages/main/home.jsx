@@ -16,7 +16,9 @@ export const Home = () => {
       className={classes.home}
     >
       <h2 className={classes.home_text1}>A New Look at Fashion of the MEPO AF</h2>
-      <p className={classes.home_text2}>EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE</p>
+      <p className={classes.home_text2}>
+        EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
+      </p>
       <HomeSlide />
       <div className={classes.home_text2}> Our collections</div>
       <div id="animation" className={classes.home_scroll}>
