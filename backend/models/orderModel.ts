@@ -13,13 +13,15 @@ const OrderSchema = new Schema(
     fullname: { type: String, required: true },
     email: String,
     address: { type: Types.ObjectId, required: "Address" },
-    orderItems: [{ type: Types.ObjectId, ref: "Product" }],
+    orderItem: { type: Types.ObjectId, ref: "Product" },
     orderStatus: {
       type: String,
       default: ETypeOrder.ORDERED,
       enum: Object.values(ETypeOrder),
     },
-    paymentID: { type: String },
+    amount: { type: Number, default: 1 },
+    size: { type: String, required: true },
+    paymentID: { type: String, default: "" },
   },
   { timestamps: true }
 );
