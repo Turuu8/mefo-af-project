@@ -15,6 +15,7 @@ export const ResetPassword = () => {
   const [cfPassTypeChange, setCfPassTypeChange] = useState(false);
   const [userData, setUserData] = useState({ newPass: "", cfNewPass: "" });
   const {
+    language: { lang },
     user: { userDetail },
     loginOpen: { setIsLoginOpen },
     msg: { serverMsg, setServerMsg },
@@ -43,29 +44,17 @@ export const ResetPassword = () => {
   return (
     <div className={classes.form}>
       <div className={classes.form_container}>
-        <div
-          onClick={closeResPassComp}
-          className={classes.form_container_back}
-        />
-        <motion.div
-          variants={formAnimation}
-          initial="hidden"
-          animate="visible"
-          transition="transition"
-          className={classes.form_container_main}
-        >
-          <AiOutlineClose
-            onClick={closeResPassComp}
-            className={classes.closeIcon}
-          />
-          <h1>Reset password</h1>
+        <div onClick={closeResPassComp} className={classes.form_container_back} />
+        <motion.div variants={formAnimation} initial="hidden" animate="visible" transition="transition" className={classes.form_container_main}>
+          <AiOutlineClose onClick={closeResPassComp} className={classes.closeIcon} />
+          <h1>{lang === "en" ? "Reset password" : "Нууц үгээ сэргээх"}</h1>
           <div>
-            <span>Need an account?</span>
-            <button onClick={openSignupComp}>Sign up</button>
+            <span>{lang === "en" ? "Need an account?" : "Аккаунт хэрэгтэй юу?"}</span>
+            <button onClick={openSignupComp}>{lang === "en" ? "Sign up" : "Бүртгүүлэх"}</button>
           </div>
           <form onSubmit={formSubmit}>
             <div className={classes.passwordBox}>
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">{lang === "en" ? "Password:" : "Нууц үг:"}</label>
               <div
                 style={{
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
@@ -75,19 +64,15 @@ export const ResetPassword = () => {
                   id="Password"
                   name="newPass"
                   onChange={handleChange}
-                  placeholder="Password..."
                   type={passTypeChange ? "text" : "password"}
+                  placeholder={lang === "en" ? "Password:" : "Нууц үг:"}
                 />
-                <span onClick={() => setPassTypeChange(!passTypeChange)}>
-                  {passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}
-                </span>
+                <span onClick={() => setPassTypeChange(!passTypeChange)}>{passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.newPass}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.newPass}</span>}
             </div>
             <div className={classes.passwordBox}>
-              <label htmlFor="password">Confirm password:</label>
+              <label htmlFor="password">{lang === "en" ? "Confirm password:" : "Нууц үг баталгаажуулах:"}</label>
               <div
                 style={{
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
@@ -97,25 +82,19 @@ export const ResetPassword = () => {
                   name="cfNewPass"
                   id="confirmPassword"
                   onChange={handleChange}
-                  placeholder="Confirm password..."
+                  placeholder={lang === "en" ? "Confirm password..." : "Нууц үг баталгаажуулах..."}
                   type={cfPassTypeChange ? "text" : "password"}
                 />
-                <span onClick={() => setCfPassTypeChange(!cfPassTypeChange)}>
-                  {cfPassTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}
-                </span>
+                <span onClick={() => setCfPassTypeChange(!cfPassTypeChange)}>{cfPassTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.cfNewPass}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.cfNewPass}</span>}
             </div>
             <button type="submit" className={classes.submitBtn}>
-              Reset password
+            {lang === "en" ? "Reset password" : "Нууц үг сэргээх"}
             </button>
-            {userDetail && (
-              <span className={classes.success}>{serverMsg.msg}</span>
-            )}
+            {userDetail && <span className={classes.success}>{serverMsg.msg}</span>}
           </form>
-          <button onClick={openLoginComp}>Login</button>
+          <button onClick={openLoginComp}>{lang === "en" ? "Login" : "Нэвтрэх"}</button>
         </motion.div>
       </div>
     </div>

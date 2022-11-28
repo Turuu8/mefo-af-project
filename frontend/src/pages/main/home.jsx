@@ -1,9 +1,9 @@
-import classes from "../../assets/styles/home.module.scss";
+import { motion } from "framer-motion";
+import { HomeSlide } from "./home-slider";
 import { HomeScroll } from "./home-scroll";
 import { HomeAnimation } from "./home-animation";
-import { HomeSlide } from "./home-slider";
+import classes from "../../assets/styles/home.module.scss";
 import { RouterAnimation } from "../../utils/animationVariants";
-import { motion } from "framer-motion";
 
 export const Home = () => {
   return (
