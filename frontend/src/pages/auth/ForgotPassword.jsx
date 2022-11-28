@@ -10,6 +10,7 @@ export const ForgotPassword = () => {
   const { forgotPassword } = useAuth();
   const [userData, setUserData] = useState({ email: "" });
   const {
+    language: { lang },
     user: { userDetail },
     loginOpen: { setIsLoginOpen },
     signupOpen: { setIsSignupOpen },
@@ -42,27 +43,21 @@ export const ForgotPassword = () => {
     <div className={classes.form}>
       <div className={classes.form_container}>
         <div onClick={closeForPassComp} className={classes.form_container_back} />
-        <motion.div
-          variants={formAnimation}
-          initial="hidden"
-          animate="visible"
-          transition="transition"
-          className={classes.form_container_main}
-        >
+        <motion.div variants={formAnimation} initial="hidden" animate="visible" transition="transition" className={classes.form_container_main}>
           <AiOutlineClose onClick={closeForPassComp} className={classes.closeIcon} />
-          <h1>Forgot password</h1>
+          <h1>{lang === "en" ? "Forgot password" : "Нууц үгээ мартсан"}</h1>
           <div>
-            <span>Need an account?</span>
-            <button onClick={openSignupComp}>Sign up</button>
+            <span>{lang === "en" ? "Need an account?" : "Аккаунт хэрэгтэй юу?"}</span>
+            <button onClick={openSignupComp}>{lang === "en" ? "Sign up" : "Бүртгүүлэх"}</button>
           </div>
           <form onSubmit={formSubmit}>
             <div className={classes.mailNumberBox}>
-              <label htmlFor="mailOrNumber">Email or Phone number:</label>
+              <label htmlFor="mailOrNumber">{lang === "en" ? "Email or Phone number:" : "Имэйл эсвэл утасны дугаар:"}</label>
               <input
                 type="text"
                 name="email"
                 id="mailOrNumber"
-                placeholder="Email..."
+                placeholder={lang === "em" ? "Email..." : "Имэйл..."}
                 onChange={handleChange}
                 style={{
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
@@ -71,11 +66,11 @@ export const ForgotPassword = () => {
               {serverMsg && <span className={classes.error}>{serverMsg.email}</span>}
             </div>
             <button type="submit" className={classes.submitBtn}>
-              Send email
+              {lang === "en" ? "Send mail" : "Мэйл илгээх"}
             </button>
             {userDetail && <span className={classes.success}>{serverMsg.msg}</span>}
           </form>
-          <button onClick={openLoginComp}>Login</button>
+          <button onClick={openLoginComp}>{lang === "en" ? "Login" : "Нэвтрэх"}</button>
         </motion.div>
       </div>
     </div>

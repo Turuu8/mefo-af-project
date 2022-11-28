@@ -1,24 +1,15 @@
-import classes from "../../assets/styles/home.module.scss";
+import { motion } from "framer-motion";
+import { HomeSlide } from "./home-slider";
 import { HomeScroll } from "./home-scroll";
 import { HomeAnimation } from "./home-animation";
-import { HomeSlide } from "./home-slider";
+import classes from "../../assets/styles/home.module.scss";
 import { RouterAnimation } from "../../utils/animationVariants";
-import { motion } from "framer-motion";
 
 export const Home = () => {
   return (
-    <motion.div
-      variants={RouterAnimation}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition="transition"
-      className={classes.home}
-    >
+    <motion.div variants={RouterAnimation} initial="initial" animate="animate" exit="exit" transition="transition" className={classes.home}>
       <h2 className={classes.home_text1}>A New Look at Fashion of the MEPO AF</h2>
-      <p className={classes.home_text2}>
-        EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
-      </p>
+      <p className={classes.home_text2}>EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE</p>
       <HomeSlide />
       <div className={classes.home_text2}> Our collections</div>
       <div id="animation" className={classes.home_scroll}>
