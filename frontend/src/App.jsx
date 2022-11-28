@@ -4,6 +4,7 @@ import { useEffect, useContext } from "react";
 import { AnimatePresence } from "framer-motion";
 import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
+import { PrivateRouter } from "./custom/PrivateRouter";
 import { GlobalContext } from "./context/GlobalContext";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Bag, Home, Login, Signup, Payment, ResetPassword, ForgotPassword } from "./pages";
@@ -23,6 +24,7 @@ const App = () => {
     }
     // eslint-disable-next-line
   }, []);
+
   return (
     <div>
       <Header />
