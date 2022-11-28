@@ -5,9 +5,12 @@
   flex-direction: column;
 }
 @mixin inputElement {
-  @include breakpoint(sm) {
+  @include breakpoint(lg) {
     height: 50px;
     font-size: 14px;
+  }
+  @include breakpoint(sm) {
+    height: 40px;
   }
   height: 60px;
   border: none;
@@ -17,7 +20,7 @@
   background-color: $formInputBackground;
 }
 @mixin font700 {
-  @include breakpoint(sm) {
+  @include breakpoint(lg) {
     font-size: 13px;
     font-weight: 600;
   }
@@ -47,19 +50,23 @@
       background-color: $formContainerBackground;
     }
     &_main {
+      width: 100%;
       z-index: 30;
-      @include breakpoint(sm) {
-        width: 400px;
-      }
-      width: 500px;
-      @include breakpoint(sm) {
-        padding: 20px 0;
-      }
+      margin: 0 10px;
+      max-width: 500px;
       padding: 40px 75px;
       position: relative;
       align-items: center;
       @include columnElement;
       background-color: $formGrayBackground;
+      @include breakpoint(lg) {
+        max-width: 400px;
+        padding: 20px 55px;
+      }
+      @include breakpoint(sm) {
+        max-width: 370px;
+        padding: 15px 35px;
+      }
       .closeIcon {
         top: 30px;
         right: 30px;
@@ -67,23 +74,33 @@
         position: absolute;
       }
       h1 {
-        @include breakpoint(sm) {
-          font-size: 28px;
-          font-weight: 500;
-        }
         font-size: 32px;
         font-weight: 700;
         margin-bottom: 12px;
+        @include breakpoint(lg) {
+          font-size: 28px;
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+        @include breakpoint(sm) {
+          font-size: 25px;
+        }
       }
       > div {
         display: flex;
         column-gap: 10px;
         margin-bottom: 37px;
+        @include breakpoint(lg) {
+          margin-bottom: 28px;
+        }
+        @include breakpoint(sm) {
+          margin-bottom: 22px;
+        }
         span {
-          @include breakpoint(sm) {
+          @include breakpoint(lg) {
             font-weight: 500;
           }
-          font-weight: 700;
+          font-weight: 600;
           color: $formPrimaryTextColor;
         }
         button {
@@ -95,19 +112,18 @@
         }
       }
       form {
-        @include breakpoint(sm) {
-          width: 300px;
+        @include breakpoint(lg) {
           row-gap: 15px;
           margin-bottom: 15px;
         }
-        width: 350px;
+        width: 100%;
         row-gap: 30px;
         margin-bottom: 30px;
         @include columnElement;
         div {
           @include columnElement;
           label {
-            @include breakpoint(sm) {
+            @include breakpoint(lg) {
               font-size: 13px;
             }
             margin-bottom: 10px;
@@ -116,7 +132,7 @@
         .mailNumberBox input {
           @include inputElement;
         }
-        @include breakpoint(sm) {
+        @include breakpoint(lg) {
           .mailNumberBox input::placeholder {
             font-size: 14px;
           }
@@ -128,7 +144,7 @@
             border: none;
             outline: none;
           }
-          @include breakpoint(sm) {
+          @include breakpoint(lg) {
             input::placeholder {
               font-size: 14px;
             }
@@ -146,18 +162,18 @@
             position: absolute;
             @include perfectCenter;
             transform: translateY(-50%);
-            @include breakpoint(sm) {
+            @include breakpoint(lg) {
               font-size: 18px;
             }
           }
         }
         .mailNumberBox input,
         .passwordBox input {
-          font-size: 17px;
+          font-size: 16px;
           color: $formPrimaryTextColor;
         }
         .submitBtn {
-          @include breakpoint(sm) {
+          @include breakpoint(lg) {
             height: 50px;
           }
           height: 60px;
@@ -172,7 +188,7 @@
         cursor: pointer;
         @include btnTrans;
         text-decoration: underline;
-        @include breakpoint(sm) {
+        @include breakpoint(lg) {
           font-size: 13px;
         }
       }

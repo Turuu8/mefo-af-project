@@ -31,7 +31,7 @@
       height: 68px;
     }
     &_links {
-      width: 226px;
+      width: 246px;
       display: flex;
       column-gap: 40px;
       justify-content: space-between;
@@ -49,6 +49,13 @@
     @include breakpoint(lg) {
       column-gap: 20px;
       width: 220px;
+    }
+    button{
+      font-weight: 300;
+    }
+    &_langs {
+      display: flex;
+      align-items: center;
     }
     span {
       margin: 0 5px;

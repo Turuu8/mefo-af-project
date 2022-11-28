@@ -57,7 +57,7 @@ export const MenuHorizontal = () => {
         </div>
       </div>
       <div className={classes.header_r}>
-        <div>
+        <div className={classes.header_r_langs}>
           <button style={{ opacity: lang === "en" ? 1 : 0.5 }} onClick={toEnglish}>
             eng
           </button>
