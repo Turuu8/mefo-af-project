@@ -16,6 +16,7 @@ export const Signup = () => {
     confirmPass: "",
   });
   const {
+    language: { lang },
     msg: { serverMsg, setServerMsg },
     loginOpen: { setIsLoginOpen },
     signupOpen: { setIsSignupOpen },
@@ -41,45 +42,31 @@ export const Signup = () => {
   return (
     <div className={classes.form}>
       <div className={classes.form_container}>
-        <div
-          onClick={closeSignUpComp}
-          className={classes.form_container_back}
-        />
-        <motion.div
-          variants={formAnimation}
-          initial="hidden"
-          animate="visible"
-          transition="transition"
-          className={classes.form_container_main}
-        >
-          <AiOutlineClose
-            onClick={closeSignUpComp}
-            className={classes.closeIcon}
-          />
-          <h1>Signup</h1>
+        <div onClick={closeSignUpComp} className={classes.form_container_back} />
+        <motion.div variants={formAnimation} initial="hidden" animate="visible" transition="transition" className={classes.form_container_main}>
+          <AiOutlineClose onClick={closeSignUpComp} className={classes.closeIcon} />
+          <h1>{lang === "en" ? "Signup" : "Бүртгүүлэх"}</h1>
           <div>
-            <span>Already have an account?</span>
-            <button onClick={openLoginComp}>Login</button>
+            <span>{lang === "en" ? "Already have an account?" : "Бүртгэлтэй юу?"}</span>
+            <button onClick={openLoginComp}>{lang === "en" ? "Login" : "Нэвтрэх"}</button>
           </div>
           <form onSubmit={formSubmit}>
             <div className={classes.mailNumberBox}>
-              <label htmlFor="mailOrNumber">Email or Phone number:</label>
+              <label htmlFor="mailOrNumber">{lang === "en" ? "Email or Phone number:" : "Имэйл эсвэл утасны дугаар:"}</label>
               <input
                 type="text"
                 name="email"
                 id="mailOrNumber"
-                placeholder="Email..."
+                placeholder={lang === "em" ? "Email..." : "Имэйл..."}
                 onChange={handleChange}
                 style={{
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
                 }}
               />
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.email}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.email}</span>}
             </div>
             <div className={classes.passwordBox}>
-              <label htmlFor="password">Password:</label>
+              <label htmlFor="password">{lang === "en" ? "Password:" : "Нууц үг:"}</label>
               <div
                 style={{
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
@@ -89,19 +76,15 @@ export const Signup = () => {
                   id="Password"
                   name="password"
                   onChange={handleChange}
-                  placeholder="Password..."
                   type={passTypeChange ? "text" : "password"}
+                  placeholder={lang === "en" ? "Password:" : "Нууц үг:"}
                 />
-                <span onClick={() => setPassTypeChange(!passTypeChange)}>
-                  {passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}
-                </span>
+                <span onClick={() => setPassTypeChange(!passTypeChange)}>{passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.password}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.password}</span>}
             </div>
             <div className={classes.passwordBox}>
-              <label htmlFor="password">Confirm password:</label>
+              <label htmlFor="password">{lang === "en" ? "Confirm password:" : "Нууц үг баталгаажуулах:"}</label>
               <div
                 style={{
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
@@ -111,24 +94,18 @@ export const Signup = () => {
                   name="confirmPass"
                   id="confirmPassword"
                   onChange={handleChange}
-                  placeholder="Confirm password..."
+                  placeholder={lang === "en" ? "Confirm password..." : "Нууц үг баталгаажуулах..."}
                   type={cfPassTypeChange ? "text" : "password"}
                 />
-                <span onClick={() => setCfPassTypeChange(!cfPassTypeChange)}>
-                  {cfPassTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}
-                </span>
+                <span onClick={() => setCfPassTypeChange(!cfPassTypeChange)}>{cfPassTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && (
-                <span className={classes.error}>{serverMsg.cfNewPass}</span>
-              )}
+              {serverMsg && <span className={classes.error}>{serverMsg.cfNewPass}</span>}
             </div>
 
             <button type="submit" className={classes.submitBtn}>
-              Sign up
+              {lang === "en" ? "Sign up" : "Бүртгүүлэх"}
             </button>
-            {serverMsg && (
-              <span className={classes.success}>{serverMsg.msg}</span>
-            )}
+            {serverMsg && <span className={classes.success}>{serverMsg.msg}</span>}
           </form>
         </motion.div>
       </div>

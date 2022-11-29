@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import poc from "./PocketStyle.module.scss";
-import logo from "../Contact/pocket.png";
-import { usePaymentContext } from "../../context/paymentContext";
+import logo from "../../../../assets/images/Payment/pocket.png";
+import poc from "../../../../assets/styles/Payment/PocketStyle.module.scss";
+import { usePaymentContext } from "../../../../context/paymentContext";
 
-const Pocket = () => {
+export const Pocket = () => {
   const { openPocket, setOpenPocket } = usePaymentContext();
   return (
     <motion.div
@@ -19,7 +19,7 @@ const Pocket = () => {
         </button>
         <div className={poc.pocketSection__pocket__content}>
           <div className={poc.pocketSection__pocket__content__titleSection}>
-            <img src={logo} alt="" />
+            <img src={logo} alt="" className={poc.pocketLogo} />
             <p>Pocket pay</p>
           </div>
           <div className={poc.pocketSection__pocket__content__qrCodeSection}>
@@ -34,5 +34,3 @@ const Pocket = () => {
     </motion.div>
   );
 };
-
-export default Pocket;

@@ -16,6 +16,7 @@ export const useAuth = () => {
     try {
       const res = await authAPI(url, data);
       setUserDetail(res?.data);
+      setToken(res?.data.token);
       localStorage.setItem("UserLoggedIn", "true");
       setTimeout(() => {
         setServerMsg({});

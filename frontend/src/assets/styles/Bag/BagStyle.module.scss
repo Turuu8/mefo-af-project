@@ -1,4 +1,4 @@
-@import "./styles/BagVariables.scss";
+@import "./BagVariables.scss";
 
 .bagSection {
   width: 100%;
@@ -17,7 +17,7 @@
       padding: $phonePadding;
     }
     @media (max-width: 450px) {
-      background: url("./background2.png");
+      background: url("../../images/Bag/background2.png");
     }
 
     display: flex;
@@ -26,7 +26,7 @@
     transition: 0.2s ease all;
     background-position: center;
     background-repeat: no-repeat;
-    background: url("./background.png");
+    background: url("../../images/Bag/background.png");
 
     h1 {
       font-size: 32px;

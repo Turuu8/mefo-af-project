@@ -51,7 +51,8 @@ export const productCtrl = {
         .in([...genderQ])
         .skip(pageQ * limitQ)
         .limit(limitQ)
-        .sort(sortBy);
+        .sort(sortBy)
+        .populate("artist","-createdAt -updatedAt")
       res.status(200).json({ length: allProducts.length, products: allProducts });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
@@ -59,8 +60,8 @@ export const productCtrl = {
   },
   createNewProduct: async (req: Request, res: Response) => {
     try {
-      const { title, price, images, unique, special, category, quantity, description } = req.body;
-      const err = productValidator(title, price, category, quantity, description);
+      const { title, price, images, unique, special, category, quantity, description, artist } = req.body;
+      const err = productValidator(title, price, category, quantity, description, artist);
       if (Object.keys(err).length > 0) return res.json({ msg: err });
       const newProduct = new ProductModel({
         title,
@@ -71,6 +72,7 @@ export const productCtrl = {
         category,
         quantity,
         description,
+        artist,
       });
       await newProduct.save();
       res.status(200).json({ msg: "New product created." });

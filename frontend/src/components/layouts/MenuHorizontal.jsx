@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from "react";
-import { navbarLeft } from "../../utils/constants";
+import { langTextLeft } from "../../utils/constants";
 import { useLocation, Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import classes from "../../assets/styles/header.module.scss";
 
 export const MenuHorizontal = () => {
-  const [item, setItem] = useState("");
+  const [current, setCurrent] = useState(0);
   const {
     user: { userDetail },
+    language: { lang, setLang },
     loginOpen: { setIsLoginOpen },
     signupOpen: { setIsSignupOpen },
   } = useContext(GlobalContext);
-  const { search } = useLocation();
+  const { search, pathname } = useLocation();
   useEffect(() => {
     (() => {
       const query = new URLSearchParams(search);
@@ -19,65 +20,60 @@ export const MenuHorizontal = () => {
       if (query.get("signupOpen")) return setIsSignupOpen(true);
     })();
   }, [search, setIsLoginOpen, setIsSignupOpen]);
-  const handleClick = (e) => {
-    if (item === e.target) {
-      item.style.fontWeight = "900";
-      item.style.color = "black";
-    } else {
-      if (item) {
-        item.style.fontWeight = "100";
-        item.style.color = "#6A6A6A";
+  useEffect(() => {
+    (() => {
+      switch (pathname) {
+        case "/men":
+          return setCurrent(2);
+        case "/women":
+          return setCurrent(1);
+        case "/bag":
+          return setCurrent(3);
+        default:
+          return setCurrent(0);
       }
-      e.target.style.fontWeight = "900";
-      e.target.style.color = "black";
-    }
-    setItem(e.target);
+    })();
+  }, [pathname]);
+  const toEnglish = () => {
+    setLang("en");
+    localStorage.setItem("setLanguage", "en");
+  };
+  const toMongolia = () => {
+    setLang("mn");
+    localStorage.setItem("setLanguage", "mn");
   };
   return (
     <div className={classes.header}>
-      <div className={classes.header_content}>
-        <div className={classes.header_content_l}>
-          <Link to={"/"} className={classes.header_content_l_image}>
-            <img
-              alt="mepoAfLogo"
-              src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png"
-            />
-          </Link>
-          <div className={classes.header_content_l_links}>
-            {navbarLeft.map(({ name, path }) => (
-              <Link to={path} key={name}>
-                <span
-                  onClick={(e) => handleClick(e)}
-                  className={name === "women's" ? classes.header_content_l_links_p : {}}
-                >
-                  {name}
-                </span>
-              </Link>
-            ))}
-          </div>
+      <div className={classes.header_l}>
+        <Link to={"/"} className={classes.header_l_img_container}>
+          <img alt="mepoAfLogo" src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png" />
+        </Link>
+        <div className={classes.header_l_links}>
+          {langTextLeft[lang].map(({ name, path }, id) => (
+            <Link onClick={() => setCurrent(id)} style={{ fontWeight: current === id ? 600 : 300 }} to={path} key={name}>
+              {name}
+            </Link>
+          ))}
         </div>
-        <div className={classes.header_content_r}>
-          <div onClick={(e) => handleClick(e)}>
-            <button>eng</button>
-            <span>&nbsp;/&nbsp;</span>
-            <button>mon</button>
-          </div>
-          <Link to={"/bag"} onClick={(e) => handleClick(e)}>
-            <button>bag</button>
-          </Link>
-          {userDetail?.token ? (
-            <button onClick={(e) => handleClick(e)}>account</button>
-          ) : (
-            <button
-              onClick={(e) => {
-                setIsLoginOpen(true);
-                handleClick(e);
-              }}
-            >
-              login
-            </button>
-          )}
+      </div>
+      <div className={classes.header_r}>
+        <div className={classes.header_r_langs}>
+          <button style={{ opacity: lang === "en" ? 1 : 0.5 }} onClick={toEnglish}>
+            eng
+          </button>
+          <span>/</span>
+          <button style={{ opacity: lang === "mn" ? 1 : 0.5 }} onClick={toMongolia}>
+            мон
+          </button>
         </div>
+        <Link onClick={() => setCurrent(3)} style={{ fontWeight: current === 3 ? 600 : 300 }} to={"/bag"}>
+          {lang === "en" ? "bag" : "сагс"}
+        </Link>
+        {userDetail?.token ? (
+          <button>{lang === "en" ? "account" : "аккаунт"}</button>
+        ) : (
+          <button onClick={() => setIsLoginOpen(true)}>{lang === "en" ? "login" : "нэвтрэх"}</button>
+        )}
       </div>
     </div>
   );

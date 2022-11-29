@@ -23,12 +23,14 @@ export interface IUser {
 export interface IOrder {
   _id: string;
   user: IUser;
-  fullname: string;
+  size: string;
   email: string;
+  amount: number;
+  fullname: string;
   address: IAddress;
-  orderItems: IProduct[];
-  orderStatus: string;
   paymentID: string;
+  orderItem: IProduct;
+  orderStatus: string;
 }
 export interface IProduct {
   _id: string;
@@ -40,4 +42,12 @@ export interface IProduct {
   quantity: number;
   gender: string;
   description: string;
+  artist: IArtist;
+}
+
+export interface IArtist {
+  _id: string;
+  title: string;
+  name: string;
+  image: object[];
 }

@@ -2,9 +2,9 @@ import React from 'react';
 import clx from "classnames";
 import Order from '../Order/Order';
 import { motion } from 'framer-motion';
-import sum from "../../styles/Summary.module.scss";
+import sum from "../../../../assets/styles/Payment/Summary.module.scss";
 
-const Summary = props => {
+export const Summary = props => {
     const { switchSections, datas , switchBtn} = props;
   return (
     <motion.div 
@@ -43,5 +43,3 @@ const Summary = props => {
     </motion.div>
   )
 }
-
-export default Summary
