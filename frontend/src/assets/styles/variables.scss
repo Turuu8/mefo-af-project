@@ -32,6 +32,11 @@ $headerHeight: 100px;
 $maxWidth: 1920px;
 
 @mixin breakpoint($point) {
+  @if $point == xs {
+    @media (max-width: 300px) {
+      @content;
+    }
+  }
   @if $point == sm {
     @media (max-width: 680px) {
       @content;
