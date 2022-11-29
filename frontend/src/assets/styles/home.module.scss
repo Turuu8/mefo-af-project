@@ -34,6 +34,10 @@
         font-size: 18px;
         width: 315px;
       }
+      @include breakpoint(xs) {
+        font-size: 15px;
+        width: 300px;
+      }
     }
     &_bottom {
       width: 100%;
@@ -50,16 +54,20 @@
         font-size: 48px;
       }
       @include breakpoint(lg) {
-        font-size: 49px;
+        font-size: 45px;
         font-weight: 100;
+        margin-bottom: 70px;
       }
       @include breakpoint(md) {
-        font-size: 44px;
+        font-size: 40px;
       }
       @include breakpoint(sm) {
         font-size: 24px;
         margin-top: 15px;
         margin-bottom: 50px;
+      }
+      @include breakpoint(xs) {
+        font-size: 20px;
       }
     }
     // ______responsive______
@@ -70,13 +78,18 @@
       padding: 180px 70px 0;
     }
     @include breakpoint(lg) {
-      padding: 180px 70px 0;
+      padding: 180px 55px 0;
     }
     @include breakpoint(md) {
-      padding: 140px 50px 0;
+      padding: 140px 30px 0;
     }
     @include breakpoint(sm) {
-      padding: 90px 40px 0;
+      padding: 90px 0 0;
+      max-width: 334px;
+    }
+    @include breakpoint(xs) {
+      padding: 90px 0 0;
+      max-width: 250px;
     }
   }
   &_img {
@@ -93,7 +106,63 @@
       position: absolute;
     }
   }
+  &_collections_text {
+    width: 100%;
+    margin-top: 150px;
+    text-align: center;
+    font-size: 92px;
+    font-weight: 100;
+  }
+  &_scroll_animation_container {
+    padding-top: 100px;
+    // height: 100vh;
+    @include maxWidthPosition;
+    // position: relative;
+    max-width: 1735px;
+    &_fiveImg {
+      display: flex;
+      justify-content: space-between;
+      height: 690px;
+      // gap: 40px;
+      position: relative;
+      div {
+        width: 315px;
+        height: 600px;
+        img {
+          object-fit: cover;
+        }
+      }
+      div:nth-child(1) {
+        margin: auto 0;
+      }
+      div:nth-child(2) {
+        margin: auto 0 0;
+      }
+      div:nth-child(3) {
+        margin: auto 0;
+        img {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 315px;
+          height: 600px;
+          z-index: 2;
+          object-position: 50% 10%;
+        }
+      }
+      div:nth-child(4) {
+        margin: 0 0 auto 0;
+      }
+      div:nth-child(5) {
+        margin: auto 0 0;
+      }
+    }
+  }
 }
+
 .img_indicator {
   display: flex;
   justify-content: center;
@@ -102,6 +171,7 @@
   }
   margin-top: 51px;
 }
+
 // &_scroll {
 //   display: flex;
 //   justify-content: space-around;

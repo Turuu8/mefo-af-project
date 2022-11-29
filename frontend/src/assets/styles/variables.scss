@@ -33,7 +33,7 @@ $maxWidth: 1920px;
 
 @mixin breakpoint($point) {
   @if $point == xs {
-    @media (max-width: 480px) {
+    @media (max-width: 300px) {
       @content;
     }
   }
