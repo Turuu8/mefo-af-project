@@ -2,15 +2,15 @@ import React from "react";
 import clx from "classnames";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import ci from "../../styles/ContactStyle.module.scss";
+import ci from "../../../../assets/styles/Payment/ContactStyle.module.scss";
 
 // import images *********
-import pocketLogo from "./pocket.png";
-import storeLogo from "./storePay.png";
-import creditCartLogo from "./credit.png";
-import { usePaymentContext } from "../../context/paymentContext";
+import pocketLogo from "../../../../assets/images/Payment/pocket.png";
+import storeLogo from "../../../../assets/images/Payment/storePay.png";
+import creditCartLogo from "../../../../assets/images/Payment/credit.png";
+import { usePaymentContext } from "../../../../context/paymentContext";
 
-const ContactInformation = (props) => {
+export const ContactInformation = (props) => {
   const { switchSections } = props;
   const [pocket, setPocket] = useState(false);
   const [credit, setCredit] = useState(false);
@@ -107,7 +107,11 @@ const ContactInformation = (props) => {
                       />
                       <p>Credit card</p>
                     </div>
-                    <img src={creditCartLogo} alt="credit card" />
+                    <img
+                      src={creditCartLogo}
+                      alt="credit card"
+                      className={ci.credit_logo}
+                    />
                   </div>
                   <div
                     className={
@@ -121,7 +125,11 @@ const ContactInformation = (props) => {
                       />
                       <p>Pocket</p>
                     </div>
-                    <img src={pocketLogo} alt="pocket" />
+                    <img
+                      src={pocketLogo}
+                      alt="pocket"
+                      className={ci.pocketLogo}
+                    />
                   </div>
                   <div
                     className={
@@ -135,7 +143,11 @@ const ContactInformation = (props) => {
                       />
                       <p>Store pay</p>
                     </div>
-                    <img src={storeLogo} alt="store pay" />
+                    <img
+                      src={storeLogo}
+                      alt="store pay"
+                      className={ci.storeLogo}
+                    />
                   </div>
                 </>
               </>
@@ -173,7 +185,7 @@ const ContactInformation = (props) => {
                 }
               >
                 <p>Secure payment via Stripe</p>
-                <img src={creditCartLogo} alt="" />
+                <img src={creditCartLogo} alt="" className={ci.credit_logo} />
               </div>
               <div
                 className={clx(
@@ -190,5 +202,3 @@ const ContactInformation = (props) => {
     </motion.div>
   );
 };
-
-export default ContactInformation;

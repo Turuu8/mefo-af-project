@@ -1,4 +1,4 @@
-@import "../../bagVariants.module.scss";
+@import "../Bag/bagVariants.module.scss";
 
 .pocketSection {
   position: absolute;
@@ -71,4 +71,9 @@
       }
     }
   }
+}
+
+.pocketLogo {
+  height: auto;
+  max-width: 40px;
 }

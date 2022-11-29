@@ -1,7 +1,7 @@
 import React from "react";
-import css from "./OrderStyle.module.scss";
-import { motion } from "framer-motion";
 import clx from "classnames";
+import { motion } from "framer-motion";
+import css from "../../../../assets/styles/Bag/OrderStyle.module.scss";
 
 const Order = () => {
   return (

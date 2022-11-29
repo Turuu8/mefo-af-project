@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import css from "./PaymentStyle.module.scss";
+import css from "../../assets/styles/Payment/PaymentStyle.module.scss";
 
 // import sections
-import Pocket from "./Build/Pocket/Pocket";
-import Summary from "./Build/Summary/Summary";
-import ContactInformation from "./Build/Contact/ContactInformation";
+import { Pocket, Summary, ContactInformation } from "./Build";
 
 // import context
-import { usePaymentContext } from "./context/paymentContext";
+import { usePaymentContext } from "../../context/paymentContext";
 
 export const Payment = () => {
   const datas = new Array(2).fill(1);
