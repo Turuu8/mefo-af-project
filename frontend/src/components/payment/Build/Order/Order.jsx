@@ -1,5 +1,5 @@
 import React from 'react';
-import css from "./OrderStyle.module.scss";
+import css from "../../../../assets/styles/Payment/OrderStyle.module.scss";
 
 const Order = () => {
   return (
@@ -18,4 +18,4 @@ const Order = () => {
   )
 }
 
-export default Order
+export default Order;

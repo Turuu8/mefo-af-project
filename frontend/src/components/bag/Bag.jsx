@@ -1,8 +1,8 @@
 import React from "react";
-import css from "./BagStyle.module.scss";
+import { motion } from "framer-motion";
 import Order from "./Build/Order/Order";
 import Titles from "./Build/Titles/Titles";
-import { motion } from "framer-motion";
+import css from "../../assets/styles/Bag/BagStyle.module.scss";
 
 export const BagSection = () => {
   const datas = new Array(3).fill(1);

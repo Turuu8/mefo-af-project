@@ -1,5 +1,5 @@
 import React from "react";
-import css from "../../BagStyle.module.scss";
+import css from "../../../../assets/styles/Bag/BagStyle.module.scss";
 
 const Titles = () => {
   return (
