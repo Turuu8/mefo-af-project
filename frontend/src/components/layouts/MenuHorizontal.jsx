@@ -44,36 +44,75 @@ export const MenuHorizontal = () => {
   };
   return (
     <div className={classes.header}>
-      <div className={classes.header_l}>
-        <Link to={"/"} className={classes.header_l_img_container}>
-          <img alt="mepoAfLogo" src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png" />
-        </Link>
-        <div className={classes.header_l_links}>
-          {langTextLeft[lang].map(({ name, path }, id) => (
-            <Link onClick={() => setCurrent(id)} style={{ fontWeight: current === id ? 600 : 300 }} to={path} key={name}>
-              {name}
-            </Link>
-          ))}
+      <div className={classes.header_content}>
+        <div className={classes.header_content_l}>
+          <Link to={"/"} className={classes.header_content_l_image}>
+            <img
+              alt="mepoAfLogo"
+              src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png"
+            />
+          </Link>
+          <div
+            className={classes.header_content_l_links}
+            style={{ width: lang === "mn" ? "270px" : "" }}
+          >
+            {langTextLeft[lang].map(({ name, path }, id) => (
+              <Link
+                onClick={() => setCurrent(id)}
+                style={{
+                  fontWeight: current === id ? 600 : 300,
+                  color: current === id ? "#000" : "#746c6c",
+                }}
+                className={path === "/women" ? classes.header_content_l_links_p : {}}
+                to={path}
+                key={name}
+              >
+                <span>{name}</span>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-      <div className={classes.header_r}>
-        <div className={classes.header_r_langs}>
-          <button style={{ opacity: lang === "en" ? 1 : 0.5 }} onClick={toEnglish}>
-            eng
-          </button>
-          <span>/</span>
-          <button style={{ opacity: lang === "mn" ? 1 : 0.5 }} onClick={toMongolia}>
-            мон
-          </button>
+
+        <div className={classes.header_content_r} style={{ width: lang === "mn" ? "283px" : "" }}>
+          <div className={classes.header_content_r_langs}>
+            <button
+              style={{
+                color: lang === "en" ? "#000" : "#746c6c",
+                fontWeight: lang === "en" ? 600 : 300,
+              }}
+              onClick={toEnglish}
+            >
+              <p>eng</p>
+            </button>
+            <div>&nbsp;/&nbsp;</div>
+            <button
+              style={{
+                color: lang === "mn" ? "#000" : "#746c6c",
+                fontWeight: lang === "mn" ? 600 : 300,
+              }}
+              onClick={toMongolia}
+            >
+              <p>мон</p>
+            </button>
+          </div>
+          <Link onClick={() => setCurrent(3)} to={"/bag"}>
+            <button
+              style={{
+                fontWeight: current === 3 ? 600 : 300,
+                color: current === 3 ? "#000" : "#746c6c",
+              }}
+            >
+              <p>{lang === "en" ? "bag" : "сагс"}</p>
+            </button>
+          </Link>
+          {userDetail?.token ? (
+            <button>{lang === "en" ? "account" : "аккаунт"}</button>
+          ) : (
+            <button onClick={() => setIsLoginOpen(true)}>
+              {lang === "en" ? "login" : "нэвтрэх"}
+            </button>
+          )}
         </div>
-        <Link onClick={() => setCurrent(3)} style={{ fontWeight: current === 3 ? 600 : 300 }} to={"/bag"}>
-          {lang === "en" ? "bag" : "сагс"}
-        </Link>
-        {userDetail?.token ? (
-          <button>{lang === "en" ? "account" : "аккаунт"}</button>
-        ) : (
-          <button onClick={() => setIsLoginOpen(true)}>{lang === "en" ? "login" : "нэвтрэх"}</button>
-        )}
       </div>
     </div>
   );
