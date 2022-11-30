@@ -2,6 +2,7 @@ import classes from "../../assets/styles/home.module.scss";
 import { HomeScrollAnimation } from "./home-scroll_animation";
 import { HomeSlide } from "./home-slider";
 import { RouterAnimation } from "../../utils/animationVariants";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   return (
