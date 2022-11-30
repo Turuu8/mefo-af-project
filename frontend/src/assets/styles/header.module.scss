@@ -2,67 +2,121 @@
 
 .header {
   top: 0;
-  left: 0;
   z-index: 10;
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 0 90px;
   position: fixed;
   align-items: center;
   background-color: $bg;
   max-height: $headerHeight;
   justify-content: space-between;
+  &_content {
+    height: 100%;
+    padding: 0 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include maxWidthPosition;
+    // ______responsive______
+    @include breakpoint(xl) {
+      padding: 0 40px;
+    }
+    @include breakpoint(lg) {
+      padding: 0 30px;
+    }
+    @include breakpoint(md) {
+      padding: 0 20px;
+    }
+    &_l {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      height: 100%;
+      &_image {
+        margin-left: -60px;
+        height: 68px;
+        // ______responsive______
+        @include breakpoint(lg) {
+          margin-left: -40px;
+          height: 48px;
+        }
+      }
+      &_links {
+        display: flex;
+        width: 243px;
+        justify-content: space-between;
+        position: relative;
+        // ______responsive______
+        @include breakpoint(xl) {
+          margin-left: -30px;
+        }
+        @include breakpoint(lg) {
+          margin-left: -30px;
+          width: 190px;
+        }
+        span {
+          transition: 0.2s;
+          letter-spacing: 0.1em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: $RobotoCondensed;
+          // ______responsive______
+        }
+        &_p {
+          position: absolute;
+          left: 0;
+          right: 10%;
+          width: 80px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      &_links span:hover {
+        font-weight: 510;
+        color: #000;
+      }
+    }
+    &_r {
+      display: flex;
+      width: 256px;
+      height: 21px;
+      align-items: center;
+      justify-content: space-between;
+      // ______responsive______
+      @include breakpoint(lg) {
+        width: 210px;
+      }
+      button {
+        letter-spacing: 0.1em;
+        transition: 0.2s;
+        color: #746c6c;
+        font-family: $RobotoCondensed;
+      }
+      span {
+        font-size: 18px;
+        color: #746c6c;
+      }
+      div {
+        display: flex;
+        align-items: center;
+      }
+      p:hover {
+        font-weight: 600;
+        color: #000;
+      }
+    }
+    &_r button:hover {
+      font-weight: 600;
+      color: #000;
+    }
+  }
+  // ______responsive______
   @include breakpoint(sm) {
     display: none;
   }
-  @include breakpoint(lg) {
-    padding: 0 25px;
-    max-height: 80px;
-  }
-  @include breakpoint(md) {
-    max-height: 70px;
-  }
-  &_l {
-    display: flex;
-    align-items: center;
-    &_img_container {
-      width: 169px;
-      height: 68px;
-    }
-    &_links {
-      width: 246px;
-      display: flex;
-      column-gap: 40px;
-      justify-content: space-between;
-      @include breakpoint(lg) {
-        column-gap: 20px;
-        width: 170px;
-      }
-    }
-  }
-  &_r {
-    width: 241px;
-    display: flex;
-    column-gap: 25px;
-    justify-content: space-between;
-    @include breakpoint(lg) {
-      column-gap: 20px;
-      width: 220px;
-    }
-    button{
-      font-weight: 300;
-    }
-    &_langs {
-      display: flex;
-      align-items: center;
-    }
-    span {
-      margin: 0 5px;
-    }
-  }
 }
-
 .mobileHeader {
   @include breakpoint(sm) {
     display: flex;
@@ -131,6 +185,7 @@
     padding-left: 15px;
     flex-direction: column;
     a {
+      font-size: 36px;
       color: #fff;
       font-weight: 300;
     }
@@ -139,8 +194,10 @@
       color: #fff;
       span {
         margin: 0 5px;
+        font-size: 36px;
       }
       button {
+        font-size: 36px;
         color: #fff;
       }
     }
