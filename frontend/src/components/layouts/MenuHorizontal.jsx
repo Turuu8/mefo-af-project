@@ -20,20 +20,22 @@ export const MenuHorizontal = () => {
       if (query.get("signupOpen")) return setIsSignupOpen(true);
     })();
   }, [search, setIsLoginOpen, setIsSignupOpen]);
-  useEffect(() => {
-    (() => {
-      switch (pathname) {
-        case "/men":
-          return setCurrent(2);
-        case "/women":
-          return setCurrent(1);
-        case "/bag":
-          return setCurrent(3);
-        default:
-          return setCurrent(0);
-      }
-    })();
-  }, [pathname]);
+  // useEffect(() => {
+  //   (() => {
+  //     switch (pathname) {
+  //       case "/all":
+  //         return setCurrent(1);
+  //       case "/men":
+  //         return setCurrent(3);
+  //       case "/women":
+  //         return setCurrent(2);
+  //       case "/bag":
+  //         return setCurrent(4);
+  //       default:
+  //         return setCurrent(0);
+  //     }
+  //   })();
+  // }, [pathname]);
   const toEnglish = () => {
     setLang("en");
     localStorage.setItem("setLanguage", "en");

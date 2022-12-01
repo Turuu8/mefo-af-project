@@ -13,7 +13,7 @@ export const addressCtrl = {
       const newAddress = new AddressModel({ owner: req.user?._id, detail, country, citySoum, zipPostcode, stateProvince, apartmentSuite });
       await newAddress.save();
       await updateUserByID(req.user?._id, { address: newAddress._id });
-      res.status(200).json({ msg: "Address created" });
+      res.status(200).json({ msg: { en: "Address created", mn: "Хаяг бүртгэгдлээ." } });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }
@@ -24,7 +24,7 @@ export const addressCtrl = {
       const err = addValidator(country, citySoum, zipPostcode, stateProvince, apartmentSuite);
       if (Object.keys(err).length > 0) return res.status(400).json({ msg: err });
       await updateAddressByKey({ owner: req.user?._id }, { detail, country, citySoum, zipPostcode, stateProvince, apartmentSuite });
-      res.status(200).json({ msg: "Address updated." });
+      res.status(200).json({ msg: { en: "Address updated.", mn: "Хаяг өөрчлөгдлөө." } });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }

@@ -1,5 +1,7 @@
+export * from "./other/Loading";
 export * from "./layouts/Header";
 export * from "./layouts/Footer";
+export * from "./other/NotFound";
 export * from "../components/bag/Bag";
 export * from "./layouts/MenuVertical";
 export * from "./layouts/MenuHorizontal";

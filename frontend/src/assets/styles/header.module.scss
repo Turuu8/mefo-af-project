@@ -116,6 +116,54 @@
   @include breakpoint(sm) {
     display: none;
   }
+<<<<<<< HEAD
+  @include breakpoint(lg) {
+    padding: 0 25px;
+    max-height: 80px;
+  }
+  @include breakpoint(md) {
+    max-height: 70px;
+  }
+  &_l {
+    display: flex;
+    align-items: center;
+    &_img_container {
+      width: 169px;
+      height: 68px;
+    }
+    &_links {
+      width: 246px;
+      display: flex;
+      column-gap: 40px;
+      justify-content: space-between;
+      @include breakpoint(lg) {
+        column-gap: 20px;
+        width: 170px;
+      }
+    }
+  }
+  &_r {
+    width: 241px;
+    display: flex;
+    column-gap: 25px;
+    justify-content: space-between;
+    @include breakpoint(lg) {
+      column-gap: 20px;
+      width: 220px;
+    }
+    button {
+      font-weight: 300;
+    }
+    &_langs {
+      display: flex;
+      align-items: center;
+    }
+    span {
+      margin: 0 5px;
+    }
+  }
+=======
+>>>>>>> d1a1109b785c53affa2a0b9b23aa6793f7dfe321
 }
 .mobileHeader {
   @include breakpoint(sm) {

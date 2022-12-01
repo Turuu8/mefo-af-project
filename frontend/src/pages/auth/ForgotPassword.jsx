@@ -63,12 +63,12 @@ export const ForgotPassword = () => {
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
                 }}
               />
-              {serverMsg && <span className={classes.error}>{serverMsg.email}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.email?.[lang]}</span>}
             </div>
             <button type="submit" className={classes.submitBtn}>
               {lang === "en" ? "Send mail" : "Мэйл илгээх"}
             </button>
-            {userDetail && <span className={classes.success}>{serverMsg.msg}</span>}
+            {userDetail && <span className={classes.success}>{serverMsg.msg?.[lang]}</span>}
           </form>
           <button onClick={openLoginComp}>{lang === "en" ? "Login" : "Нэвтрэх"}</button>
         </motion.div>
