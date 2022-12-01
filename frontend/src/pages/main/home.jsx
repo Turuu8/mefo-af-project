@@ -1,6 +1,7 @@
 import classes from "../../assets/styles/home.module.scss";
 import { HomeScrollAnimation } from "./home-scroll_animation";
 import { HomeSlide } from "./home-slider";
+import { motion } from "framer-motion";
 import { RouterAnimation } from "../../utils/animationVariants";
 import { motion } from "framer-motion";
 
@@ -16,9 +17,7 @@ export const Home = () => {
         className={classes.home}
       >
         <section className={classes.home_product_promo_text}>
-          <h2 className={classes.home_product_promo_text_top}>
-            A New Look at Fashion of the MEPO AF
-          </h2>
+          <h2 className={classes.home_product_promo_text_top}>A New Look at Fashion of the MEPO AF</h2>
           <h3 className={classes.home_product_promo_text_bottom}>
             EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
           </h3>
