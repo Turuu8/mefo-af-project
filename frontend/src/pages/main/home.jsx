@@ -1,7 +1,6 @@
 import classes from "../../assets/styles/home.module.scss";
 import { HomeScrollAnimation } from "./home-scroll_animation";
 import { HomeSlide } from "./home-slider";
-import { motion } from "framer-motion";
 import { RouterAnimation } from "../../utils/animationVariants";
 import { motion } from "framer-motion";
 
