@@ -47,7 +47,7 @@ export const MenuVertical = () => {
               <div onClick={() => setOnMenu(false)} className={classes.mobileDrop_header_closeIcon}>
                 <img src={closeIcon} alt="" />
               </div>
-              <Link to={"/"} className={classes.mobileDrop_header_image_container}>
+              <Link onClick={closeDrop} to={"/"} className={classes.mobileDrop_header_image_container}>
                 <img alt="mepoAfLogo" src="https://res.cloudinary.com/mustnest/image/upload/v1669202813/Mepo_Af/main-logo-white_idnwm0.png" />
               </Link>
               <div className={classes.mobileDrop_header_right} />

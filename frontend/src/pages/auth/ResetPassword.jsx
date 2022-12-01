@@ -69,7 +69,7 @@ export const ResetPassword = () => {
                 />
                 <span onClick={() => setPassTypeChange(!passTypeChange)}>{passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && <span className={classes.error}>{serverMsg.newPass}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.newPass?.[lang]}</span>}
             </div>
             <div className={classes.passwordBox}>
               <label htmlFor="password">{lang === "en" ? "Confirm password:" : "Нууц үг баталгаажуулах:"}</label>
@@ -87,12 +87,12 @@ export const ResetPassword = () => {
                 />
                 <span onClick={() => setCfPassTypeChange(!cfPassTypeChange)}>{cfPassTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && <span className={classes.error}>{serverMsg.cfNewPass}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.cfNewPass?.[lang]}</span>}
             </div>
             <button type="submit" className={classes.submitBtn}>
-            {lang === "en" ? "Reset password" : "Нууц үг сэргээх"}
+              {lang === "en" ? "Reset password" : "Нууц үг сэргээх"}
             </button>
-            {userDetail && <span className={classes.success}>{serverMsg.msg}</span>}
+            {userDetail && <span className={classes.success}>{serverMsg.msg?.[lang]}</span>}
           </form>
           <button onClick={openLoginComp}>{lang === "en" ? "Login" : "Нэвтрэх"}</button>
         </motion.div>

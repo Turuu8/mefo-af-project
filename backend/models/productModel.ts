@@ -8,6 +8,7 @@ const ProductSchema = new Schema(
     description: { type: String, required: true, trim: true },
     images: { type: Array, default: [] },
     gender: String,
+    sizes: { type: Array, default: [] },
     unique: { type: Boolean, default: false },
     special: { type: Boolean, default: false },
     quantity: { type: Number, required: true },

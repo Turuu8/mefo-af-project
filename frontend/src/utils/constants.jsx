@@ -5,12 +5,12 @@ export const homeImgArr = [
 ];
 export const langTextLeft = {
   en: [
-    { name: "all", path: "/" },
+    { name: "all", path: "/all" },
     { name: "women's", path: "/women" },
     { name: "men's", path: "/men" },
   ],
   mn: [
-    { name: "Бүгд", path: "/" },
+    { name: "Бүгд", path: "/all" },
     { name: "Эмэгтэй", path: "/women" },
     { name: "Эрэгтэй", path: "/men" },
   ],

@@ -1,6 +1,6 @@
-import { Footer } from "./components";
 import { useAuth } from "./API/useAuth";
 import { useEffect, useContext } from "react";
+import { Footer, Loading } from "./components";
 import { AnimatePresence } from "framer-motion";
 import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
@@ -14,6 +14,7 @@ const App = () => {
   const { refreshToken } = useAuth();
   const userLoggedIn = localStorage.getItem("UserLoggedIn");
   const {
+    loading: { loading },
     loginOpen: { isLoginOpen },
     signupOpen: { isSignupOpen },
     forPassOpen: { isForPassOpen },
@@ -26,7 +27,8 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="App">
+      {loading && <Loading />}
       <Header />
       <div>
         <AnimatePresence mode="wait">

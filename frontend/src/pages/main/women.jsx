@@ -1,19 +1,9 @@
-import { motion } from "framer-motion";
-import { RouterAnimation } from "../../utils/animationVariants";
+import React from 'react'
 
 const Women = () => {
   return (
-    <motion.div
-      variants={RouterAnimation}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition="transition"
-      style={{ position: "absolute", top: 100 }}
-    >
-      Women
-    </motion.div>
-  );
-};
+    <div>Women</div>
+  )
+}
 
-export default Women;
+export default Women

@@ -2,18 +2,18 @@
 
 .footer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 60px;
   margin-top: 500px;
-  background-color: #f2f2f2;
   padding: 54px 0 34px;
+  grid-column-gap: 60px;
+  background-color: #f2f2f2;
+  grid-template-columns: repeat(4, 1fr);
   @include breakpoint(sm) {
     display: flex;
+    row-gap: 45px;
+    margin-top: 200px;
+    padding: 20px 40px;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 40px;
-    margin-top: 200px;
-    row-gap: 45px;
   }
   &_item {
     display: flex;
@@ -21,8 +21,8 @@
     flex-direction: column;
     &_inner {
       h4 {
-        font-weight: 400;
         font-size: 18px;
+        font-weight: 400;
         margin-bottom: 15px;
       }
       div {
@@ -31,9 +31,9 @@
         align-items: flex-start;
         a {
           font-size: 16px;
-          text-transform: capitalize;
-          color: $footerTextColor;
           line-height: 20px;
+          color: $footerTextColor;
+          text-transform: capitalize;
         }
       }
       span {

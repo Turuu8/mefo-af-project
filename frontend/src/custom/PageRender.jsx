@@ -1,11 +1,10 @@
 import { createElement } from "react";
 import { useParams } from "react-router-dom";
-import { NotFound } from "../components/other/NotFound";
+import { NotFound } from "../components";
 
 const customizingPageRouter = (pageName) => {
   try {
-    const renderedComponent = () =>
-      require(`../pages/main/${pageName}`).default;
+    const renderedComponent = () => require(`../pages/main/${pageName}`).default;
     return createElement(renderedComponent());
   } catch (error) {
     return <NotFound />;
