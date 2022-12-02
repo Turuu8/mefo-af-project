@@ -3,7 +3,7 @@ import { Controller, Scene } from "react-scrollmagic";
 import { TargetItems } from "./home-animation-supports";
 
 export const HomeScrollAnimation = ({ resize }) => {
-  console.log(resize);
+  //console.log(resize);
   return (
     <Controller>
       <Scene
