@@ -63,7 +63,7 @@ export const Signup = () => {
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
                 }}
               />
-              {serverMsg && <span className={classes.error}>{serverMsg.email}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.email?.[lang]}</span>}
             </div>
             <div className={classes.passwordBox}>
               <label htmlFor="password">{lang === "en" ? "Password:" : "Нууц үг:"}</label>
@@ -81,7 +81,7 @@ export const Signup = () => {
                 />
                 <span onClick={() => setPassTypeChange(!passTypeChange)}>{passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && <span className={classes.error}>{serverMsg.password}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.password?.[lang]}</span>}
             </div>
             <div className={classes.passwordBox}>
               <label htmlFor="password">{lang === "en" ? "Confirm password:" : "Нууц үг баталгаажуулах:"}</label>
@@ -99,13 +99,13 @@ export const Signup = () => {
                 />
                 <span onClick={() => setCfPassTypeChange(!cfPassTypeChange)}>{cfPassTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && <span className={classes.error}>{serverMsg.cfNewPass}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.cfNewPass?.[lang]}</span>}
             </div>
 
             <button type="submit" className={classes.submitBtn}>
               {lang === "en" ? "Sign up" : "Бүртгүүлэх"}
             </button>
-            {serverMsg && <span className={classes.success}>{serverMsg.msg}</span>}
+            {serverMsg && <span className={classes.success}>{serverMsg.msg?.[lang]}</span>}
           </form>
         </motion.div>
       </div>

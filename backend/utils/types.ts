@@ -40,6 +40,7 @@ export interface IProduct {
   unique: boolean;
   images: object[];
   quantity: number;
+  sizes: string[];
   gender: string;
   description: string;
   artist: IArtist;

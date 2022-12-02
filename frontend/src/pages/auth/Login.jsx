@@ -68,7 +68,7 @@ export const Login = () => {
                   border: serverMsg.email ? "1px solid #C50C0C" : "none",
                 }}
               />
-              {serverMsg && <span className={classes.error}>{serverMsg.email}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.email?.[lang]}</span>}
             </div>
             <div className={classes.passwordBox}>
               <label htmlFor="password">{lang === "en" ? "Password:" : "Нууц үг:"}</label>
@@ -86,12 +86,12 @@ export const Login = () => {
                 />
                 <span onClick={typeChange}>{passTypeChange ? <AiFillEyeInvisible /> : <AiFillEye />}</span>
               </div>
-              {serverMsg && <span className={classes.error}>{serverMsg.password}</span>}
+              {serverMsg && <span className={classes.error}>{serverMsg.password?.[lang]}</span>}
             </div>
             <button type="submit" className={classes.submitBtn}>
               {lang === "en" ? "Login" : "Нэвтрэх"}
             </button>
-            {userDetail && <span className={classes.success}>{userDetail.msg}</span>}
+            {userDetail && <span className={classes.success}>{userDetail.msg?.[lang]}</span>}
           </form>
           <button onClick={openForPassComp}>{lang === "en" ? "Forgot password" : "Нууц үгээ мартсан"}</button>
         </motion.div>

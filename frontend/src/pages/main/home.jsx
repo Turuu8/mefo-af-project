@@ -16,9 +16,7 @@ export const Home = () => {
         className={classes.home}
       >
         <section className={classes.home_product_promo_text}>
-          <h2 className={classes.home_product_promo_text_top}>
-            A New Look at Fashion of the MEPO AF
-          </h2>
+          <h2 className={classes.home_product_promo_text_top}>A New Look at Fashion of the MEPO AF</h2>
           <h3 className={classes.home_product_promo_text_bottom}>
             EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
           </h3>

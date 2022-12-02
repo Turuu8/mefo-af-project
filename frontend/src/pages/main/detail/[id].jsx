@@ -1,15 +1,9 @@
-import React from "react";
-import { RelatedProducts } from "../../../components/";
+import React from 'react'
 
 const Detail = () => {
   return (
-    <div>
-      {/* Detail Information */}
+    <div>Detail</div>
+  )
+}
 
-      {/* Related Products */}
-      <RelatedProducts />
-    </div>
-  );
-};
-
-export default Detail;
+export default Detail

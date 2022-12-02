@@ -1,23 +1,17 @@
+
 import { motion } from 'framer-motion';
 import { RouterAnimation } from '../../utils/animationVariants';
 import { useEffect, useState } from 'react';
 import { getAPI } from '../../utils/fetchingProduct';
 import { ProductCart } from '../../components/product/ProductCart';
 
-const Men = () => {
-  const [product, setProduct] = useState([]);
-  const fetchProduct = async () => {
-    try {
-      const res = await getAPI('/product');
-      setProduct(res.data.products);
-    } catch (error) {}
-  };
+import React from 'react'
 
-  useEffect(() => {
-    fetchProduct();
-  }, []);
+
+
 
   return (
+
     <div>
       <motion.div
         variants={RouterAnimation}
@@ -36,4 +30,9 @@ const Men = () => {
   );
 };
 
-export default Men;
+    <div>Men</div>
+  )
+}
+
+
+export default Men

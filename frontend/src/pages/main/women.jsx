@@ -1,20 +1,11 @@
+
 import { motion } from 'framer-motion';
 import { RouterAnimation } from '../../utils/animationVariants';
 import { useEffect, useState } from 'react';
 import { getAPI } from '../../utils/fetchingProduct';
 
-const Women = () => {
-  const [product, setProduct] = useState([]);
-  const fetchProduct = async () => {
-    try {
-      const res = await getAPI('/product');
-      setProduct(res.data.products);
-    } catch (error) {}
-  };
 
-  useEffect(() => {
-    fetchProduct();
-  }, []);
+const Women = () => {
 
   return (
     <div>
@@ -40,5 +31,8 @@ const Women = () => {
     </div>
   );
 };
+    <div>Women</div>
+  )
+}
 
-export default Women;
+export default Women

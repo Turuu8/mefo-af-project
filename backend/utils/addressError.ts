@@ -1,19 +1,19 @@
 export const addValidator = (country: string, citySoum: string, zipPostcode: string, stateProvince: string, apartmentSuite: string) => {
-  const errors: { [name: string]: string } = {};
+  const errors: { [name: string]: object } = {};
   if (!country) {
-    errors.country = "Please fill out this field.";
+    errors.country = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!citySoum) {
-    errors.citySoum = "Please fill out this field.";
+    errors.citySoum = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!zipPostcode) {
-    errors.zipPostcode = "Please fill out this field.";
+    errors.zipPostcode = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!stateProvince) {
-    errors.stateProvince = "Please fill out this field.";
+    errors.stateProvince = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!apartmentSuite) {
-    errors.apartmentSuite = "Please fill out this field.";
+    errors.apartmentSuite = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   return errors;
 };

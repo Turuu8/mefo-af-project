@@ -1,29 +1,22 @@
-export const productValidator = (
-  title: string,
-  price: number,
-  category: string,
-  quantity: number,
-  description: string,
-  artist: string
-) => {
-  const errors: { [name: string]: string } = {};
+export const productValidator = (title: string, price: number, category: string, quantity: number, description: string, artist: string) => {
+  const errors: { [name: string]: object } = {};
   if (!title) {
-    errors.title = "Please fill out this field.";
+    errors.title = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!price) {
-    errors.price = "Please fill out this field.";
+    errors.price = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!category) {
-    errors.category = "Please fill out this field.";
+    errors.category = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!quantity) {
-    errors.quantity = "Please fill out this field.";
+    errors.quantity = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!description) {
-    errors.description = "Please fill out this field.";
+    errors.description = { en: "Please fill out this field.", mn: "Үүнийг бөглөнө үү." };
   }
   if (!artist) {
-    errors.artist = "Please choose artist.";
+    errors.artist = { en: "Please choose artist.", mn: "Артист сонгоно уу." };
   }
   return errors;
 };
