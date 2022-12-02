@@ -1,3 +1,9 @@
+import men1 from "../assets/images/mepo-image-men1.jpg";
+import men2 from "../assets/images/mepo-image-men2.jpg";
+import men3 from "../assets/images/mepo-image-men6.jpg";
+import men4 from "../assets/images/mepo-image-men3.jpg";
+import men5 from "../assets/images/mepo-image-men4.jpg";
+
 export const homeImgArr = [
   "https://res.cloudinary.com/mustnest/image/upload/v1669293202/Mepo_Af/x6shifpt9lmhfri3owm2.png",
   "https://res.cloudinary.com/mustnest/image/upload/v1669292935/Mepo_Af/u9y4kdbejy4m1iww3wu2.png",
@@ -63,3 +69,21 @@ export const langNavbarMobile = {
     { name: "Нэвтрэх", path: "/products" },
   ],
 };
+
+export const specialImges = [
+  { url: men1 },
+  { url: men2 },
+  { url: men3 },
+  { url: men4 },
+  { url: men5 },
+];
+export const specialProductDetail = [
+  {
+    descriptionName: "About collection",
+    detail: [
+      "We collect beautiful classic men’s design artifacts from the 20th & 21st century..",
+      "We collect beautiful classic uniq clothes ever. Our collections all hand made. ",
+      "We collect beautiful classic men’s design artifacts from the 20th & 21st century. You can make your own lookbook with mepo af.",
+    ],
+  },
+];

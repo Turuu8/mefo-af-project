@@ -25,34 +25,13 @@ export const Home = () => {
         </section>
         <HomeSlide />
         <h1 className={classes.home_collections_text}>Our collections</h1>
-        <section id="animation">
+        <section id="animation" className={classes.home_scroll_animation}>
           <HomeScrollAnimation />
-          {/* <HomeAnimation /> */}
-          {/* <Controller>
-            <Scene
-              duration={1000}
-              pin={true}
-              indicators={true}
-              triggerHook="onLeave"
-              triggerElement="#animation"
-            >
-              {(progress) => {
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100vh",
-                    backgroundColor: "black",
-                  }}
-                ></div>;
-              }}
-            </Scene>
-          </Controller> */}
         </section>
         <div
           style={{
             width: "100%",
             height: "100vh",
-            backgroundColor: "black",
           }}
         ></div>
       </motion.div>
