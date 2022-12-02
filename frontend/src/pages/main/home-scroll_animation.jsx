@@ -10,40 +10,50 @@ export const HomeScrollAnimation = () => {
         // indicators={true}
         triggerElement={"#animation"}
         triggerHook={0.15}
-        // pin={("#k", { pushFollowers: false })}
+        // pin={("#animation", { pushFollowers: false })}
       >
         {(progress) => (
           <Timeline totalProgress={progress} paused target={<TargetItems />}>
-            {/* <Tween
-              to={{
-                scrollTrigger: {
-                  trigger: "#animation",
-                  scrub: true,
-                  pin: true,
-                  markers: true,
-                },
-              }}
-            /> */}
             <Tween
               to={{
                 y: "5vh",
                 x: "-60vw",
+                scrollTrigger: {
+                  trigger: "#img",
+                  start: "0 25%",
+                  end: "100% center",
+                  scrub: 1,
+                },
               }}
               target="img1"
               position="0"
+              duration={0.5}
             />
             <Tween
               to={{
                 y: "5vh",
-                x: "-50vw",
+                x: "-60vw",
+                scrollTrigger: {
+                  trigger: "#img",
+                  start: "0 25%",
+                  end: "100% center",
+                  scrub: 1,
+                },
               }}
               target="img2"
               position="0"
+              duration={0.5}
             />
             <Tween
               to={{
                 y: "5vh",
-                x: "50vw",
+                x: "60vw",
+                scrollTrigger: {
+                  trigger: "#img",
+                  start: "0 25%",
+                  end: "100% center",
+                  scrub: 1,
+                },
               }}
               target="img4"
               position="0"
@@ -52,43 +62,54 @@ export const HomeScrollAnimation = () => {
               to={{
                 y: "5vh",
                 x: "60vw",
+                scrollTrigger: {
+                  trigger: "#img",
+                  start: "0 25%",
+                  end: "100% center",
+                  scrub: 1,
+                },
               }}
               target="img5"
               position="0"
             />
             {/*  scrolling big image  */}
             <Tween
-              to={{
-                height: "130vh",
-                y: "60vh",
+              from={{
+                top: "10%",
               }}
-              target="img3"
-              position="0"
-              duration={0.9}
-            />
-            <Tween
               to={{
+                height: "190vh",
                 width: "100vw",
+                top: "60vh",
+                objectPosition: "50% -70%",
+                scrollTrigger: {
+                  trigger: "#mainImg",
+                  start: "0 21%",
+                  end: "100% center",
+                  scrub: 1,
+                },
               }}
               target="img3"
               position="0"
-              duration={0.65}
+              duration={1}
             />
+            {/* shadow */}
             <Tween
               to={{
-                objectPosition: "50% 0",
+                top: "90vh",
+                width: "100vw",
+                right: "0",
+                display: "flex",
+                height: "800px",
+                scrollTrigger: {
+                  trigger: "#shadow",
+                  start: "-100% bottom",
+                  end: "140% center",
+                  duration: "0.1s",
+                },
               }}
-              target="img3"
-              position="0"
-              duration={1.05}
-            />
-            <Tween
-              to={{
-                maxWidth: "100vw",
-              }}
-              target="container"
-              position="0"
-              duration={0.1}
+              target="shadow"
+              duration={0}
             />
           </Timeline>
         )}
