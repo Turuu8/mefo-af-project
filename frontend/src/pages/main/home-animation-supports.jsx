@@ -1,10 +1,6 @@
 import classes from "../../assets/styles/home.module.scss";
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import men1 from "../../assets/images/mepo-image-men1.jpg";
-import men2 from "../../assets/images/mepo-image-men2.jpg";
-import men3 from "../../assets/images/mepo-image-men6.jpg";
-import men4 from "../../assets/images/mepo-image-men3.jpg";
-import men5 from "../../assets/images/mepo-image-men4.jpg";
+import { specialImges, specialProductDetail } from "../../utils/constants";
 
 export const TargetItems = forwardRef((props, ref) => {
   const img1 = useRef(null);
@@ -14,6 +10,8 @@ export const TargetItems = forwardRef((props, ref) => {
   const img5 = useRef(null);
   const mainImg = useRef(null);
   const container = useRef(null);
+  const shadow = useRef(null);
+  const detailText = useRef(null);
   useImperativeHandle(ref, () => ({
     img1,
     img2,
@@ -22,24 +20,42 @@ export const TargetItems = forwardRef((props, ref) => {
     img5,
     mainImg,
     container,
+    shadow,
+    detailText,
   }));
   const div = [img1, img2, img3, img4, img5];
   return (
     <div ref={container} className={classes.home_scroll_animation_container}>
       <div id="fiveImg" className={classes.home_scroll_animation_container_fiveImg}>
-        {imges.map((el, i) => (
+        {specialImges.map((el, i) => (
           <div key={el.url}>
-            <img
-              id={div[3] === div[i] ? "mainImg" : "mainImg"}
-              ref={div[i]}
-              src={el.url}
-              alt="img"
-            />
+            <img id={div[3] === div[i] ? "mainImg" : "img"} ref={div[i]} src={el.url} alt="img" />
+            {div[2] === div[i] ? (
+              <div
+                ref={shadow}
+                id="shadow"
+                className={classes.home_scroll_animation_container_fiveImg_shadow}
+              >
+                {specialProductDetail.map((el, i) => (
+                  <span
+                    key={i}
+                    ref={detailText}
+                    id="detailText"
+                    className={classes.home_scroll_animation_container_fiveImg_shadow_detail}
+                  >
+                    <h2>{el.descriptionName}</h2>
+                    <span>
+                      <p>{el.detail[0]}</p>
+                      <p>{el.detail[1]}</p>
+                      <p>{el.detail[2]}</p>
+                    </span>
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
     </div>
   );
 });
-
-const imges = [{ url: men1 }, { url: men2 }, { url: men3 }, { url: men4 }, { url: men5 }];
