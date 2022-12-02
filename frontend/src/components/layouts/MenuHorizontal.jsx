@@ -49,15 +49,9 @@ export const MenuHorizontal = () => {
       <div className={classes.header_content}>
         <div className={classes.header_content_l}>
           <Link to={"/"} className={classes.header_content_l_image}>
-            <img
-              alt="mepoAfLogo"
-              src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png"
-            />
+            <img alt="mepoAfLogo" src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png" />
           </Link>
-          <div
-            className={classes.header_content_l_links}
-            style={{ width: lang === "mn" ? "270px" : "" }}
-          >
+          <div className={classes.header_content_l_links} style={{ width: lang === "mn" ? "270px" : "" }}>
             {langTextLeft[lang].map(({ name, path }, id) => (
               <Link
                 onClick={() => setCurrent(id)}
@@ -108,11 +102,9 @@ export const MenuHorizontal = () => {
             </button>
           </Link>
           {userDetail?.token ? (
-            <button>{lang === "en" ? "account" : "аккаунт"}</button>
+            <Link to={"/account"}>{lang === "en" ? "account" : "аккаунт"}</Link>
           ) : (
-            <button onClick={() => setIsLoginOpen(true)}>
-              {lang === "en" ? "login" : "нэвтрэх"}
-            </button>
+            <button onClick={() => setIsLoginOpen(true)}>{lang === "en" ? "login" : "нэвтрэх"}</button>
           )}
         </div>
       </div>

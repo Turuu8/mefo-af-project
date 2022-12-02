@@ -10,12 +10,7 @@ export const orderCtrl = {
       const { page, limit, sort } = req.query;
       const limitQ = Number(limit) || 10;
       const pageQ = Number(page) - 1 || 0;
-      const sortBy:
-        | null
-        | string
-        | undefined
-        | { [key: string]: SortOrder | { $meta: "textScore" } }
-        | [string, SortOrder][] = {};
+      const sortBy: null | string | undefined | { [key: string]: SortOrder | { $meta: "textScore" } } | [string, SortOrder][] = {};
 
       if (sort === "earliest") {
         sortBy.createdAt = "desc";
@@ -23,7 +18,7 @@ export const orderCtrl = {
         sortBy.updatedAt = "desc";
       }
       const allOrders = await OrderModel.find()
-        .populate("orderItems")
+        .populate("orderItem")
         .sort(sortBy)
         .skip(pageQ * limitQ)
         .limit(limitQ);
@@ -34,13 +29,12 @@ export const orderCtrl = {
   },
   createNewOrder: async (req: CustomRequest, res: Response) => {
     try {
-      const { fullname, email, orderItems } = req.body;
-      const userMail = email || req.user?.email;
+      const { fullname, orderItems } = req.body;
       const orders = orderItems.map(async (order: any) => {
         const newOrder = new OrderModel({
           user: req.user?._id,
           fullname,
-          email: userMail,
+          email: req.user?.email,
           address: req.user?.address,
           orderItem: order?.id,
           amount: order?.amount,
