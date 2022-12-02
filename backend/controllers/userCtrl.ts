@@ -56,7 +56,7 @@ export const userCtrl = {
         .populate({
           path: "orders",
           populate: {
-            path: "orderItems",
+            path: "orderItem",
           },
         });
       const access_token = createAccessToken({ id: user?._id });
@@ -105,7 +105,14 @@ export const userCtrl = {
       const rf_token = req.cookies.refreshToken;
       if (!rf_token) return res.status(400).json({ msg: "Please login now." });
       const decoded = jwt.verify(rf_token, process.env.REFRESH_TOKEN!);
-      const user = await UserModel.findById((<any>decoded).id).populate("address orders");
+      const user = await UserModel.findById((<any>decoded).id)
+        .populate("address")
+        .populate({
+          path: "orders",
+          populate: {
+            path: "orderItem",
+          },
+        });
       const access_token = createAccessToken({ id: user?.id });
       res.status(200).json({ user, token: access_token });
     } catch (error) {

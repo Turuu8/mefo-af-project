@@ -6,5 +6,5 @@ export const PrivateRouter = () => {
   const {
     token: { token },
   } = useContext(GlobalContext);
-  return;
+  return token ? <Outlet /> : <Navigate to={"/"} />;
 };

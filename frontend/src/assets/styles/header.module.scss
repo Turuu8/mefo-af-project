@@ -83,10 +83,11 @@
       width: 256px;
       height: 21px;
       align-items: center;
+      margin-left: 10px;
       justify-content: space-between;
       // ______responsive______
       @include breakpoint(lg) {
-        width: 210px;
+        width: 240px;
       }
       button {
         letter-spacing: 0.1em;
