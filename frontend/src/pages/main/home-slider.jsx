@@ -17,19 +17,19 @@ export const HomeSlide = () => {
     };
   }, [count]);
   return (
-    <div>
-      <div className={classes.home_img}>
+    <div className={classes.home_slideImg}>
+      <div className={classes.home_slideImg_img}>
         {homeImgArr.map((item, id) => (
           <img
             key={id}
             src={item}
             alt="men's clothes"
-            className={classes.home_img_item}
+            className={classes.home_slideImg_img_item}
             style={{ opacity: count === id ? 1 : 0, transitionDuration: "0.4s" }}
           />
         ))}
       </div>
-      <div className={classes.img_indicator}>
+      <div className={classes.home_slideImg_indicator}>
         {homeImgArr.map((item, id) => (
           <span
             key={id}

@@ -11,6 +11,7 @@ export const TargetItems = forwardRef((props, ref) => {
   const mainImg = useRef(null);
   const container = useRef(null);
   const shadow = useRef(null);
+  const detailText = useRef(null);
   useImperativeHandle(ref, () => ({
     img1,
     img2,
@@ -20,6 +21,7 @@ export const TargetItems = forwardRef((props, ref) => {
     mainImg,
     container,
     shadow,
+    detailText,
   }));
   const div = [img1, img2, img3, img4, img5];
   return (
@@ -34,21 +36,21 @@ export const TargetItems = forwardRef((props, ref) => {
                 id="shadow"
                 className={classes.home_scroll_animation_container_fiveImg_shadow}
               >
-                {specialProductDetail.map((el, i) => {
-                  return (
-                    <span
-                      key={i}
-                      className={classes.home_scroll_animation_container_fiveImg_shadow_detail}
-                    >
-                      <h2>{el.descriptionName}</h2>
-                      <span>
-                        <p>{el.detail[0]}</p>
-                        <p>{el.detail[1]}</p>
-                        <p>{el.detail[2]}</p>
-                      </span>
+                {specialProductDetail.map((el, i) => (
+                  <span
+                    key={i}
+                    ref={detailText}
+                    id="detailText"
+                    className={classes.home_scroll_animation_container_fiveImg_shadow_detail}
+                  >
+                    <h2>{el.descriptionName}</h2>
+                    <span>
+                      <p>{el.detail[0]}</p>
+                      <p>{el.detail[1]}</p>
+                      <p>{el.detail[2]}</p>
                     </span>
-                  );
-                })}
+                  </span>
+                ))}
               </div>
             ) : null}
           </div>

@@ -85,26 +85,46 @@
       max-width: 250px;
     }
   }
-  &_img {
-    width: 100vw;
-    height: 90vh;
-    overflow: hidden;
-    position: relative;
-    &_item {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      position: absolute;
+  &_slideImg {
+    &_img {
+      width: 100vw;
+      height: 90vh;
+      overflow: hidden;
+      position: relative;
+      &_item {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+      }
+      // ______responsive______
+      @include breakpoint(sm) {
+        height: 610px;
+      }
+    }
+    &_indicator {
+      display: flex;
+      justify-content: center;
+      @include breakpoint(sm) {
+        margin-top: 40px;
+      }
+      margin-top: 51px;
     }
   }
+
   &_collections_text {
     width: 100%;
     margin-top: 150px;
     text-align: center;
     font-size: 92px;
     font-weight: 100;
+    // ______responsive______
+    @include breakpoint(sm) {
+      font-size: 48px;
+      margin-top: 95px;
+    }
   }
   &_scroll_animation {
     position: relative;
@@ -132,6 +152,10 @@
         @include breakpoint(xl) {
           width: 300px;
           height: 550px;
+        }
+        @include breakpoint(sm) {
+          width: 78px;
+          height: 260px;
         }
       }
       div:nth-child(1) {
@@ -163,6 +187,10 @@
             width: 140px;
             height: 550px;
           }
+          @include breakpoint(sm) {
+            width: 70px;
+            height: 260px;
+          }
         }
       }
       div:nth-child(4) {
@@ -175,22 +203,29 @@
         position: absolute;
         z-index: 3;
         display: none;
-        background: linear-gradient(transparent 1%, #000 40%);
+        background: linear-gradient(transparent 1%, #000 35%);
         top: 150%;
         align-items: flex-end;
+        height: auto;
         &_detail {
           @include maxWidthPosition;
+          position: absolute;
           padding: 0 90px 150px;
           width: 100%;
           color: $light;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          max-height: 500px;
+          background-color: #000;
           h2 {
             font-weight: 100;
             font-size: 96px;
             padding-bottom: 120px;
+            // ______responsive______
+            @include breakpoint(sm) {
+              font-size: 85px;
+              padding-bottom: 50px;
+            }
           }
           span {
             display: flex;
@@ -200,8 +235,31 @@
               max-width: 565px;
               font-weight: 100;
               font-size: 36px;
+              // ______responsive______
+              @include breakpoint(sm) {
+                font-size: 20px;
+                opacity: 0.95;
+                line-height: 150%;
+                letter-spacing: 0.05em;
+              }
+            }
+            // ______responsive______
+            @include breakpoint(sm) {
+              flex-direction: column;
+              gap: 50px;
             }
           }
+          // ______responsive______
+          @include breakpoint(sm) {
+            padding: 0 20px 100px;
+            top: 95%;
+          }
+        }
+        // ______responsive______
+        @include breakpoint(sm) {
+          background: linear-gradient(transparent 0%, #000 50%);
+          align-items: center;
+          top: 150%;
         }
       }
       // ______responsive______
@@ -209,17 +267,19 @@
         gap: 30px;
       }
       @include breakpoint(lg) {
-        gap: 20px;
+        gap: 10px;
+      }
+      @include breakpoint(sm) {
+        gap: 10px;
+      }
+      // ______responsive______
+      @include breakpoint(sm) {
+        height: 320px;
       }
     }
+    // ______responsive______
+    @include breakpoint(sm) {
+      padding-top: 40px;
+    }
   }
-}
-
-.img_indicator {
-  display: flex;
-  justify-content: center;
-  @include breakpoint(sm) {
-    margin-top: 41px;
-  }
-  margin-top: 51px;
 }
