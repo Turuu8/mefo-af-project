@@ -1,7 +1,8 @@
-
+@import "./account-variables.module.scss";
 
 .empty_section {
     width: 100%;
+    padding: 80px 90px;
     padding-top: 135px;
     transition: .2s ease all;
     @media (max-width: 900px) {
@@ -11,12 +12,21 @@
         padding-top: 65px;
     }
 
+    @include breakpoint(md) {
+        padding: $pageSmallPadding;
+        padding-bottom: 1rem;
+      }
+  
+      @include breakpoint(sm) {
+        padding: $paddingPhonePadding;
+        padding-bottom: 1rem;
+      }
+
     &__container {
         gap: 50px;
         width: 100%;
-        display: flex;
+        @include flex();
         align-items: center;
-        flex-direction: column;
 
         .circle_border {
             width: 150px;
