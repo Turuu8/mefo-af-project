@@ -12,7 +12,7 @@ export const Footer = () => {
     language: { lang },
   } = useContext(GlobalContext);
   return (
-    <>
+    <div className={classes.footerContainer}>
       <div className={classes.footer}>
         {Object.entries(langFooterArr[lang]).map(([name, arr]) => (
           <div key={name} className={classes.footer_item}>
@@ -28,8 +28,8 @@ export const Footer = () => {
             </div>
           </div>
         ))}
-        <div className={classes.footer_item}>
-          <div className={classes.footer_item_inner}>
+        <div className={classes.footer_item_social}>
+          <div className={classes.footer_item_social_inner}>
             <h4>{lang === "en" ? "SOCIAL LINKS" : "Сошиал хаяг"}</h4>
             <span>
               <a href="www.instagram.com">
@@ -48,6 +48,6 @@ export const Footer = () => {
         </Link>
         <span>@2022 Mepo Af. Website designed by Surneke</span>
       </div>
-    </>
+    </div>
   );
 };
