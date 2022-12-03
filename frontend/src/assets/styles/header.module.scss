@@ -189,6 +189,9 @@
       font-size: 36px;
       color: #fff;
       font-weight: 300;
+      @include breakpoint(sm){
+        font-size: 20px;
+      }
     }
     &_langChange {
       display: flex;
@@ -196,10 +199,16 @@
       span {
         margin: 0 5px;
         font-size: 36px;
+        @include breakpoint(sm){
+          font-size: 20px;
+        }
       }
       button {
         font-size: 36px;
         color: #fff;
+        @include breakpoint(sm){
+          font-size: 20px;
+        }
       }
     }
   }
