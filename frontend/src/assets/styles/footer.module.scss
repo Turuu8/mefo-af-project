@@ -1,23 +1,24 @@
 @import "variables.scss";
 
-.footer {
-  display: grid;
-  padding: 54px 0 34px;
-  grid-column-gap: 60px;
+.footerContainer {
+  padding: 54px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: #f2f2f2;
-  grid-template-columns: repeat(4, 1fr);
-  @include breakpoint(sm) {
-    display: flex;
-    row-gap: 45px;
+  @include breakpoint (md){
     padding: 20px;
-    margin-top: 200px;
-    flex-direction: column;
-    align-items: flex-start;
-    grid-template-columns: 1fr
   }
+}
+.footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   &_item {
+    width: 300px;
     display: flex;
-    align-items: center;
+    margin-bottom: 15px;
     flex-direction: column;
     &_inner {
       h4 {
@@ -42,11 +43,41 @@
           }
         }
       }
+    }
+  }
+  &_item_social {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-direction: column;
+    @include breakpoint(xl) {
+      align-items: flex-start;
+    }
+    &_inner {
+      h4 {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        @include breakpoint(sm) {
+          font-size: 16px;
+        }
+      }
       span {
         display: flex;
         column-gap: 25px;
         align-items: center;
         justify-content: center;
+        a {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+        }
       }
       svg {
         color: gray;
@@ -55,18 +86,22 @@
     }
   }
 }
+
 .footerBottom {
+  width: 100%;
   display: flex;
-  padding: 0 68px;
   color: #919091;
   align-items: center;
-  background-color: #f2f2f2;
   justify-content: space-between;
+  background-color: #f2f2f2;
   .footer_image_container {
     width: 104px;
     height: 46px;
     @include breakpoint(sm) {
       display: none;
     }
+  }
+  span {
+    text-align: center;
   }
 }
