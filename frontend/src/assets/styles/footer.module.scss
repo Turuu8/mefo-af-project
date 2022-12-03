@@ -9,10 +9,11 @@
   @include breakpoint(sm) {
     display: flex;
     row-gap: 45px;
+    padding: 20px;
     margin-top: 200px;
-    padding: 20px 40px;
     flex-direction: column;
     align-items: flex-start;
+    grid-template-columns: 1fr
   }
   &_item {
     display: flex;
@@ -23,6 +24,9 @@
         font-size: 18px;
         font-weight: 400;
         margin-bottom: 15px;
+        @include breakpoint(sm) {
+          font-size: 16px;
+        }
       }
       div {
         display: flex;
@@ -33,11 +37,14 @@
           line-height: 20px;
           color: $footerTextColor;
           text-transform: capitalize;
+          @include breakpoint(sm) {
+            font-size: 14px;
+          }
         }
       }
       span {
         display: flex;
-        column-gap: 10px;
+        column-gap: 25px;
         align-items: center;
         justify-content: center;
       }
@@ -45,6 +52,21 @@
         color: gray;
         cursor: pointer;
       }
+    }
+  }
+}
+.footerBottom {
+  display: flex;
+  padding: 0 68px;
+  color: #919091;
+  align-items: center;
+  background-color: #f2f2f2;
+  justify-content: space-between;
+  .footer_image_container {
+    width: 104px;
+    height: 46px;
+    @include breakpoint(sm) {
+      display: none;
     }
   }
 }
