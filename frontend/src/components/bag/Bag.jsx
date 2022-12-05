@@ -3,13 +3,19 @@ import { motion } from "framer-motion";
 import Order from "./Build/Order/Order";
 import Titles from "./Build/Titles/Titles";
 import css from "../../assets/styles/Bag/BagStyle.module.scss";
+import backgroundfirst from "../../assets/images/Bag/background.png";
+import backgroundsecond from "../../assets/images/Bag/background2.png";
 
-export const BagSection = () => {
+export const Bag = () => {
   const datas = new Array(3).fill(1);
   return (
     <section className={css.bagSection}>
       <div className={css.bagSection__titleSection}>
-        <h1 className={css.bagSection__titleSection__title}>SHOPPING BAG</h1>
+        <img src={backgroundfirst} className={css.backgroundLarge} />
+        <img src={backgroundsecond} className={css.backgroundSmall} />
+        <div className={css.container}>
+          <h1 className={css.bagSection__titleSection__title}>SHOPPING BAG</h1>
+        </div>
       </div>
       <motion.div
         className={css.bagSection__ordersSection}
@@ -30,7 +36,7 @@ export const BagSection = () => {
         <div className={css.bagSection__ordersSection__totalSection}>
           <div className={css.bagSection__ordersSection__totalSection__total}>
             <h3>TOTAL PRICE </h3>
-            <p>USD 320.00</p>
+            <h3>USD 320.00</h3>
           </div>
         </div>
 
