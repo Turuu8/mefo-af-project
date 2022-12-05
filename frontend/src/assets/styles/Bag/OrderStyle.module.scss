@@ -40,7 +40,6 @@
     &__documentsSection {
       gap: 1rem;
       width: 100%;
-
       display: flex;
       position: relative;
       justify-content: space-between;
@@ -62,6 +61,15 @@
         button {
           font-size: 1.1rem;
         }
+        .removeBtn {
+          font-family: "Roboto";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+
+          color: #222222;
+        }
       }
     }
 
@@ -79,10 +87,11 @@
       position: relative;
 
       .removeBtn {
-        position: absolute;
-        top: 0%;
-        right: 0%;
-        font-size: 1.2rem;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
       }
 
       p {
@@ -95,42 +104,14 @@
         gap: 0.8rem;
 
         display: flex;
+        position: relative;
         align-items: center;
 
         &__dropdown {
           width: 50%;
           gap: 0.1rem;
           @include flex();
-
-          // .dropdown_btn {
-          //   width: 100%;
-          //   height: 40px;
-          //   padding: 4px;
-
-          //   display: flex;
-          //   align-items: center;
-          //   border: 1px solid #d9d9d9;
-          //   justify-content: space-between;
-          // }
-
-          // .drop_text {
-          //   position: sticky;
-          //   width: 100%;
-          //   @include flex();
-          //   align-items: center;
-          //   border: 1px solid #d9d9d9;
-          //   li {
-          //     width: 100%;
-          //     padding: 0.2rem;
-          //     transition: 0.2s ease all;
-          //     border-bottom: 1px solid #d9d9d9;
-
-          //     &:hover {
-          //       color: #fff;
-          //       background: #d9d9d9;
-          //     }
-          //   }
-          // }
+          position: relative;
         }
       }
     }
@@ -138,31 +119,32 @@
 }
 
 .dropdown_btn {
-  width: 100%;
+  width: 100px;
   height: 40px;
   padding: 4px;
+  font-size: 1.2rem;
 
   display: flex;
   align-items: center;
   border: 1px solid #d9d9d9;
   justify-content: space-between;
+  @media (max-width: 830px) {
+    width: 100%;
+  }
+
+  img {
+    width: 70px;
+    transition: 0.2s ease all;
+  }
 }
 
-.drop_text {
-  position: sticky;
-  width: 100%;
-  @include flex();
-  align-items: center;
-  border: 1px solid #d9d9d9;
-  li {
-    width: 100%;
-    padding: 0.2rem;
-    transition: 0.2s ease all;
-    border-bottom: 1px solid #d9d9d9;
+.removeIcon {
+  width: 50px;
+  position: absolute;
+  top: -7%;
+  right: 0%;
+}
 
-    &:hover {
-      color: #fff;
-      background: #d9d9d9;
-    }
-  }
+.rotateIcon {
+  transform: rotate(180deg);
 }

@@ -1,14 +1,23 @@
 import React from "react";
-import dropdown from "./OrderStyle.module.scss";
+import clx from "classnames";
+import css from "../../../../assets/styles/Bag/drop-down.module.scss";
 
-const Dropdown = (props) => {
+const data = ["XXL", "XL", "XXX"];
+
+const DropDown = ({ change, open, setOpen }) => {
+  const click = (size) => {
+    change(size);
+    setOpen(false);
+  };
   return (
-    <ul className={dropdown.drop_text}>
-      <li>XXL</li>
-      <li>XS</li>
-      <li>XL</li>
-    </ul>
+    <div className={clx(css.drop_down, open && css.active)}>
+      {data?.map((el, idx) => (
+        <button key={idx} className={css.text} onClick={() => click(el)}>
+          {el}
+        </button>
+      ))}
+    </div>
   );
 };
 
-export default Dropdown;
+export default DropDown;
