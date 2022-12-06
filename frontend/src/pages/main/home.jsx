@@ -11,12 +11,10 @@ export const Home = () => {
   useEffect(() => {
     const handle = (event) => {
       setResize(event.target.innerWidth);
-      console.log(event.target.innerWidth);
     };
     window.addEventListener("resize", handle);
     return () => window.removeEventListener("resize", handle);
   }, [resize]);
-  console.log(resize);
   return (
     <>
       <motion.div
