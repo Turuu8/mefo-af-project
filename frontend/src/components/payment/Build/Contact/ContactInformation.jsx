@@ -36,7 +36,7 @@ export const ContactInformation = (props) => {
   };
   return (
     <motion.div
-      className={clx(ci.bagSection__contactInformation)}
+      className={clx(ci.paymentSection__contactInformation)}
       initial={{
         opacity: 1,
         x: 0,
@@ -46,7 +46,7 @@ export const ContactInformation = (props) => {
       exit={{ x: "100%" }}
       animate={switchSections && { opacity: 1, x: "100%" }}
     >
-      <div className={ci.bagSection__contactInformation__container}>
+      <div className={ci.paymentSection__contactInformation__container}>
         <h1 className={ci.title}>
           {!switchSections ? "Contact information" : "Payment method"}
         </h1>
