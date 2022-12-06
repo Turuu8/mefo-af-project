@@ -9,8 +9,16 @@
 body {
   scroll-behavior: smooth;
 }
-body::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #55ffe1;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(85, 255, 225, 0.6);
 }
 img {
   width: 100%;
@@ -27,7 +35,8 @@ button {
   text-decoration: none;
   text-transform: uppercase;
 }
-.App{
+.App {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -38,22 +38,25 @@ const App = () => {
   return (
     <div className="App">
       {loading && <Loading />}
-      <Header />
       <div>
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route element={<PrivateRouter />}>
-              <Route path="/account" element={<Account />} />
-              {/* <Route path="/payment" element={<Payment />} /> */}
-            </Route>
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/:page" element={<PageRender />} />
-            <Route path="/:page/:id" element={<PageRender />} />
-            <Route path="/reset_password/:token" element={<ResetPassword />} />
-            <Route path="/bag" element={<Bag />} />
-          </Routes>
-        </AnimatePresence>
+
+        <Header />
+        <div>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route element={<PrivateRouter />}>
+                <Route path="/account" element={<Account />} />
+                <Route path="/payment" element={<Payment />} />
+              </Route>
+              <Route path="/:page" element={<PageRender />} />
+              <Route path="/:page/:id" element={<PageRender />} />
+              <Route path="/reset_password/:token" element={<ResetPassword />} />
+              <Route path="/bag" element={<Bag />} />
+            </Routes>
+          </AnimatePresence>
+        </div>
+
       </div>
       <Footer />
       {isLoginOpen && <Login />}

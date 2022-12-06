@@ -5,7 +5,7 @@ export const RelatedProducts = () => {
   return (
     <div>
       <h3>RelatedProducts</h3>
-      {/* <ProductCart /> */}
+      {/* <ProductCart type={"related"} item/> */}
     </div>
   );
 };

@@ -2,6 +2,8 @@ export * from "./other/Loading";
 export * from "./layouts/Header";
 export * from "./layouts/Footer";
 export * from "./other/NotFound";
+export * from "./product/ProductDeskImgs";
+export * from "./product/ProductMobileImgs";
 export * from "./layouts/MenuVertical";
 export * from "./layouts/MenuHorizontal";
 export * from "./order/OrderHistoryCart";
