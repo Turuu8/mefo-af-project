@@ -129,7 +129,7 @@
   display: none;
   position: fixed;
   align-items: center;
-  background-color: transparent;
+  background-color: $bg;
   justify-content: space-between;
   div {
     cursor: pointer;
@@ -189,7 +189,7 @@
       font-size: 36px;
       color: #fff;
       font-weight: 300;
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         font-size: 20px;
       }
     }
@@ -199,14 +199,14 @@
       span {
         margin: 0 5px;
         font-size: 36px;
-        @include breakpoint(sm){
+        @include breakpoint(sm) {
           font-size: 20px;
         }
       }
       button {
         font-size: 36px;
         color: #fff;
-        @include breakpoint(sm){
+        @include breakpoint(sm) {
           font-size: 20px;
         }
       }

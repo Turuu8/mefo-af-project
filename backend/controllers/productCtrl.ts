@@ -48,7 +48,7 @@ export const productCtrl = {
   },
   getProductDetail: async (req: Request, res: Response) => {
     try {
-      const product = await ProductModel.findById(req.params.id);
+      const product = await ProductModel.findById(req.params.id).populate("artist");
       if (!product) return res.status(400).json({ msg: "Product doesn't exist" });
       res.status(200).json({ product });
     } catch (error) {

@@ -49,7 +49,6 @@ export const MenuHorizontal = () => {
     <div className={classes.header}>
       <div className={classes.header_content}>
         <div className={classes.header_content_l}>
-
           <Link to={"/"} className={classes.header_content_l_image}>
             <img alt="mepoAfLogo" src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png" />
           </Link>
