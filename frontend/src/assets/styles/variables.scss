@@ -63,11 +63,6 @@ $maxWidth: 1920px;
       @content;
     }
   }
-  @if $point == xxxl {
-    @media (max-width: 2600px) {
-      @content;
-    }
-  }
 }
 @mixin maxWidthPosition {
   max-width: $maxWidth;

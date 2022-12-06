@@ -4,17 +4,9 @@ import { HomeSlide } from "./home-slider";
 import { RouterAnimation } from "../../utils/animationVariants";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useEffect } from "react";
 
 export const Home = () => {
-  const [resize, setResize] = useState(window.innerWidth);
-  useEffect(() => {
-    const handle = (event) => {
-      setResize(event.target.innerWidth);
-    };
-    window.addEventListener("resize", handle);
-    return () => window.removeEventListener("resize", handle);
-  }, [resize]);
+  const [resize] = useState(window.innerWidth);
   return (
     <>
       <motion.div
