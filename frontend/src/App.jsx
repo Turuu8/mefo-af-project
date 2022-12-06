@@ -7,7 +7,15 @@ import { Header } from "./components/layouts/Header";
 import { PrivateRouter } from "./custom/PrivateRouter";
 import { GlobalContext } from "./context/GlobalContext";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Bag, Home, Login, Signup, Payment, ResetPassword, ForgotPassword } from "./pages";
+import {
+  Bag,
+  Home,
+  Login,
+  Signup,
+  Payment,
+  ResetPassword,
+  ForgotPassword,
+} from "./pages";
 import Account from "./pages/main/account";
 
 const App = () => {
@@ -31,6 +39,7 @@ const App = () => {
     <div className="App">
       {loading && <Loading />}
       <div>
+
         <Header />
         <div>
           <AnimatePresence mode="wait">
@@ -47,6 +56,7 @@ const App = () => {
             </Routes>
           </AnimatePresence>
         </div>
+
       </div>
       <Footer />
       {isLoginOpen && <Login />}

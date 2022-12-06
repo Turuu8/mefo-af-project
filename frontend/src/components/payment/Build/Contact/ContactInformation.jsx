@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 import ci from "../../../../assets/styles/Payment/ContactStyle.module.scss";
 
 // import images *********
-import pocketLogo from "../../../../assets/images/Payment/pocket.png";
-import storeLogo from "../../../../assets/images/Payment/storePay.png";
-import creditCartLogo from "../../../../assets/images/Payment/credit.png";
+import { InputSection, CheckBoxs } from "./Build";
 import { usePaymentContext } from "../../../../context/paymentContext";
+import creditCartLogo from "../../../../assets/images/Payment/credit.png";
 
 export const ContactInformation = (props) => {
   const { switchSections } = props;
@@ -16,6 +15,14 @@ export const ContactInformation = (props) => {
   const [credit, setCredit] = useState(false);
   const [storePay, setStorePay] = useState(false);
   const [error, setError] = useState(false);
+  const chooseMethod = {
+    setStorePay: setStorePay,
+    setPocket: setPocket,
+    setCredit: setCredit,
+    pocket: pocket,
+    credit: credit,
+    storePay: storePay,
+  };
 
   const { setOpenPocket } = usePaymentContext();
 
@@ -29,7 +36,7 @@ export const ContactInformation = (props) => {
   };
   return (
     <motion.div
-      className={clx(ci.bagSection__contactInformation)}
+      className={clx(ci.paymentSection__contactInformation)}
       initial={{
         opacity: 1,
         x: 0,
@@ -39,7 +46,7 @@ export const ContactInformation = (props) => {
       exit={{ x: "100%" }}
       animate={switchSections && { opacity: 1, x: "100%" }}
     >
-      <div className={ci.bagSection__contactInformation__container}>
+      <div className={ci.paymentSection__contactInformation__container}>
         <h1 className={ci.title}>
           {!switchSections ? "Contact information" : "Payment method"}
         </h1>
@@ -72,83 +79,20 @@ export const ContactInformation = (props) => {
               !switchSections && ci.banks
             )}
           >
-            {/* Enter your information 
-                ^^^^^^^^^^^^^^^^^^^^^^
-                First name, Last name, Address, Phone number and Postal code
-                &&&&&&&&&&&&&&&&&&&&&&
-             */}
             {!switchSections ? (
               <>
-                <input type="text" placeholder="First name*" />
-                <input type="text" placeholder="Last name*" />
-                <input type="text" placeholder="Phone number*" />
-                <input type="text" placeholder="Postal code" />
-                <input
-                  type="text"
-                  name=""
-                  id=""
-                  className={ci.addressInput}
-                  placeholder="Address"
-                />
+                <>
+                  <>
+                    <InputSection />
+                  </>
+                </>
               </>
             ) : (
               <>
-                {/* Choose payment organization ******************* */}
                 <>
-                  <div
-                    className={
-                      ci.importantInformation__register__chooseOrganization
-                    }
-                  >
-                    <div className={ci.checkBox}>
-                      <div
-                        className={clx(ci.button, credit && ci.buttonActive)}
-                        onClick={() => setCredit(!credit)}
-                      />
-                      <p>Credit card</p>
-                    </div>
-                    <img
-                      src={creditCartLogo}
-                      alt="credit card"
-                      className={ci.credit_logo}
-                    />
-                  </div>
-                  <div
-                    className={
-                      ci.importantInformation__register__chooseOrganization
-                    }
-                  >
-                    <div className={ci.checkBox}>
-                      <div
-                        className={clx(ci.button, pocket && ci.buttonActive)}
-                        onClick={() => setPocket(!pocket)}
-                      />
-                      <p>Pocket</p>
-                    </div>
-                    <img
-                      src={pocketLogo}
-                      alt="pocket"
-                      className={ci.pocketLogo}
-                    />
-                  </div>
-                  <div
-                    className={
-                      ci.importantInformation__register__chooseOrganization
-                    }
-                  >
-                    <div className={ci.checkBox}>
-                      <div
-                        className={clx(ci.button, storePay && ci.buttonActive)}
-                        onClick={() => setStorePay(!storePay)}
-                      />
-                      <p>Store pay</p>
-                    </div>
-                    <img
-                      src={storeLogo}
-                      alt="store pay"
-                      className={ci.storeLogo}
-                    />
-                  </div>
+                  <>
+                    <CheckBoxs chooseMethod={chooseMethod} />
+                  </>
                 </>
               </>
             )}
