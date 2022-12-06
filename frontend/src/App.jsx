@@ -7,7 +7,15 @@ import { Header } from "./components/layouts/Header";
 import { PrivateRouter } from "./custom/PrivateRouter";
 import { GlobalContext } from "./context/GlobalContext";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Bag, Home, Login, Signup, Payment, ResetPassword, ForgotPassword } from "./pages";
+import {
+  Bag,
+  Home,
+  Login,
+  Signup,
+  Payment,
+  ResetPassword,
+  ForgotPassword,
+} from "./pages";
 import Account from "./pages/main/account";
 
 const App = () => {
@@ -37,8 +45,9 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route element={<PrivateRouter />}>
               <Route path="/account" element={<Account />} />
-              <Route path="/payment" element={<Payment />} />
+              {/* <Route path="/payment" element={<Payment />} /> */}
             </Route>
+            <Route path="/payment" element={<Payment />} />
             <Route path="/:page" element={<PageRender />} />
             <Route path="/:page/:id" element={<PageRender />} />
             <Route path="/reset_password/:token" element={<ResetPassword />} />
