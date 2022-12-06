@@ -1,6 +1,6 @@
 @import "../Bag/bagVariants.module.scss";
 
-.bagSection {
+.paymentSection {
   width: 100%;
   height: 100vh;
   padding-top: 10vh;
@@ -24,13 +24,10 @@
     padding: $pagePadding;
     background: #ededed;
     transition: 0.2s ease all;
-    @media (max-width: 1000px) {
-      // padding: ;
-    }
 
     @include breakpoint(md) {
       width: 100%;
-      height: 100vh;
+      height: auto;
       position: inherit;
       padding: $pageSmallPadding;
     }
