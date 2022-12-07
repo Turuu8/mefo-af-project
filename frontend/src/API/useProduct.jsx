@@ -11,6 +11,16 @@ export const useProduct = () => {
     menPro: { setMenProducts },
     womenPro: { setWomenProducts },
   } = useContext(GlobalContext);
+  const allProducts = async () => {
+    try {
+      setLoading(true);
+      const res = await getAPI("/product");
+      setAllProducts(res.data.products);
+      setLoading(false);
+    } catch (error) {
+      return setServerMsg(error?.response.data.msg);
+    }
+  };
   const getAllProducts = async (limit) => {
     try {
       setLoading(true);
@@ -52,5 +62,5 @@ export const useProduct = () => {
       return setServerMsg(error?.response.data.msg);
     }
   };
-  return { getAllProducts, getMenProducts, getWomenProducts, getProductDetail };
+  return { allProducts, getAllProducts, getMenProducts, getWomenProducts, getProductDetail };
 };

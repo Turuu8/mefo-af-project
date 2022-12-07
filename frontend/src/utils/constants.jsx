@@ -25,7 +25,7 @@ export const langFooterArr = {
   en: {
     MENU: [
       { name: "About us", path: "/" },
-      { name: "Products", path: "/products" },
+      { name: "Products", path: "/all" },
       { name: "Account", path: "/account" },
       { name: "Log out", path: "#" },
     ],
@@ -40,7 +40,7 @@ export const langFooterArr = {
   mn: {
     МЕНЮ: [
       { name: "Бидний тухай", path: "/" },
-      { name: "Бүтээгдэхүүн", path: "/products" },
+      { name: "Бүтээгдэхүүн", path: "/all" },
       { name: "Аккаунт", path: "/account" },
       { name: "Гарах", path: "#" },
     ],
@@ -55,28 +55,22 @@ export const langFooterArr = {
 };
 export const langNavbarMobile = {
   en: [
-    { name: "all", path: "/bag" },
+    { name: "all", path: "/all" },
     { name: "men's", path: "/men" },
     { name: "women's", path: "/women" },
     { name: "account", path: "/account" },
-    { name: "log in", path: "/products" },
+    { name: "log in", path: "#" },
   ],
   mn: [
-    { name: "Бүгд", path: "/bag" },
+    { name: "Бүгд", path: "/all" },
     { name: "Эрэгтэй", path: "/men" },
     { name: "Эмэгтэй", path: "/women" },
     { name: "Аккаунт", path: "/account" },
-    { name: "Нэвтрэх", path: "/products" },
+    { name: "Нэвтрэх", path: "#" },
   ],
 };
 
-export const specialImges = [
-  { url: men1 },
-  { url: men2 },
-  { url: men3 },
-  { url: men4 },
-  { url: men5 },
-];
+export const specialImges = [{ url: men1 }, { url: men2 }, { url: men3 }, { url: men4 }, { url: men5 }];
 export const specialProductDetail = [
   {
     descriptionName: "About collection",
