@@ -8,18 +8,18 @@ import { ProductDeskImgs, ProductMobileImgs, RelatedProducts, BagWarning } from 
 
 const Detail = () => {
   const { id } = useParams();
-  const [amount, setQty] = useState(1);
   const [related, setRelated] = useState([]);
   const { getProductDetail } = useProduct();
   const {
     token: { token },
+    size: { size, setSize },
     detail: { proDetail },
     allPro: { allProducts },
     onBag: { setOnBagOpen },
     loginOpen: { setIsLoginOpen },
+    qty: { amount, setAmount },
     selectedProducts: { selectedPros, setSelectedPros },
   } = useContext(GlobalContext);
-  const [size, setSize] = useState("");
   useEffect(() => {
     (() => {
       setRelated(
@@ -30,7 +30,8 @@ const Detail = () => {
       );
     })();
     setSize(proDetail.sizes?.[0]);
-  }, [proDetail, allProducts]);
+    setAmount(1);
+  }, [proDetail, allProducts, setSize, setAmount]);
   useEffect(() => {
     getProductDetail(id);
     // eslint-disable-next-line
@@ -67,10 +68,10 @@ const Detail = () => {
                 <div className={classes.formQTY}>
                   <label>QTY</label>
                   <div className={classes.quantity}>
-                    <input onChange={(e) => setQty(e.target.value)} type="text" value={amount} />
+                    <input onChange={(e) => setAmount(e.target.value)} type="text" value={amount} />
                     <div className={classes.arrows}>
-                      <BsChevronUp size={10} onClick={() => setQty((pre) => ++pre)} />
-                      <BsChevronDown style={{ display: amount === 1 ? "none" : "block" }} size={10} onClick={() => setQty((pre) => --pre)} />
+                      <BsChevronUp size={10} onClick={() => setAmount((pre) => ++pre)} />
+                      <BsChevronDown style={{ display: amount === 1 ? "none" : "block" }} size={10} onClick={() => setAmount((pre) => --pre)} />
                     </div>
                   </div>
                 </div>
@@ -78,7 +79,7 @@ const Detail = () => {
               <button className={classes.addButton}>Add to bag</button>
             </form>
             <p className={classes.description}>{proDetail.description}</p>
-            <button className={classes.readMore}>Read more</button>
+            <input type="checkbox" className={classes.readMore} />
             <div className={classes.artist}>
               <div className={classes.artistImg}>
                 <img src={proDetail.artist?.image[0].url} alt="" />

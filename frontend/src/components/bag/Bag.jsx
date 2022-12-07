@@ -1,18 +1,23 @@
-import React from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import Order from "./Build/Order/Order";
 import Titles from "./Build/Titles/Titles";
+import { GlobalContext } from "./../../context/GlobalContext";
 import css from "../../assets/styles/Bag/BagStyle.module.scss";
 import backgroundfirst from "../../assets/images/Bag/background.png";
 import backgroundsecond from "../../assets/images/Bag/background2.png";
 
 export const Bag = () => {
-  const datas = new Array(3).fill(1);
+  const {
+    selectedProducts: { selectedPros },
+  } = useContext(GlobalContext);
+  const totalPrice = selectedPros.reduce((acc, item) => acc + item.proDetail?.price, 0);
+  // console.log(selectedPros);
   return (
     <section className={css.bagSection}>
       <div className={css.bagSection__titleSection}>
-        <img src={backgroundfirst} className={css.backgroundLarge} />
-        <img src={backgroundsecond} className={css.backgroundSmall} />
+        <img src={backgroundfirst} className={css.backgroundLarge} alt="back" />
+        <img src={backgroundsecond} className={css.backgroundSmall} alt="back" />
         <div className={css.container}>
           <h1 className={css.bagSection__titleSection__title}>SHOPPING BAG</h1>
         </div>
@@ -29,14 +34,14 @@ export const Bag = () => {
       >
         <Titles />
         <div className={css.bagSection__ordersSection__orders}>
-          {datas?.map((el, idx) => (
-            <Order key={idx} />
+          {selectedPros.map((item, i) => (
+            <Order key={i} item={item} />
           ))}
         </div>
         <div className={css.bagSection__ordersSection__totalSection}>
           <div className={css.bagSection__ordersSection__totalSection__total}>
             <h3>TOTAL PRICE </h3>
-            <h3>USD 320.00</h3>
+            <h3>USD {new Intl.NumberFormat("en-In").format(totalPrice)}</h3>
           </div>
         </div>
 
