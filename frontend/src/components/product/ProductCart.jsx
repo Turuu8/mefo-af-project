@@ -30,7 +30,7 @@ export const ProductCart = ({ type, item }) => {
               <img key={id} src={el.url} alt="clothes" />
             ))}
           </div>
-          <h2 className={classes.relatedTitle}>{item.title}</h2>
+          <h2 className={classes.relatedTitle}>{item.name}</h2>
           <h4 className={classes.relatedPrice}>USD {item.price}</h4>
         </Link>
       )}

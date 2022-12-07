@@ -56,6 +56,7 @@
 
         p,
         button {
+          font-size: 16px;
           color: #222222;
         }
         button {
@@ -98,22 +99,6 @@
         font-size: 1.2rem;
         font-weight: 300;
       }
-
-      .sizeAndQuantity {
-        width: 100%;
-        gap: 0.8rem;
-
-        display: flex;
-        position: relative;
-        align-items: center;
-
-        &__dropdown {
-          width: 50%;
-          gap: 0.1rem;
-          @include flex();
-          position: relative;
-        }
-      }
     }
   }
 }
@@ -122,9 +107,9 @@
   width: 100px;
   height: 40px;
   padding: 4px;
-  font-size: 1.2rem;
-
   display: flex;
+  font-size: 1.2rem;
+  position: relative;
   align-items: center;
   border: 1px solid #d9d9d9;
   justify-content: space-between;
@@ -133,8 +118,13 @@
   }
 
   img {
+    top: 50%;
+    right: 0;
     width: 70px;
-    transition: 0.2s ease all;
+    height: 70px;
+    position: absolute;
+    transition: all 0.2s ease;
+    transform: translateY(-50%);
   }
 }
 
@@ -147,4 +137,26 @@
 
 .rotateIcon {
   transform: rotate(180deg);
+}
+.quantity {
+  width: 100px;
+  height: 35px;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  justify-content: space-between;
+  input {
+    width: 90%;
+    border: none;
+    outline: none;
+  }
+  .arrows {
+    display: flex;
+    flex-direction: column;
+    svg {
+      cursor: pointer;
+    }
+  }
 }

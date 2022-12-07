@@ -2,8 +2,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://mepo-af-project-production.up.railway.app/api",
-  // baseURL: "http://localhost:5000/api",
+  // baseURL: "https://mepo-af-project-production.up.railway.app/api",
+  baseURL: "http://localhost:5000/api",
   withCredentials: true,
 });
 export const authAPI = async (url, data) => {
