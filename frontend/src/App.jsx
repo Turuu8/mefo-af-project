@@ -1,6 +1,6 @@
 import { useAuth } from "./API/useAuth";
 import { useEffect, useContext } from "react";
-import { Footer, Loading } from "./components";
+import { BagDropDown, Footer, Loading } from "./components";
 import { AnimatePresence } from "framer-motion";
 import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
@@ -17,27 +17,39 @@ import {
   ForgotPassword,
 } from "./pages";
 import Account from "./pages/main/account";
+import { useProduct } from "./API/useProduct";
 
 const App = () => {
   const location = useLocation();
   const { refreshToken } = useAuth();
+  const { allProducts } = useProduct();
   const userLoggedIn = localStorage.getItem("UserLoggedIn");
   const {
     loading: { loading },
+    onBag: { onBagOpen },
     loginOpen: { isLoginOpen },
     signupOpen: { isSignupOpen },
     forPassOpen: { isForPassOpen },
+    selectedProducts: { selectedPros },
   } = useContext(GlobalContext);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   useEffect(() => {
     if (userLoggedIn) {
       refreshToken("/auth/refresh_token");
     }
     // eslint-disable-next-line
   }, []);
+  useEffect(() => {
+    allProducts();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className="App">
       {loading && <Loading />}
+      <AnimatePresence>{onBagOpen && <BagDropDown products={selectedPros} />}</AnimatePresence>
       <div>
 
         <Header />

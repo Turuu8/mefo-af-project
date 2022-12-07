@@ -10,8 +10,10 @@ export const GlobalProvider = ({ children }) => {
   const [proDetail, setProDetail] = useState({});
   const [serverMsg, setServerMsg] = useState({});
   const [userDetail, setUserDetail] = useState({});
+  const [onBagOpen, setOnBagOpen] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [menProducts, setMenProducts] = useState([]);
+  const [selectedPros, setSelectedPros] = useState([]);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [womenProducts, setWomenProducts] = useState([]);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
@@ -31,6 +33,7 @@ export const GlobalProvider = ({ children }) => {
     language: { lang, setLang },
     loading: { loading, setLoading },
     msg: { serverMsg, setServerMsg },
+    onBag: { onBagOpen, setOnBagOpen },
     detail: { proDetail, setProDetail },
     user: { userDetail, setUserDetail },
     allPro: { allProducts, setAllProducts },
@@ -39,6 +42,7 @@ export const GlobalProvider = ({ children }) => {
     womenPro: { womenProducts, setWomenProducts },
     signupOpen: { isSignupOpen, setIsSignupOpen },
     forPassOpen: { isForPassOpen, setIsForPassOpen },
+    selectedProducts: { selectedPros, setSelectedPros },
   };
   return <GlobalContext.Provider value={state}>{children}</GlobalContext.Provider>;
 };

@@ -170,18 +170,6 @@
     max-width: 430px;
     overflow: hidden;
   }
-  &_indicator {
-    left: 50%;
-    bottom: 12px;
-    display: flex;
-    position: absolute;
-    transform: translateX(-50%);
-    div {
-      width: 30px;
-      padding: 0.5px 0;
-      background-color: #000;
-    }
-  }
   &_arrows {
     left: 0;
     top: 50%;

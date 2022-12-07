@@ -16,11 +16,6 @@ export const ProductMobileImgs = ({ images }) => {
           <img style={{ transform: `translateX(-${width * current}px)`, transition:"all 0.3s ease" }} key={id} src={item.url} alt="clothes" />
         ))}
       </div>
-      <div className={classes.mobileDetailImgs_indicator}>
-        {images?.map((item, i) => (
-          <div style={{ opacity: current === i ? 1 : 0.5 }} key={i} />
-        ))}
-      </div>
       <div className={classes.mobileDetailImgs_arrows}>
         <button style={{ visibility: current === 0 ? "hidden" : "visible" }} onClick={() => setCurrent((pre) => --pre)}>
           <BsChevronCompactLeft size={28} />

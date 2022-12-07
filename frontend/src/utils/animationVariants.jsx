@@ -8,6 +8,11 @@ export const navbarDropdownAnimation = {
   visible: { y: 0, transition: { duration: 0.8, type: "spring" } },
   exit: { y: "-100%", transition: { duration: 0.8, type: "spring" } },
 };
+export const bagDropdownAnimation = {
+  hidden: { y: "-100%" },
+  visible: { y: 0, transition: { duration: 0.8, type: "spring" } },
+  exit: { y: "-100%", transition: { duration: 0.8, type: "spring" } },
+};
 export const RouterAnimation = {
   initial: { opacity: 0, x: "-100%" },
   animate: { opacity: 1, x: 0 },
