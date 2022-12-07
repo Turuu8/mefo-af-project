@@ -50,6 +50,7 @@ const Detail = () => {
           <ProductMobileImgs images={proDetail.images} />
           <div className={classes.detailInformation}>
             <h2 className={classes.title}>{proDetail.title}</h2>
+            <h2 className={classes.name}>{proDetail.name}</h2>
             <h4 className={classes.price}>USD {new Intl.NumberFormat("en-In").format(proDetail.price)}</h4>
             <form onSubmit={handleSubmit}>
               <div className={classes.formBox}>

@@ -4,6 +4,7 @@ import { Schema, model, Types } from "mongoose";
 const ProductSchema = new Schema(
   {
     title: { type: String, required: true, trim: true },
+    name: { type: String, required: true, trim: true },
     price: { type: Number, required: true, trim: true },
     description: { type: String, required: true, trim: true },
     images: { type: Array, default: [] },

@@ -57,11 +57,12 @@ export const productCtrl = {
   },
   createNewProduct: async (req: Request, res: Response) => {
     try {
-      const { title, price, images, unique, special, category, quantity, description, artist, sizes } = req.body;
+      const { title, name, price, images, unique, special, category, quantity, description, artist, sizes } = req.body;
       const err = productValidator(title, price, category, quantity, description, artist);
       if (Object.keys(err).length > 0) return res.json({ msg: err });
       const newProduct = new ProductModel({
         title,
+        name,
         price,
         images,
         unique,
@@ -93,7 +94,7 @@ export const productCtrl = {
   },
   updateProduct: async (req: Request, res: Response) => {
     try {
-      const { title, price, images, gender, unique, category, quantity, description, sizes } = req.body;
+      const { title, name, price, images, gender, unique, category, quantity, description, sizes } = req.body;
       await ProductModel.findByIdAndUpdate(req.params.id, {
         title,
         price,

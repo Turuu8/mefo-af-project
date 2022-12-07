@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import classes from "../../assets/styles/product.module.scss";
 import { GlobalContext } from "../../context/GlobalContext";
+import classes from "../../assets/styles/product.module.scss";
 
 export const ProductCart = ({ type, item }) => {
   const {
@@ -19,7 +19,7 @@ export const ProductCart = ({ type, item }) => {
               <img key={id} src={el.url} alt="clothes" />
             ))}
           </div>
-          <h2 className={classes.title}>{item.title}</h2>
+          <h2 className={classes.title}>{item.name}</h2>
           <h4 className={classes.price}>USD {item.price}</h4>
         </Link>
       )}

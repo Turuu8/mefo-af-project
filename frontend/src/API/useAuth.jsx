@@ -70,6 +70,7 @@ export const useAuth = () => {
     try {
       await getAPI("/auth/logout");
       setUserDetail({});
+      navigate("/")
       localStorage.removeItem("UserLoggedIn");
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
