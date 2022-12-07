@@ -12,8 +12,10 @@ export const BagDropDown = ({ products }) => {
     onBag: { setOnBagOpen },
   } = useContext(GlobalContext);
   const totalPrice = products.reduce((acc, item) => acc + item.proDetail?.price, 0);
+  
   return (
     <motion.div variants={bagDropdownAnimation} initial="hidden" animate="visible" exit="exit" className={classes.BagDropDown}>
+      <div className={classes.BagDropDown_background}/>
       <div className={classes.BagDropDown_header}>
         <img src={Check} alt="check" className={classes.BagDropDown_header_check} />
         {lang === "en" ? "Your item has been added to the card." : "Таны захиалга сагсанд нэмэгдлээ."}

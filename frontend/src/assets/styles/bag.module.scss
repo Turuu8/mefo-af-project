@@ -3,13 +3,13 @@
 .BagDropDown {
   top: 0;
   right: 0;
-  z-index: 30;
+  z-index: 60;
   width: 100%;
+  height: 650px;
   position: fixed;
-  max-width: 530px;
-  //   height: 678px;
-
+  max-width: 500px;
   background-color: #ffffff;
+  // background-color: red;
   &_header {
     width: 100%;
     height: 60px;
@@ -97,6 +97,5 @@
     }
   }
 }
-.bagWarning{
-  
+.bagWarning {
 }

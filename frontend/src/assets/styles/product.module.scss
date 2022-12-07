@@ -110,16 +110,26 @@
 }
 .productCart {
   width: 100%;
-  padding: 0;
   max-width: 550px;
-  @include breakpoint(md) {
-    padding: 20px 20px 0;
+  background-color: red;
+  @include breakpoint(xl) {
+    max-width: 300px;
+    background-color: rebeccapurple;
+  // }
+  // @include breakpoint(lg) {
+  //   max-width: 380px;
+  // }
+  // @include breakpoint(md) {
+  //   padding: 20px 20px 0;
   }
   &_img {
     height: 800px;
-    @include breakpoint(sm) {
+    @include breakpoint(xl) {
       height: 550px;
     }
+    // @include breakpoint(sm) {
+    //   height: 550px;
+    // }
     position: relative;
     img {
       top: 0;
