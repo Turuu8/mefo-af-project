@@ -1,9 +1,20 @@
+import { useLayoutEffect } from "react";
 import { Timeline, Tween } from "react-gsap";
 import { Controller, Scene } from "react-scrollmagic";
 import { TargetItems } from "./home-animation-supports";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export const HomeScrollAnimation = ({ resize }) => {
   console.log(resize);
+  useLayoutEffect(() => {
+    let st = ScrollTrigger.create({
+      pin: true,
+    });
+
+    return () => {
+      st.kill();
+    };
+  }, []);
   return (
     <Controller>
       <Scene duration={1000} triggerElement={"#animation"} triggerHook={0.15}>
@@ -93,6 +104,7 @@ export const HomeScrollAnimation = ({ resize }) => {
                       start: "0 21%",
                       end: "100% top",
                       scrub: resize > 4500 ? 2 : 1.8,
+                      markers: true,
                     },
                   }}
                   target="img3"
@@ -111,7 +123,6 @@ export const HomeScrollAnimation = ({ resize }) => {
                       trigger: "#shadow",
                       start: "-200% center",
                       end: "140% center",
-                      markers: true,
                     },
                   }}
                   target="shadow"
@@ -209,6 +220,7 @@ export const HomeScrollAnimation = ({ resize }) => {
                     height: "190vh",
                     width: "100vw",
                     top: "60vh",
+                    x: "-42.7vw",
                     objectPosition: "50% -40%",
                     scrollTrigger: {
                       trigger: "#mainImg",

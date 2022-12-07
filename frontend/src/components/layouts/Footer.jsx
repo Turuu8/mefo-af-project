@@ -11,16 +11,32 @@ export const Footer = () => {
   const {
     language: { lang },
   } = useContext(GlobalContext);
+  const href = window.location.href.split("//")[1].split("/")[1];
   return (
-    <div className={classes.footerContainer}>
+    <div
+      style={{
+        backgroundColor: href === "" ? "#000" : "#f2f2f2",
+      }}
+      className={classes.footerContainer}
+    >
       <div className={classes.footer}>
         {Object.entries(langFooterArr[lang]).map(([name, arr]) => (
           <div key={name} className={classes.footer_item}>
             <div className={classes.footer_item_inner}>
-              <h4>{name}</h4>
+              <h4
+                style={{
+                  color: href === "" ? "#fff" : "#000",
+                }}
+              >
+                {name}
+              </h4>
               <div>
                 {arr.map((el, i) => (
-                  <Link onClick={el.name === "Log out" || el.name === "Гарах" ? logout : null} key={i} to={el.path}>
+                  <Link
+                    onClick={el.name === "Log out" || el.name === "Гарах" ? logout : null}
+                    key={i}
+                    to={el.path}
+                  >
                     {el.name}
                   </Link>
                 ))}
@@ -44,7 +60,14 @@ export const Footer = () => {
       </div>
       <div className={classes.footerBottom}>
         <Link to={"/"} className={classes.footer_image_container}>
-          <img alt="mepoAfLogo" src="https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png" />
+          <img
+            alt="mepoAfLogo"
+            src={
+              href === ""
+                ? "https://res.cloudinary.com/mustnest/image/upload/v1669202813/Mepo_Af/main-logo-white_idnwm0.png"
+                : "https://res.cloudinary.com/mustnest/image/upload/v1669191520/Mepo_Af/logoBlack_awmpvg.png"
+            }
+          />
         </Link>
         <span>@2022 Mepo Af. Website designed by Surneke</span>
       </div>

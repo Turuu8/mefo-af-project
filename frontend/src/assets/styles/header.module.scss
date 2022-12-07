@@ -114,12 +114,12 @@
     }
   }
   // ______responsive______
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: none;
   }
 }
 .mobileHeader {
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: flex;
   }
   top: 0;
@@ -189,7 +189,7 @@
       font-size: 36px;
       color: #fff;
       font-weight: 300;
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         font-size: 20px;
       }
     }
@@ -199,14 +199,14 @@
       span {
         margin: 0 5px;
         font-size: 36px;
-        @include breakpoint(sm){
+        @include breakpoint(sm) {
           font-size: 20px;
         }
       }
       button {
         font-size: 36px;
         color: #fff;
-        @include breakpoint(sm){
+        @include breakpoint(sm) {
           font-size: 20px;
         }
       }

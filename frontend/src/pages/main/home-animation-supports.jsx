@@ -30,30 +30,8 @@ export const TargetItems = forwardRef((props, ref) => {
         {specialImges.map((el, i) => (
           <div key={el.url}>
             <img id={div[3] === div[i] ? "mainImg" : "img"} ref={div[i]} src={el.url} alt="img" />
-            {div[2] === div[i] ? (
-              <div
-                ref={shadow}
-                id="shadow"
-                className={classes.home_scroll_animation_container_fiveImg_shadow}
-              >
-                {specialProductDetail.map((el, i) => (
-                  <span
-                    key={i}
-                    ref={detailText}
-                    id="detailText"
-                    className={classes.home_scroll_animation_container_fiveImg_shadow_detail}
-                  >
-                    <h2>{el.descriptionName}</h2>
-                    <span>
-                      <p>{el.detail[0]}</p>
-                      <p>{el.detail[1]}</p>
-                      <p>{el.detail[2]}</p>
-                    </span>
-                  </span>
-                ))}
-              </div>
-            ) : null}
           </div>
+          // {div[2] === div[i] ? <div></div> : null}
         ))}
       </div>
     </div>
