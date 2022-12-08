@@ -1,10 +1,9 @@
 @import "variables.scss";
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
 
 .container {
-  margin-top: 100px;
   height: 100%;
+  margin-top: 100px;
   @include maxWidthPosition;
   .product_header {
     width: 100%;
@@ -84,14 +83,21 @@
     }
   }
   .product_body {
-    display: flex;
-    gap: 55px 45px;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 45px 30px;
     padding: 0 90px;
     margin-top: 99px;
-    justify-content: center;
+    margin-bottom: 20px;
+    justify-items: center;
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
     @include breakpoint(md) {
-      gap: 0;
+      grid-template-columns: repeat(1, minmax(min-content, 1fr));
+    }
+    @include breakpoint(sm) {
+      gap: 10px 0;
       padding: 0;
       margin-top: 0;
     }
@@ -111,17 +117,12 @@
 .productCart {
   width: 100%;
   max-width: 550px;
-  background-color: red;
-  @include breakpoint(xl) {
-    max-width: 300px;
-    background-color: rebeccapurple;
-  // }
   // @include breakpoint(lg) {
   //   max-width: 380px;
   // }
   // @include breakpoint(md) {
   //   padding: 20px 20px 0;
-  }
+  // }
   &_img {
     height: 800px;
     @include breakpoint(xl) {
@@ -153,6 +154,9 @@
       margin-top: 15px;
       font-size: 18px;
     }
+    @include breakpoint (sm){
+      margin-left: 10px;
+    }
   }
   .price {
     font-size: 16px;
@@ -162,6 +166,9 @@
     }
     @include breakpoint(md) {
       font-size: 14px;
+    }
+    @include breakpoint (sm){
+      margin-left: 10px;
     }
   }
 }
@@ -208,9 +215,15 @@
           font-size: 18px;
           margin-top: 25px;
         }
+        @include breakpoint (sm){
+          margin-left: 10px;
+        }
       }
       .relatedPrice {
         font-size: 16px;
+        @include breakpoint (sm){
+          margin-left: 10px;
+        }
       }
     }
   }

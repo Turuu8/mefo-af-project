@@ -18,9 +18,9 @@ export const useBag = () => {
       return setServerMsg(error?.response.data.msg);
     }
   };
-  const storeInBag = async (products, token) => {
+  const storeInBag = async (product, token) => {
     try {
-      await authorPostAPI("/bag", { products }, token);
+      await authorPostAPI("/bag", { product }, token);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }

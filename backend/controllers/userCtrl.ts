@@ -63,7 +63,7 @@ export const userCtrl = {
       const refresh_token = createRefreshToken({ id: user?._id });
       res.cookie("refreshToken", refresh_token, {
         httpOnly: true,
-        path: "http://localhost:5000/api/auth/refresh_token",
+        path: "https://mepo-af-project-production.up.railway.app/api/auth/refresh_token",
         maxAge: 3 * 24 * 3600 * 1000,
       });
       res.status(200).json({ msg: { en: "User logged in", mn: "Хэрэглэгч амжилттай нэвтэрлээ." }, user, token: access_token });

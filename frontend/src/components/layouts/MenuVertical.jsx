@@ -12,6 +12,7 @@ import { navbarDropdownAnimation } from "../../utils/animationVariants";
 export const MenuVertical = () => {
   const [onMenu, setOnMenu] = useState(false);
   const {
+    user: { userDetail },
     language: { lang, setLang },
     loginOpen: { setIsLoginOpen },
   } = useContext(GlobalContext);
@@ -22,6 +23,7 @@ export const MenuVertical = () => {
   const closeDrop = () => {
     setOnMenu(false);
   };
+
   return (
     <>
       <div className={classes.mobileHeader}>
@@ -54,10 +56,19 @@ export const MenuVertical = () => {
             </div>
             <div className={classes.mobileDrop_body}>
               {langNavbarMobile[lang].map(({ name, path }) => (
-                <Link onClick={name === "log in" || name === "Нэвтрэх" ? openLoginComp : closeDrop} key={name} to={path}>
+                <Link onClick={closeDrop} key={name} to={path}>
                   {name}
                 </Link>
               ))}
+              {userDetail.token ? (
+                <Link to={"/account"} onClick={closeDrop}>
+                  {lang === "en" ? "account" : "аккаунт"}
+                </Link>
+              ) : (
+                <Link to={"#"} onClick={openLoginComp}>
+                  {lang === "en" ? "log in" : "нэвтрэх"}
+                </Link>
+              )}
               <div className={classes.mobileDrop_body_langChange}>
                 <button onClick={() => setLang("en")}>eng</button>
                 <span>/</span>
