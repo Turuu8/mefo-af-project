@@ -114,12 +114,12 @@
     }
   }
   // ______responsive______
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: none;
   }
 }
 .mobileHeader {
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: flex;
   }
   top: 0;
