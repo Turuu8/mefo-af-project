@@ -17,19 +17,19 @@ app.use(cookieParser());
 app.use(express.json({ limit: "30mb" }));
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use((req, res, next) => {
-  const allowedOrigins = ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"];
-  const origin: any = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
+// app.use((req, res, next) => {
+//   const allowedOrigins = ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"];
+//   const origin: any = req.headers.origin;
+//   if (allowedOrigins.includes(origin)) {
+//     res.setHeader("Access-Control-Allow-Origin", origin);
+//   }
 
-  next();
-});
+//   next();
+// });
 app.use(
   cors({
     credentials: true,
-    origin: ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"],
+    origin: "https://mepo-af-project-jfyl.vercel.app",
   })
 );
 
