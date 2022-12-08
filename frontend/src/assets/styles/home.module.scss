@@ -113,7 +113,6 @@
       margin-top: 51px;
     }
   }
-
   &_collections_text {
     width: 100%;
     margin-top: 150px;
@@ -131,9 +130,7 @@
   }
   &_scroll_animation_container {
     padding-top: 100px;
-    // height: 100vh;
     @include maxWidthPosition;
-    // position: relative;
     max-width: 1735px;
     overflow: hidden;
     &_fiveImg {
@@ -141,10 +138,7 @@
       justify-content: space-between;
       height: 690px;
       gap: 40px;
-      // position: relative;
       div {
-        width: 315px;
-        height: 600px;
         img {
           object-fit: cover;
         }
@@ -159,109 +153,58 @@
         }
       }
       div:nth-child(1) {
+        width: 315px;
+        height: 600px;
         margin: auto 0;
       }
       div:nth-child(2) {
+        width: 315px;
+        height: 600px;
         margin: auto 0 0;
       }
       div:nth-child(3) {
         margin: auto 0;
-        overflow: hidden;
-        img {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          margin: auto;
-          width: 315px;
-          height: 600px;
-          z-index: 2;
-          object-fit: cover;
-          // ______responsive______
-          @include breakpoint(xl) {
-            width: 300px;
-            height: 550px;
-          }
-          @include breakpoint(lg) {
-            width: 140px;
-            height: 550px;
-          }
-          @include breakpoint(sm) {
-            width: 70px;
-            height: 260px;
-          }
-        }
+        width: 315px;
+        height: 600px;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        // img {
+        //   // ______responsive______
+        //   @include breakpoint(xl) {
+        //     width: 300px;
+        //     height: 550px;
+        //   }
+        //   @include breakpoint(lg) {
+        //     width: 140px;
+        //     height: 550px;
+        //   }
+        //   @include breakpoint(sm) {
+        //     width: 70px;
+        //     height: 260px;
+        //   }
+        // }
       }
       div:nth-child(4) {
-        margin: 0 0 auto 0;
+        margin: auto;
+        width: 315px;
+        height: 600px;
       }
       div:nth-child(5) {
+        margin: 0 0 auto 0;
+        width: 315px;
+        height: 600px;
+      }
+      div:nth-child(6) {
         margin: auto 0 0;
+        width: 315px;
+        height: 600px;
       }
-      &_shadow {
-        position: absolute;
-        z-index: 3;
-        display: none;
-        background: linear-gradient(transparent 1%, #000 35%);
-        top: 150%;
-        align-items: flex-end;
-        height: auto;
-        &_detail {
-          @include maxWidthPosition;
-          position: absolute;
-          padding: 0 90px 150px;
-          width: 100%;
-          color: $light;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background-color: #000;
-          h2 {
-            font-weight: 100;
-            font-size: 96px;
-            padding-bottom: 120px;
-            // ______responsive______
-            @include breakpoint(sm) {
-              font-size: 85px;
-              padding-bottom: 50px;
-            }
-          }
-          span {
-            display: flex;
-            gap: 117px;
-            p {
-              opacity: 0.85;
-              max-width: 565px;
-              font-weight: 100;
-              font-size: 36px;
-              // ______responsive______
-              @include breakpoint(sm) {
-                font-size: 20px;
-                opacity: 0.95;
-                line-height: 150%;
-                letter-spacing: 0.05em;
-              }
-            }
-            // ______responsive______
-            @include breakpoint(sm) {
-              flex-direction: column;
-              gap: 50px;
-            }
-          }
-          // ______responsive______
-          @include breakpoint(sm) {
-            padding: 0 20px 100px;
-            top: 95%;
-          }
-        }
-        // ______responsive______
-        @include breakpoint(sm) {
-          background: linear-gradient(transparent 0%, #000 50%);
-          align-items: center;
-          top: 150%;
-        }
-      }
+
       // ______responsive______
       @include breakpoint(xl) {
         gap: 30px;
@@ -280,6 +223,287 @@
     // ______responsive______
     @include breakpoint(sm) {
       padding-top: 40px;
+    }
+  }
+  &_shadow {
+    z-index: 5;
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(transparent 1%, rgba(0, 0, 0, 0.09) 15%, #000 45%);
+    &_detail {
+      @include maxWidthPosition;
+      padding: 0 90px 150px;
+      width: 100%;
+      color: $light;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h2 {
+        font-weight: 100;
+        font-size: 96px;
+        padding-bottom: 120px;
+        // ______responsive______
+        @include breakpoint(sm) {
+          font-size: 85px;
+          padding-bottom: 50px;
+        }
+      }
+      span {
+        display: flex;
+        gap: 117px;
+        p {
+          opacity: 0.85;
+          max-width: 565px;
+          font-weight: 100;
+          font-size: 36px;
+          // ______responsive______
+          @include breakpoint(sm) {
+            font-size: 20px;
+            opacity: 0.95;
+            line-height: 150%;
+            letter-spacing: 0.05em;
+          }
+        }
+        // ______responsive______
+        @include breakpoint(sm) {
+          flex-direction: column;
+          gap: 50px;
+        }
+      }
+      // ______responsive______
+      @include breakpoint(xll) {
+        top: 100%;
+      }
+      @include breakpoint(sm) {
+        padding: 0 20px 100px;
+        top: 95%;
+      }
+    }
+    // ______responsive______
+    @include breakpoint(sm) {
+      background: linear-gradient(transparent 0%, #000 50%);
+      align-items: center;
+      top: 150%;
+    }
+  }
+  &_diff_scroll {
+    width: 100%;
+    background-color: #000;
+    &_container {
+      @include maxWidthPosition;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      color: green;
+      &_fitst_column {
+        display: grid;
+        grid-template-rows: auto auto;
+      }
+      &_second_column {
+        display: grid;
+        grid-template-rows: repeat(3, 850px);
+        height: 100%;
+        // ______responsive______
+        @include breakpoint(xxl) {
+          grid-template-rows: repeat(3, 450px);
+        }
+      }
+    }
+  }
+  &_nftCollection {
+    width: 100%;
+    background-color: #000;
+    color: $bg;
+    h1 {
+      @include maxWidthPosition;
+      padding: 300px 90px 140px;
+      font-size: 92px;
+      font-weight: 100;
+      // ______responsive______
+      @include breakpoint(xxl) {
+        padding: 160px 50px 120px;
+      }
+      @include breakpoint(lg) {
+        font-size: 72px;
+        padding: 150px 20px 80px;
+      }
+      @include breakpoint(sm) {
+        font-size: 48px;
+        text-align: start;
+        padding-left: 40px;
+        padding-bottom: 20px;
+      }
+    }
+    &_container {
+      @include maxWidthPosition;
+      padding: 0 90px;
+      display: grid;
+      column-gap: 40px;
+      grid-template-columns: 1.4fr 1fr;
+      overflow: hidden;
+      &_firstColumn {
+        width: 100%;
+        height: 100%;
+        img {
+          height: 900px;
+        }
+        // ______responsive______
+        @include breakpoint(sm) {
+          display: none;
+        }
+        @include breakpoint(xxl) {
+          img {
+            height: 700px;
+          }
+        }
+      }
+      &_secondColumn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img {
+          height: auto;
+          max-height: 700px;
+        }
+        p {
+          font-size: 26px;
+          font-weight: 100;
+          padding: 35px 0 30px;
+          letter-spacing: 0.01em;
+        }
+        button {
+          color: #fff;
+          span {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            position: relative;
+            font-weight: 400;
+            text-transform: none;
+            span {
+              font-weight: 500;
+              margin-left: -3%;
+            }
+            img {
+              height: 36px;
+              width: 46px;
+            }
+          }
+        }
+        // ______responsive______
+        @include breakpoint(sm) {
+          display: grid;
+          grid-template-rows: auto auto;
+          h3 {
+            grid-area: 1 / 1 / 2 / 2;
+          }
+          p {
+            padding: 0;
+          }
+          button {
+            padding: 30px 0 70px;
+            span {
+              font-size: 28px;
+            }
+          }
+        }
+      }
+      // ______responsive______
+      @include breakpoint(xxl) {
+        padding: 0 50px;
+      }
+      @include breakpoint(lg) {
+        padding: 0 20px;
+        column-gap: 20px;
+      }
+      @include breakpoint(sm) {
+        grid-template-columns: 1fr;
+        padding: 0 40px;
+      }
+    }
+  }
+  &_artists {
+    width: 100%;
+    background-color: #000;
+    color: $bg;
+    h1 {
+      @include maxWidthPosition;
+      padding: 220px 90px 185px;
+      font-size: 92px;
+      font-weight: 100;
+      // ______responsive______
+      @include breakpoint(xxl) {
+        padding: 160px 50px 120px;
+      }
+      @include breakpoint(lg) {
+        font-size: 72px;
+        padding: 150px 20px 80px;
+      }
+      @include breakpoint(sm) {
+        font-size: 48px;
+        text-align: start;
+        padding-left: 40px;
+      }
+    }
+    &_container {
+      @include maxWidthPosition;
+      padding: 0 90px 270px;
+      display: grid;
+      column-gap: 120px;
+      grid-template-columns: 1fr 1fr 1fr;
+      p {
+        padding: 10px 0;
+        font-size: 24px;
+        font-weight: 100;
+        // ______responsive______
+        @include breakpoint(xl) {
+          font-size: 18px;
+        }
+        @include breakpoint(sm) {
+          font-size: 16px;
+        }
+      }
+      h2 {
+        font-size: 26px;
+        font-weight: 400;
+        padding: 0 0 30px;
+        // ______responsive______
+        @include breakpoint(xl) {
+          font-size: 24px;
+        }
+        @include breakpoint(sm) {
+        }
+      }
+      &_imgs {
+        max-width: 500px;
+        max-height: 620px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        // ______responsive______
+        @include breakpoint(sm) {
+          max-width: none;
+          max-height: none;
+        }
+      }
+      // ______responsive______
+      @include breakpoint(xxl) {
+        column-gap: 50px;
+        padding: 0 50px 250px;
+      }
+      @include breakpoint(lg) {
+        column-gap: 20px;
+        padding: 0 20px 140px;
+      }
+      @include breakpoint(sm) {
+        padding: 0 40px 150px;
+        row-gap: 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+      }
     }
   }
 }

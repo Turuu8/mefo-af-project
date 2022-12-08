@@ -131,3 +131,361 @@ export const HomeAnimation = () => {
     </Controller>
   );
 };
+
+(// ----- DESKTOP RESPONSIVE 3800 up -----
+<>
+  <Tween
+    to={{
+      y: "5vh",
+      x: "-60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% top",
+        scrub: 2.5,
+      },
+    }}
+    target="img1"
+    position="0"
+    duration={0.5}
+  />
+  <Tween
+    to={{
+      y: "5vh",
+      x: "-60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% top",
+        scrub: 2.5,
+      },
+    }}
+    target="img2"
+    position="0"
+    duration={0.5}
+  />
+  <Tween
+    to={{
+      y: "5vh",
+      x: "60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% top",
+        scrub: 2.5,
+      },
+    }}
+    target="img4"
+    position="0"
+  />
+  <Tween
+    to={{
+      y: "5vh",
+      x: "60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% top",
+        scrub: 2.5,
+      },
+    }}
+    target="img5"
+    position="0"
+  />
+  {/*  scrolling big image  */}
+  <Tween
+    to={{
+      maxHeight: "4000px",
+    }}
+    target="img3"
+    position="0"
+    duration={0}
+  />
+  <Tween
+    from={{
+      top: "10%",
+    }}
+    to={{
+      height: "190vh",
+      width: "100vw",
+      top: "60vh",
+      objectPosition: "50% 10%",
+      scrollTrigger: {
+        trigger: "#mainImg",
+        start: "0 21%",
+        end: "100% top",
+        scrub: 2,
+      },
+    }}
+    target="img3"
+    position="0"
+    duration={1}
+  />
+</>)(
+  // ----- PHONE RESPONSIVE -----
+  <>
+    <Tween
+      to={{
+        y: "5vh",
+        x: "-50vw",
+        scrollTrigger: {
+          trigger: "#img",
+          start: "-100% 14%",
+          end: "100% 35%",
+          scrub: 1.5,
+        },
+      }}
+      target="img1"
+      position="0"
+      duration={0.5}
+    />
+    <Tween
+      to={{
+        y: "5vh",
+        x: "-50vw",
+        scrollTrigger: {
+          trigger: "#img",
+          start: "-100% 14%",
+          end: "100% 35%",
+          scrub: 1.5,
+        },
+      }}
+      target="img2"
+      position="0"
+      duration={0.5}
+    />
+    <Tween
+      to={{
+        y: "5vh",
+        x: "50vw",
+        scrollTrigger: {
+          trigger: "#img",
+          start: "-100% 14%",
+          end: "100% 35%",
+          scrub: 1.5,
+        },
+      }}
+      target="img4"
+      position="0"
+      duration={0.5}
+    />
+    <Tween
+      to={{
+        y: "5vh",
+        x: "50vw",
+        scrollTrigger: {
+          trigger: "#img",
+          start: "-100% 14%",
+          end: "100% 35%",
+          scrub: 1.5,
+        },
+      }}
+      target="img5"
+      position="0"
+      duration={0.5}
+    />
+    {/*  scrolling big image  */}
+    <Tween
+      to={{
+        maxHeight: "2500px",
+      }}
+      target="img3"
+      position="0"
+      duration={0}
+    />
+    <Tween
+      from={{
+        top: "10%",
+      }}
+      to={{
+        width: "100vw",
+        top: "60vh",
+        objectPosition: "50% -55%",
+        scrollTrigger: {
+          trigger: "#mainImg",
+          start: "-100% 10%",
+          end: "100% 35%",
+          scrub: 1,
+        },
+      }}
+      target="img3"
+      position="0"
+      duration={1}
+    />
+    <Tween
+      to={{
+        height: "100vh",
+        scrollTrigger: {
+          trigger: "#mainImg",
+          start: "-100% 10%",
+          end: "100% 35%",
+          scrub: 1,
+        },
+      }}
+      target="img3"
+      position="0.2"
+      duration={1}
+    />
+    {/* shadow */}
+    <Tween
+      to={{
+        width: "100vw",
+        right: "0",
+        display: "flex",
+        height: "40vh",
+        scrollTrigger: {
+          trigger: "#shadow",
+          start: "-100% bottom",
+          end: "140% center",
+          scrub: 1,
+        },
+      }}
+      target="shadow"
+      duration={0}
+    />
+    <Tween
+      to={{
+        top: "20%",
+        scrollTrigger: {
+          trigger: "#shadow",
+          start: "0% center",
+          end: "100% center",
+          scrub: 1,
+        },
+      }}
+      target="shadow"
+      duration={1}
+    />
+    <Tween
+      to={{
+        top: "80%",
+        scrollTrigger: {
+          trigger: "#detailText",
+          start: "0 center",
+          end: "50% center",
+          scrub: 1,
+        },
+      }}
+      target="detailText"
+    />
+  </>
+);
+// -----  DESKTOP RESPONSIVE 3800px down  -----
+<>
+  <Tween
+    to={{
+      y: "5vh",
+      x: "-60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% 35%",
+        scrub: 1.5,
+      },
+    }}
+    target="img1"
+    position="0"
+    duration={0.5}
+  />
+  <Tween
+    to={{
+      y: "5vh",
+      x: "-60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% 35%",
+        scrub: 1.5,
+      },
+    }}
+    target="img2"
+    position="0"
+    duration={0.5}
+  />
+  <Tween
+    to={{
+      y: "5vh",
+      x: "60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% 35%",
+        scrub: 1.5,
+      },
+    }}
+    target="img4"
+    position="0"
+  />
+  <Tween
+    to={{
+      y: "5vh",
+      x: "60vw",
+      scrollTrigger: {
+        trigger: "#img",
+        start: "0 25%",
+        end: "100% 35%",
+        scrub: 1.5,
+      },
+    }}
+    target="img5"
+    position="0"
+  />
+  {/*  scrolling big image  */}
+  <Tween
+    to={{
+      maxHeight: "2500px",
+    }}
+    target="img3"
+    position="0"
+    duration={0}
+  />
+  <Tween
+    from={{
+      top: "10%",
+    }}
+    to={{
+      height: "190vh",
+      width: "100vw",
+      top: "60vh",
+      objectPosition: "50% -60%",
+      scrollTrigger: {
+        trigger: "#mainImg",
+        start: "0 21%",
+        end: "100% 35%",
+        scrub: 1,
+      },
+    }}
+    target="img3"
+    position="0"
+    duration={1}
+  />
+  {/* shadow */}
+  <Tween
+    to={{
+      top: "100%",
+      width: "100vw",
+      right: "0",
+      display: "flex",
+      height: "900px",
+      scrollTrigger: {
+        trigger: "#shadow",
+        start: "-100% bottom",
+        end: "140% center",
+      },
+    }}
+    target="shadow"
+    duration={0}
+  />
+  <Tween
+    to={{
+      top: "50%",
+      scrollTrigger: {
+        trigger: "#detailText",
+        start: "0 bottom",
+        end: "140% center",
+      },
+    }}
+    target="detailText"
+    duration={0}
+  />
+</>;
