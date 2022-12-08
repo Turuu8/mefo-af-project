@@ -5,15 +5,12 @@ import { authorPostAPI, deleteAPI, authorGetAPI } from "../utils/fetchingData";
 export const useBag = () => {
   const {
     msg: { setServerMsg },
-    loading: { setLoading },
     storedOrders: { setOrderInStore },
   } = useContext(GlobalContext);
   const getStoredItems = async (token) => {
     try {
-      setLoading(true);
       const res = await authorGetAPI("/bag", token);
       setOrderInStore(res.data.msg);
-      setLoading(false);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
