@@ -3,6 +3,9 @@ import men2 from "../assets/images/mepo-image-men2.jpg";
 import men3 from "../assets/images/mepo-image-men6.jpg";
 import men4 from "../assets/images/mepo-image-men3.jpg";
 import men5 from "../assets/images/mepo-image-men4.jpg";
+import khangal from "../assets/images/khangal.png";
+import riaaan from "../assets/images/riaaan.png";
+import kris from "../assets/images/kris.png";
 
 export const homeImgArr = [
   "https://res.cloudinary.com/mustnest/image/upload/v1669293202/Mepo_Af/x6shifpt9lmhfri3owm2.png",
@@ -70,7 +73,13 @@ export const langNavbarMobile = {
   ],
 };
 
-export const specialImges = [{ url: men1 }, { url: men2 }, { url: men3 }, { url: men4 }, { url: men5 }];
+export const specialImges = [
+  { url: men1 },
+  { url: men2 },
+  { url: men3 },
+  { url: men4 },
+  { url: men5 },
+];
 export const specialProductDetail = [
   {
     descriptionName: "About collection",
@@ -79,5 +88,23 @@ export const specialProductDetail = [
       "We collect beautiful classic uniq clothes ever. Our collections all hand made. ",
       "We collect beautiful classic men’s design artifacts from the 20th & 21st century. You can make your own lookbook with mepo af.",
     ],
+  },
+];
+
+export const ArtistItems = [
+  {
+    url: khangal,
+    type: "Fashion designer",
+    name: "Khangal .T",
+  },
+  {
+    url: riaaan,
+    type: "Fashion designer",
+    name: "Riaann .N",
+  },
+  {
+    url: kris,
+    type: "Fashion designer",
+    name: "Kris PInkstart",
   },
 ];

@@ -5,12 +5,10 @@ import { RouterAnimation } from "../../utils/animationVariants";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { DiffencedScroll } from "./DiffencedScroll";
-import khangal from "../../assets/images/khangal.png";
-import riaaan from "../../assets/images/riaaan.png";
-import kris from "../../assets/images/kris.png";
 import arrow from "../../assets/images/arrow-right-white.svg";
 import gif from "../../assets/images/gif.gif";
-import { specialProductDetail } from "../../utils/constants";
+import threed from "../../assets/images/3d.gif";
+import { ArtistItems } from "../../utils/constants";
 
 export const Home = () => {
   const [resize] = useState(window.innerWidth);
@@ -35,27 +33,9 @@ export const Home = () => {
         <HomeSlide />
         <h1 className={classes.home_collections_text}>Our collections</h1>
         <section id="animation" className={classes.home_scroll_animation}>
-          {/* <HomeScrollAnimation resize={resize} /> */}
+          <HomeScrollAnimation resize={resize} />
         </section>
-        <div
-          style={{
-            width: "100%",
-            height: "100vh",
-          }}
-        ></div>
-        <div className={classes.home_shadow}>
-          {specialProductDetail.map((el, i) => (
-            <span key={i} id="detailText" className={classes.home_shadow_detail}>
-              <h2>{el.descriptionName}</h2>
-              <span>
-                <p>{el.detail[0]}</p>
-                <p>{el.detail[1]}</p>
-                <p>{el.detail[2]}</p>
-              </span>
-            </span>
-          ))}
-        </div>
-        <DiffencedScroll />
+        <DiffencedScroll resize={resize} />
 
         {/* <<<<<    NFT COLLECTION    >>>>> */}
         <section className={classes.home_nftCollection}>
@@ -73,7 +53,7 @@ export const Home = () => {
                 <img src={gif} alt="" />
               </div>
               <div className={classes.home_nftCollection_container_secondColumn}>
-                <img src={gif} alt="" />
+                <img src={threed} alt="" />
                 <h3>
                   <p>
                     You can make your own lookbook with mepo af. We hope you enjoy it. You can make
@@ -110,21 +90,3 @@ export const Home = () => {
     </>
   );
 };
-
-const ArtistItems = [
-  {
-    url: khangal,
-    type: "Fashion designer",
-    name: "Khangal .T",
-  },
-  {
-    url: riaaan,
-    type: "Fashion designer",
-    name: "Riaann .N",
-  },
-  {
-    url: kris,
-    type: "Fashion designer",
-    name: "Kris PInkstart",
-  },
-];

@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
       <AnimatePresence>{onBagOpen && <BagDropDown products={selectedPros} />}</AnimatePresence>
       <div>
         <Header />
