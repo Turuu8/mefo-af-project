@@ -122,4 +122,14 @@
   }
 }
 .bagWarning {
+  top: 10px;
+  right: 10px;
+  z-index: 60;
+  position: fixed;
+  color: #991b1b;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 30px 50px;
+  border-radius: 15px;
+  background-color: #f87171;
 }

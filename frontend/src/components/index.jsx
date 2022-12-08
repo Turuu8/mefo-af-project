@@ -14,7 +14,6 @@ export * from "./bag/BagDropDown";
 
 export * from "./order/OrderHistoryCart";
 
-export * from "../components/bag/BagSection";
 export * from "../components/product/ProductCart";
 export * from "../components/payment/PaymentSection";
 export * from "../components/detail/RelatedProducts";

@@ -1,21 +1,23 @@
-import React from 'react';
+import React from "react";
 import css from "../../../../assets/styles/Payment/OrderStyle.module.scss";
 
-const Order = () => {
+const Order = ({ item }) => {
   return (
     <div className={css.orderedProductSection}>
-        <div className={css.orderedProductSection__imgSection}>
-            <img src="https://github.com/bilguun111101/product-section/blob/main/front-end/src/components/Products/Product/product.png" alt="" />
+      <div className={css.orderedProductSection__imgSection}>
+        <img src={item.proID.images[0].url} alt="" />
+      </div>
+      <div className={css.orderedProductSection__documentSection}>
+        <div className={css.orderedProductSection__documentSection__content}>
+          <h4>{item.proID.name}</h4>
+          <p>
+            {item.size} | USD {new Intl.NumberFormat("en-In").format(item.amount * item.proID.price)}
+          </p>
         </div>
-        <div className={css.orderedProductSection__documentSection}>
-            <div className={css.orderedProductSection__documentSection__content}>
-                <h4>Black cute mask - hand made</h4>
-                <p>M | USD 650.00</p>
-            </div>
-            <button>remove</button>
-        </div>
+        <button>remove</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Order;

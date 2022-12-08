@@ -31,7 +31,7 @@ const App = () => {
     if (userLoggedIn) {
       refreshToken("/auth/refresh_token");
     }
-    // eslint-disable-next-line
+    //eslint-disable-next-line
   }, []);
   useEffect(() => {
     allProducts();
