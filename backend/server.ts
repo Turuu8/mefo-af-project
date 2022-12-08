@@ -29,7 +29,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: "https://mepo-af-project-jfyl.vercel.app",
+    origin: ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"],
   })
 );
 
