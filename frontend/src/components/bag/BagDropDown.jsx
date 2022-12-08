@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useBag } from "../../API/useBag";
 import Check from "../../assets/images/check.svg";
 import classes from "../../assets/styles/bag.module.scss";
 import { GlobalContext } from "../../context/GlobalContext";
@@ -8,10 +9,18 @@ import { bagDropdownAnimation } from "./../../utils/animationVariants";
 
 export const BagDropDown = ({ products }) => {
   const {
+    token: { token },
     language: { lang },
     onBag: { setOnBagOpen },
+    selectedProducts: { setSelectedPros },
   } = useContext(GlobalContext);
-  const totalPrice = products.reduce((acc, item) => acc + item.proDetail?.price, 0);
+  const { storeInBag } = useBag();
+  const totalPrice = products.reduce((acc, item) => acc + item.proDetail?.price * item.amount, 0);
+  const storeProsInBag = () => {
+    setOnBagOpen(false);
+    storeInBag(products, token);
+    setSelectedPros([]);
+  };
 
   return (
     <>
@@ -22,7 +31,7 @@ export const BagDropDown = ({ products }) => {
           {lang === "en" ? "Your item has been added to the card." : "Таны захиалга сагсанд нэмэгдлээ."}
         </div>
         <div className={classes.BagDropDown_body}>
-          <h4 className={classes.BagDropDown_body_shopCart}>Shopping Cart</h4>
+          <h4 className={classes.BagDropDown_body_shopCart}>{lang === "en" ? "Shopping Cart" : "Сагс"}</h4>
           <div className={classes.BagDropDown_body_card}>
             {products.map((item, i) => (
               <div key={i} className={classes.BagDropDown_body_card_item}>
@@ -35,16 +44,16 @@ export const BagDropDown = ({ products }) => {
                     <h4 className={classes.name}>{item.proDetail.name}s</h4>
                   </div>
                 </div>
-                <span>USD {item.proDetail.price}</span>
+                <span>USD {new Intl.NumberFormat("en-In").format(item.proDetail.price * item.amount)}</span>
               </div>
             ))}
           </div>
           <div className={classes.BagDropDown_body_totalPrice}>
-            <h3>Subtotal</h3>
+            <h3>{lang === "en" ? "Subtotal" : "Нийт"}</h3>
             <h3>USD {new Intl.NumberFormat("en-In").format(totalPrice)}</h3>
           </div>
           <p>Your shipping costs will be calculated in the last step.</p>
-          <Link to={"/bag"} onClick={() => setOnBagOpen(false)} className={classes.BagDropDown_body_checkout}>
+          <Link to={"/bag"} onClick={storeProsInBag} className={classes.BagDropDown_body_checkout}>
             Checkout
           </Link>
         </div>

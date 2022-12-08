@@ -1,11 +1,3 @@
-import {
-  userRouter,
-  imageRouter,
-  orderRouter,
-  artistRouter,
-  productRouter,
-  addressRouter,
-} from "./routers";
 import cors from "cors";
 import dotenv from "dotenv";
 import * as Colors from "colors.ts";
@@ -13,6 +5,7 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import express, { Application } from "express";
 import { connect, connection } from "mongoose";
+import { bagRouter, userRouter, imageRouter, orderRouter, artistRouter, productRouter, addressRouter } from "./routers";
 
 dotenv.config();
 Colors.enable();
@@ -30,7 +23,7 @@ app.use((req, res, next) => {
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
-  
+
   next();
 });
 app.use(
@@ -40,6 +33,7 @@ app.use(
   })
 );
 
+app.use("/api", bagRouter);
 app.use("/api", userRouter);
 app.use("/api", imageRouter);
 app.use("/api", orderRouter);

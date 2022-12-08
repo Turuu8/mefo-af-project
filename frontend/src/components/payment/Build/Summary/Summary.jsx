@@ -3,7 +3,6 @@ import clx from "classnames";
 import Order from "../Order/Order";
 import { motion } from "framer-motion";
 import sum from "../../../../assets/styles/Payment/Summary.module.scss";
-import { useEffect } from "react";
 
 export const Summary = (props) => {
   const { switchSections, datas, switchBtn } = props;
@@ -25,34 +24,23 @@ export const Summary = (props) => {
           <h3 className={sum.ordersSection__title}>Product</h3>
           <div className={sum.ordersSection__productsSection}>
             {datas?.map((el, idx) => (
-              <Order />
+              <Order item={el} key={idx} />
             ))}
           </div>
         </div>
-        <div
-          className={sum.paymentSection__SummarySection__container__shipping}
-        >
+        <div className={sum.paymentSection__SummarySection__container__shipping}>
           <p>Shipping: </p>
           <p>USD 18.00</p>
         </div>
-        <div
-          className={sum.paymentSection__SummarySection__container__shipping}
-        >
+        <div className={sum.paymentSection__SummarySection__container__shipping}>
           <p>Estimated taxes: </p>
           <p>USD 560.00</p>
         </div>
-        <div
-          className={sum.paymentSection__SummarySection__container__shipping}
-        >
+        <div className={sum.paymentSection__SummarySection__container__shipping}>
           <h3>Subtotal: </h3>
           <h3>USD 1800.00</h3>
         </div>
-        <div
-          className={clx(
-            sum.paymentSection__SummarySection__container__continueToPaymentSection,
-            switchSections && sum.removeBtn
-          )}
-        >
+        <div className={clx(sum.paymentSection__SummarySection__container__continueToPaymentSection, switchSections && sum.removeBtn)}>
           <button onClick={switchBtn}>Continue to payment</button>
           <div>
             <p>Secure payment via Stripe</p>

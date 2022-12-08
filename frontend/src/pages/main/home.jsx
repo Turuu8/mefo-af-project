@@ -16,7 +16,7 @@ export const Home = () => {
     window.addEventListener("resize", handle);
     return () => window.removeEventListener("resize", handle);
   }, [resize]);
-  console.log(resize);
+  // console.log(resize);
   return (
     <>
       <motion.div

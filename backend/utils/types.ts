@@ -52,3 +52,10 @@ export interface IArtist {
   name: string;
   image: object[];
 }
+export interface IBag {
+  _id: string;
+  owner: IUser;
+  proID: IProduct;
+  size: string;
+  amount: number;
+}

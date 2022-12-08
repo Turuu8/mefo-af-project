@@ -3,11 +3,9 @@ import { createContext, useState, useEffect } from "react";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({ children }) => {
-  const [size, setSize] = useState("");
   const [limit, setLimit] = useState(1);
   const [lang, setLang] = useState("en");
   const [token, setToken] = useState("");
-  const [amount, setAmount] = useState(1);
   const [loading, setLoading] = useState(false);
   const [proDetail, setProDetail] = useState({});
   const [serverMsg, setServerMsg] = useState({});
@@ -15,6 +13,7 @@ export const GlobalProvider = ({ children }) => {
   const [onBagOpen, setOnBagOpen] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [menProducts, setMenProducts] = useState([]);
+  const [orderInStore, setOrderInStore] = useState([]);
   const [selectedPros, setSelectedPros] = useState([]);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [womenProducts, setWomenProducts] = useState([]);
@@ -30,10 +29,8 @@ export const GlobalProvider = ({ children }) => {
   }, [locale]);
 
   const state = {
-    size: { size, setSize },
     limit: { limit, setLimit },
     token: { token, setToken },
-    qty: { amount, setAmount },
     language: { lang, setLang },
     loading: { loading, setLoading },
     msg: { serverMsg, setServerMsg },
@@ -45,6 +42,7 @@ export const GlobalProvider = ({ children }) => {
     loginOpen: { isLoginOpen, setIsLoginOpen },
     womenPro: { womenProducts, setWomenProducts },
     signupOpen: { isSignupOpen, setIsSignupOpen },
+    storedOrders: { orderInStore, setOrderInStore },
     forPassOpen: { isForPassOpen, setIsForPassOpen },
     selectedProducts: { selectedPros, setSelectedPros },
   };
