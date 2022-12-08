@@ -15,7 +15,7 @@ export const useProduct = () => {
     try {
       setLoading(true);
       const res = await getAPI("/product");
-      setAllProducts(res.data.products);
+      setAllProducts(res.data);
       setLoading(false);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
@@ -25,7 +25,7 @@ export const useProduct = () => {
     try {
       setLoading(true);
       const res = await getAPI(`/product?limit=${limit * 9}`);
-      setAllProducts(res.data.products);
+      setAllProducts(res.data);
       setLoading(false);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
@@ -34,8 +34,8 @@ export const useProduct = () => {
   const getWomenProducts = async (limit) => {
     try {
       setLoading(true);
-      const res = await getAPI(`/product?gender=Women&limit=${limit * 9}`);
-      setWomenProducts(res.data.products);
+      const res = await getAPI(`/product/women?limit=${limit * 9}`);
+      setWomenProducts(res.data);
       setLoading(false);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
@@ -44,8 +44,9 @@ export const useProduct = () => {
   const getMenProducts = async (limit) => {
     try {
       setLoading(true);
-      const res = await getAPI(`/product?gender=Men&limit=${limit * 9}`);
-      setMenProducts(res.data.products);
+      const res = await getAPI(`/product/men?limit=${limit * 9}`);
+      console.log(res.data);
+      setMenProducts(res.data);
       setLoading(false);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);

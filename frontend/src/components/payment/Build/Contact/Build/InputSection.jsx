@@ -2,7 +2,7 @@ import React from "react";
 import arrow_down from "../../../../../assets/images/arrow-down-black.svg";
 import ci from "../../../../../assets/styles/Payment/ContactStyle.module.scss";
 
-export const InputSection = () => {
+export const InputSection = ({ handleChange }) => {
   return (
     <>
       <div className={ci.importantInformation__register__inputs}>
@@ -15,11 +15,7 @@ export const InputSection = () => {
       </div>
       <div className={ci.importantInformation__register__inputs}>
         <div className={ci.select}>
-          <input
-            type="text"
-            className={ci.select__input}
-            placeholder="Country"
-          />
+          <input type="text" className={ci.select__input} placeholder="Country" />
           <img src={arrow_down} alt="" />
         </div>
         <div className={ci.select}>
@@ -29,11 +25,7 @@ export const InputSection = () => {
       </div>
       <div className={ci.importantInformation__register__inputs}>
         <div className={ci.select}>
-          <input
-            type="text"
-            className={ci.select__input}
-            placeholder="District"
-          />
+          <input type="text" className={ci.select__input} placeholder="District" />
           <img src={arrow_down} alt="" />
         </div>
         <div className={ci.select}>

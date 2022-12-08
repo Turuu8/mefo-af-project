@@ -3,32 +3,25 @@ import { HomeScrollAnimation } from "./home-scroll_animation";
 import { HomeSlide } from "./home-slider";
 import { RouterAnimation } from "../../utils/animationVariants";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { DiffencedScroll } from "./DiffencedScroll";
 import arrow from "../../assets/images/arrow-right-white.svg";
 import gif from "../../assets/images/gif.gif";
 import threed from "../../assets/images/3d.gif";
+import { GlobalContext } from "./../../context/GlobalContext";
 import { ArtistItems } from "../../utils/constants";
 
 export const Home = () => {
   const [resize] = useState(window.innerWidth);
+  const {
+    language: { lang },
+  } = useContext(GlobalContext);
   return (
     <>
-      <motion.div
-        variants={RouterAnimation}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition="transition"
-        className={classes.home}
-      >
+      <motion.div variants={RouterAnimation} initial="initial" animate="animate" exit="exit" transition="transition" className={classes.home}>
         <section className={classes.home_product_promo_text}>
-          <h2 className={classes.home_product_promo_text_top}>
-            A New Look at Fashion of the MEPO AF
-          </h2>
-          <h3 className={classes.home_product_promo_text_bottom}>
-            EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE
-          </h3>
+          <h2 className={classes.home_product_promo_text_top}>{lang === "en" ? "A New Look at Fashion of the MEPO AF" : "Мепо АФ загварын шинэ өнгө төрх"}</h2>
+          <h3 className={classes.home_product_promo_text_bottom}>EXCLUSIVE COLLECTIONS OF POPULAR BRANDS ABOUT HUMAN CULTURE</h3>
         </section>
         <HomeSlide />
         <h1 className={classes.home_collections_text}>Our collections</h1>
@@ -55,10 +48,7 @@ export const Home = () => {
               <div className={classes.home_nftCollection_container_secondColumn}>
                 <img src={threed} alt="" />
                 <h3>
-                  <p>
-                    You can make your own lookbook with mepo af. We hope you enjoy it. You can make
-                    your own lookbook with mepo af.
-                  </p>
+                  <p>You can make your own lookbook with mepo af. We hope you enjoy it. You can make your own lookbook with mepo af.</p>
                   <button>
                     <span>
                       More about<span>&nbsp; NFT </span>

@@ -1,3 +1,4 @@
+export * from "../routers/bagRouter";
 export * from "../routers/userRouter";
 export * from "../routers/imageRouter";
 export * from "../routers/orderRouter";

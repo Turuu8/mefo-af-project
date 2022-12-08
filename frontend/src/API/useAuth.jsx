@@ -15,8 +15,8 @@ export const useAuth = () => {
   const login = async (url, data) => {
     try {
       const res = await authAPI(url, data);
-      setUserDetail(res?.data);
-      setToken(res?.data.token);
+      setUserDetail(res.data);
+      setToken(res.data.token);
       localStorage.setItem("UserLoggedIn", "true");
       setTimeout(() => {
         setServerMsg({});
@@ -29,7 +29,7 @@ export const useAuth = () => {
   const register = async (url, data) => {
     try {
       const res = await authAPI(url, data);
-      setServerMsg(res?.data);
+      setServerMsg(res.data);
       setTimeout(() => {
         setServerMsg({});
         setIsSignupOpen(false);
@@ -41,15 +41,15 @@ export const useAuth = () => {
   const forgotPassword = async (url, data) => {
     try {
       const res = await authAPI(url, data);
-      setServerMsg(res?.data);
+      setServerMsg(res.data);
     } catch (error) {
-      return setServerMsg(error?.response.data.msg);
+      return setServerMsg(error.response.data.msg);
     }
   };
   const resetPassword = async (url, data) => {
     try {
       const res = await patchAPI(url, data);
-      setServerMsg(res?.data);
+      setServerMsg(res.data);
       setTimeout(() => {
         navigate("/");
       }, 1500);
@@ -60,8 +60,8 @@ export const useAuth = () => {
   const refreshToken = async (url) => {
     try {
       const res = await getAPI(url);
-      setToken(res?.data.token);
-      setUserDetail(res?.data);
+      setToken(res.data.token);
+      setUserDetail(res.data);
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
@@ -70,11 +70,11 @@ export const useAuth = () => {
     try {
       await getAPI("/auth/logout");
       setUserDetail({});
-      navigate("/")
+      navigate("/");
       localStorage.removeItem("UserLoggedIn");
     } catch (error) {
       return setServerMsg(error?.response.data.msg);
     }
   };
-  return { login, register, forgotPassword, resetPassword, refreshToken, logout };
+  return { login, register, forgotPassword, resetPassword, logout, refreshToken };
 };

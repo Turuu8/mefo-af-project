@@ -1,11 +1,3 @@
-import {
-  userRouter,
-  imageRouter,
-  orderRouter,
-  artistRouter,
-  productRouter,
-  addressRouter,
-} from "./routers";
 import cors from "cors";
 import dotenv from "dotenv";
 import * as Colors from "colors.ts";
@@ -13,6 +5,7 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import express, { Application } from "express";
 import { connect, connection } from "mongoose";
+import { bagRouter, userRouter, imageRouter, orderRouter, artistRouter, productRouter, addressRouter } from "./routers";
 
 dotenv.config();
 Colors.enable();
@@ -24,22 +17,23 @@ app.use(cookieParser());
 app.use(express.json({ limit: "30mb" }));
 app.use(fileUpload({ useTempFiles: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
-app.use((req, res, next) => {
-  const allowedOrigins = ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"];
-  const origin: any = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  
-  next();
-});
+// app.use((req, res, next) => {
+//   const allowedOrigins = ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"];
+//   const origin: any = req.headers.origin;
+//   if (allowedOrigins.includes(origin)) {
+//     res.setHeader("Access-Control-Allow-Origin", origin);
+//   }
+
+//   next();
+// });
 app.use(
   cors({
     credentials: true,
-    origin: ["https://mepo-af-project-jfyl.vercel.app", "http://localhost:3000"],
+    origin: "https://mepo-af-project-jfyl.vercel.app",
   })
 );
 
+app.use("/api", bagRouter);
 app.use("/api", userRouter);
 app.use("/api", imageRouter);
 app.use("/api", orderRouter);
