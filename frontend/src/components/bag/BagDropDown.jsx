@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useBag } from "../../API/useBag";
 import Check from "../../assets/images/check.svg";
 import classes from "../../assets/styles/bag.module.scss";
 import { GlobalContext } from "../../context/GlobalContext";
@@ -9,16 +8,13 @@ import { bagDropdownAnimation } from "./../../utils/animationVariants";
 
 export const BagDropDown = ({ products }) => {
   const {
-    token: { token },
     language: { lang },
     onBag: { setOnBagOpen },
     selectedProducts: { setSelectedPros },
   } = useContext(GlobalContext);
-  const { storeInBag } = useBag();
   const totalPrice = products.reduce((acc, item) => acc + item.proDetail?.price * item.amount, 0);
   const storeProsInBag = () => {
     setOnBagOpen(false);
-    storeInBag(products, token);
     setSelectedPros([]);
   };
 

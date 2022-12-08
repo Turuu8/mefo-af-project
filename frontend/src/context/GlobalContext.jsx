@@ -11,12 +11,12 @@ export const GlobalProvider = ({ children }) => {
   const [serverMsg, setServerMsg] = useState({});
   const [userDetail, setUserDetail] = useState({});
   const [onBagOpen, setOnBagOpen] = useState(false);
-  const [allProducts, setAllProducts] = useState([]);
-  const [menProducts, setMenProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState({});
+  const [menProducts, setMenProducts] = useState({});
   const [orderInStore, setOrderInStore] = useState([]);
   const [selectedPros, setSelectedPros] = useState([]);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [womenProducts, setWomenProducts] = useState([]);
+  const [womenProducts, setWomenProducts] = useState({});
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isForPassOpen, setIsForPassOpen] = useState(false);
 

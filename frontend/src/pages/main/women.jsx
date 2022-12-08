@@ -25,18 +25,10 @@ const Women = () => {
       <div className={classes.product_header}>
         <div ref={ref} className={classes.product_header_black_back}>
           <img src="https://res.cloudinary.com/mustnest/image/upload/v1669799180/Mepo_Af/men_s.headline.background.img.responsive_hloavd.png" alt="proHeader" />
-          <motion.div
-            initial={{ x: "-100%" }}
-            className={classes.product_header_black_back_ground}
-            animate={{ x: 0, transition: { type: "spring", duration: 2 } }}
-          />
+          <motion.div initial={{ x: "-100%" }} className={classes.product_header_black_back_ground} animate={{ x: 0, transition: { type: "spring", duration: 2 } }} />
         </div>
         {inView && (
-          <motion.div
-            initial={{ x: "-100px", opacity: 0 }}
-            className={classes.product_header_text_white}
-            animate={{ x: 0, opacity: 1, transition: { delay: 0.5, duration: 0.5 } }}
-          >
+          <motion.div initial={{ x: "-100px", opacity: 0 }} className={classes.product_header_text_white} animate={{ x: 0, opacity: 1, transition: { delay: 0.5, duration: 0.5 } }}>
             <p>
               WE COLLECT <strong>BEAUTIFUL CLASSIC MEN'S</strong>
             </p>
@@ -45,13 +37,15 @@ const Women = () => {
         )}
       </div>
       <div className={classes.product_body}>
-        {womenProducts.map((item) => (
+        {womenProducts.products?.map((item) => (
           <ProductCart key={item._id} type={"product"} item={item} />
         ))}
       </div>
-      <button onClick={() => setLimit((pre) => ++pre)} className={classes.see_more}>
-        See more <img src={RightArrow} alt="" />
-      </button>
+      {womenProducts.length !== womenProducts.products?.length && (
+        <button onClick={() => setLimit((pre) => ++pre)} className={classes.see_more}>
+          See more <img src={RightArrow} alt="" />
+        </button>
+      )}
     </motion.div>
   );
 };

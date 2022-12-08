@@ -35,13 +35,29 @@ export const productCtrl = {
         sortBy.price = "desc";
       }
 
-      const allProducts = await ProductModel.find()
-        .where("gender")
-        .in([...genderQ])
-        .limit(Number(limit))
-        .sort(sortBy)
-        .populate("artist", "-createdAt -updatedAt");
-      res.status(200).json({ length: allProducts.length, products: allProducts });
+      const allProducts = await ProductModel.find().limit(Number(limit)).sort(sortBy).populate("artist", "-createdAt -updatedAt");
+      const countProducts = await ProductModel.countDocuments({}).exec();
+      res.status(200).json({ length: countProducts, products: allProducts });
+    } catch (error) {
+      return res.status(500).json({ msg: (error as Error).message });
+    }
+  },
+  getWomenProducts: async (req: Request, res: Response) => {
+    try {
+      const { limit } = req.query;
+      const allProducts = await ProductModel.find({ gender: "Women" }).limit(Number(limit)).sort({ createdAt: "asc" }).populate("artist", "-createdAt -updatedAt");
+      const countProducts = await ProductModel.countDocuments({ gender: "Women" }).exec();
+      res.status(200).json({ length: countProducts, products: allProducts });
+    } catch (error) {
+      return res.status(500).json({ msg: (error as Error).message });
+    }
+  },
+  getMenProducts: async (req: Request, res: Response) => {
+    try {
+      const { limit } = req.query;
+      const allProducts = await ProductModel.find({ gender: "Men" }).limit(Number(limit)).sort({ createdAt: "asc" }).populate("artist", "-createdAt -updatedAt");
+      const countProducts = await ProductModel.countDocuments({ gender: "Men" }).exec();
+      res.status(200).json({ length: countProducts, products: allProducts });
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }

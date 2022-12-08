@@ -1,15 +1,15 @@
 import { useAuth } from "./API/useAuth";
+import Account from "./pages/main/account";
+import { useProduct } from "./API/useProduct";
 import { useEffect, useContext } from "react";
-import { BagDropDown, Footer, Loading } from "./components";
 import { AnimatePresence } from "framer-motion";
 import { PageRender } from "./custom/PageRender";
 import { Header } from "./components/layouts/Header";
 import { PrivateRouter } from "./custom/PrivateRouter";
 import { GlobalContext } from "./context/GlobalContext";
+import { BagDropDown, Footer, Loading } from "./components";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Bag, Home, Login, Signup, Payment, ResetPassword, ForgotPassword } from "./pages";
-import Account from "./pages/main/account";
-import { useProduct } from "./API/useProduct";
 
 const App = () => {
   const location = useLocation();

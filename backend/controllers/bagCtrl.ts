@@ -13,21 +13,15 @@ export const bagCtrl = {
   },
   storeInBag: async (req: CustomRequest, res: Response) => {
     try {
-      const { products } = req.body;
-      if (!products) return res.status(400).json({ msg: "Choose product" });
-      const storedProducts = products.map(async (item: any) => {
-        const tempOrder = new BagModel({
-          owner: req.user?._id,
-          proID: item.proDetail._id,
-          amount: item.amount,
-          size: item.size,
-        });
-        await tempOrder.save();
-        return { msg: "Stored" };
+      const { product } = req.body;
+      if (!product) return res.status(400).json({ msg: "Choose product" });
+      const tempOrder = new BagModel({
+        owner: req.user?._id,
+        proID: product.proDetail._id,
+        amount: product.amount,
+        size: product.size,
       });
-      Promise.all(storedProducts).then((result) => {
-        res.status(200).json({ msg: "Stored" });
-      });
+      await tempOrder.save();
     } catch (error) {
       return res.status(500).json({ msg: (error as Error).message });
     }

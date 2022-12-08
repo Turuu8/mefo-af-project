@@ -58,15 +58,11 @@ export const langNavbarMobile = {
     { name: "all", path: "/all" },
     { name: "men's", path: "/men" },
     { name: "women's", path: "/women" },
-    { name: "account", path: "/account" },
-    { name: "log in", path: "#" },
   ],
   mn: [
     { name: "Бүгд", path: "/all" },
     { name: "Эрэгтэй", path: "/men" },
     { name: "Эмэгтэй", path: "/women" },
-    { name: "Аккаунт", path: "/account" },
-    { name: "Нэвтрэх", path: "#" },
   ],
 };
 

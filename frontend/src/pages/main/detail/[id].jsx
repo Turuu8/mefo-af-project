@@ -1,3 +1,4 @@
+import { useBag } from "../../../API/useBag";
 import { useParams } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useProduct } from "../../../API/useProduct";
@@ -9,6 +10,7 @@ import { ProductDeskImgs, ProductMobileImgs, RelatedProducts, BagWarning } from 
 
 const Detail = () => {
   const { id } = useParams();
+  const { storeInBag } = useBag();
   const [size, setSize] = useState("");
   const [amount, setAmount] = useState(1);
   const { getProductDetail } = useProduct();
@@ -22,11 +24,12 @@ const Detail = () => {
     loginOpen: { setIsLoginOpen },
     selectedProducts: { selectedPros, setSelectedPros },
   } = useContext(GlobalContext);
+
   useEffect(() => {
     (() => {
       setRelated(
-        allProducts
-          .filter((item) => item.gender === proDetail.gender && item._id !== proDetail._id)
+        allProducts.products
+          ?.filter((item) => item.gender === proDetail.gender && item._id !== proDetail._id)
           .sort(() => Math.random() - Math.random())
           .slice(0, 3)
       );
@@ -48,6 +51,7 @@ const Detail = () => {
         setOnBagWarn(false);
       }, 2000);
     } else {
+      storeInBag({ proDetail, size, amount }, token);
       setSelectedPros([...selectedPros, { proDetail, size, amount }]);
       setOnBagOpen(true);
     }
