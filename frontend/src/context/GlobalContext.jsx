@@ -6,7 +6,7 @@ export const GlobalProvider = ({ children }) => {
   const [limit, setLimit] = useState(1);
   const [lang, setLang] = useState("en");
   const [token, setToken] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [proDetail, setProDetail] = useState({});
   const [serverMsg, setServerMsg] = useState({});
   const [userDetail, setUserDetail] = useState({});
